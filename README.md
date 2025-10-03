@@ -20,14 +20,13 @@ npm install @mp-se/espframework-ui-components
 ## 🔧 Usage
 
 ```javascript
-import { BsCard, BsInputText, IconWifi, ListFilesFragment } from '@mp-se/espframework-ui-components'
+import { BsCard, BsInputText, IconWifi, logInfo } from '@mp-se/espframework-ui-components'
 
 export default {
   components: {
     BsCard,
     BsInputText,
-    IconWifi,
-    ListFilesFragment
+    IconWifi
   }
 }
 ```
@@ -37,7 +36,7 @@ export default {
   <BsCard header="Device Settings" title="Configuration">
     <BsInputText v-model="deviceName" label="Device Name" />
     <IconWifi width="24" height="24" />
-    <ListFilesFragment />
+    <!-- Your ESP32 app components here -->
   </BsCard>
 </template>
 ```
@@ -63,11 +62,13 @@ export default {
 - `IconXCircle` - Error states
 - And many more...
 
-### ESP Framework Fragments
-- `ListFilesFragment` - File system browser
-- `AdvancedFilesFragment` - Advanced file operations
-- `VoltageFragment` - Battery/voltage monitoring
-- `EnableCorsFragment` - CORS configuration
+### Utilities & Modules
+
+- `logDebug`, `logInfo`, `logError` - Logging functions
+- `useFetch` - Fetch composable for Vue 3
+- `useTimers` - Timer management composable
+- `roundVal`, `tempToC`, `tempToF` - Utility functions
+- `isValidJson`, `isValidFormData` - Validation helpers
 
 ## 🛠️ Development
 

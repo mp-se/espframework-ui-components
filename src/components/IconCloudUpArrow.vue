@@ -29,6 +29,10 @@ const width = defineModel('width', {
   type: [String, Number],
   default: 16,
   validator: (value) => {
+    // Accept CSS units like "1rem", "16px", etc. or numeric values
+    if (typeof value === 'string') {
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+    }
     const num = Number(value)
     return !isNaN(num) && num > 0
   }
@@ -41,6 +45,10 @@ const height = defineModel('height', {
   type: [String, Number],
   default: 16,
   validator: (value) => {
+    // Accept CSS units like "1rem", "16px", etc. or numeric values
+    if (typeof value === 'string') {
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+    }
     const num = Number(value)
     return !isNaN(num) && num > 0
   }
