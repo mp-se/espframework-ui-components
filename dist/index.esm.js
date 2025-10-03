@@ -4073,6 +4073,7 @@ function useTimers() {
 }
 
 // src/index.js
+// ESP Framework UI Components Library
 
 // Package version
 const version = '1.0.0';
