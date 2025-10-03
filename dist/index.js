@@ -2,10 +2,9 @@
 
 var vue = require('vue');
 
-const _hoisted_1$u = { class: "card" };
-const _hoisted_2$e = { class: "card-body" };
-const _hoisted_3$9 = { class: "card-title" };
-const _hoisted_4$5 = { class: "card-text" };
+const _hoisted_1$t = { class: "card-body" };
+const _hoisted_2$d = { class: "card-title" };
+const _hoisted_3$9 = { class: "card-text" };
 
 
 var script$u = /*@__PURE__*/Object.assign({
@@ -87,12 +86,12 @@ const headerStyle = () => {
 };
 
 return (_ctx, _cache) => {
-  return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$u, [
+  return (vue.openBlock(), vue.createElementBlock("div", vue.mergeProps({ class: "card" }, _ctx.$attrs), [
     vue.createElementVNode("div", {
       class: vue.normalizeClass(headerStyle())
     }, vue.toDisplayString(header.value), 3 /* TEXT, CLASS */),
-    vue.createElementVNode("div", _hoisted_2$e, [
-      vue.createElementVNode("h5", _hoisted_3$9, [
+    vue.createElementVNode("div", _hoisted_1$t, [
+      vue.createElementVNode("h5", _hoisted_2$d, [
         (icon.value !== undefined)
           ? (vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(icon.value), {
               key: 0,
@@ -102,12 +101,12 @@ return (_ctx, _cache) => {
           : vue.createCommentVNode("v-if", true),
         vue.createTextVNode(" " + vue.toDisplayString(title.value), 1 /* TEXT */)
       ]),
-      vue.createElementVNode("p", _hoisted_4$5, [
+      vue.createElementVNode("p", _hoisted_3$9, [
         vue.createCommentVNode(" @slot Content of the card is placed via the slot "),
         vue.renderSlot(_ctx.$slots, "default")
       ])
     ])
-  ]))
+  ], 16 /* FULL_PROPS */))
 }
 }
 
@@ -115,10 +114,10 @@ return (_ctx, _cache) => {
 
 script$u.__file = "src/components/BsCard.vue";
 
-const _hoisted_1$t = { class: "dropdown" };
-const _hoisted_2$d = ["disabled"];
+const _hoisted_1$s = { class: "dropdown" };
+const _hoisted_2$c = ["disabled"];
 const _hoisted_3$8 = { class: "dropdown-menu" };
-const _hoisted_4$4 = ["onClick"];
+const _hoisted_4$3 = ["onClick"];
 
 
 var script$t = /*@__PURE__*/Object.assign({
@@ -247,14 +246,14 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: vue.withCtx(() => [
-      vue.createElementVNode("div", _hoisted_1$t, [
+      vue.createElementVNode("div", _hoisted_1$s, [
         vue.createElementVNode("button", {
           class: "btn btn-outline-secondary dropdown-toggle",
           type: "button",
           "data-bs-toggle": "dropdown",
           "aria-expanded": "false",
           disabled: disabled.value
-        }, vue.toDisplayString(button.value), 9 /* TEXT, PROPS */, _hoisted_2$d),
+        }, vue.toDisplayString(button.value), 9 /* TEXT, PROPS */, _hoisted_2$c),
         vue.createElementVNode("ul", _hoisted_3$8, [
           (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(options.value, (o) => {
             return (vue.openBlock(), vue.createElementBlock("li", {
@@ -263,7 +262,7 @@ return (_ctx, _cache) => {
               vue.createElementVNode("a", {
                 class: "dropdown-item",
                 onClick: $event => (callback.value(o.value))
-              }, vue.toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_4$4)
+              }, vue.toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_4$3)
             ]))
           }), 128 /* KEYED_FRAGMENT */))
         ])
@@ -278,7 +277,7 @@ return (_ctx, _cache) => {
 
 script$t.__file = "src/components/BsDropdown.vue";
 
-const _hoisted_1$s = ["width", "height"];
+const _hoisted_1$r = ["width", "height"];
 
 
 var script$s = /*@__PURE__*/Object.assign({
@@ -346,7 +345,7 @@ return (_ctx, _cache) => {
     vue.createElementVNode("path", { d: "M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" }, null, -1 /* CACHED */),
     vue.createElementVNode("path", { d: "M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" }, null, -1 /* CACHED */),
     vue.createElementVNode("path", { d: "M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$s))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$r))
 }
 }
 
@@ -354,7 +353,7 @@ return (_ctx, _cache) => {
 
 script$s.__file = "src/components/IconEyeSlash.vue";
 
-const _hoisted_1$r = ["width", "height"];
+const _hoisted_1$q = ["width", "height"];
 
 
 var script$r = /*@__PURE__*/Object.assign({
@@ -421,7 +420,7 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     vue.createElementVNode("path", { d: "M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" }, null, -1 /* CACHED */),
     vue.createElementVNode("path", { d: "M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$r))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$q))
 }
 }
 
@@ -429,8 +428,8 @@ return (_ctx, _cache) => {
 
 script$r.__file = "src/components/IconEye.vue";
 
-const _hoisted_1$q = { class: "input-group" };
-const _hoisted_2$c = ["type", "data-bs-title"];
+const _hoisted_1$p = { class: "input-group" };
+const _hoisted_2$b = ["type", "data-bs-title"];
 const _hoisted_3$7 = {
   key: 0,
   class: "input-group-text"
@@ -477,8 +476,8 @@ var script$q = /*@__PURE__*/Object.assign({
 },
     "typeModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -512,7 +511,7 @@ const width = vue.useModel(__props, 'width');
 const type = vue.useModel(__props, 'type');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 /**
@@ -534,7 +533,7 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: vue.withCtx(() => [
-      vue.createElementVNode("div", _hoisted_1$q, [
+      vue.createElementVNode("div", _hoisted_1$p, [
         vue.withDirectives(vue.createElementVNode("input", vue.mergeProps({
           "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
           class: "form-control",
@@ -543,7 +542,7 @@ return (_ctx, _cache) => {
           "data-bs-toggle": "tooltip",
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value
-        }), null, 16 /* FULL_PROPS */, _hoisted_2$c), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_2$b), [
           [vue.vModelDynamic, model.value]
         ]),
         (type.value === 'password')
@@ -577,8 +576,8 @@ return (_ctx, _cache) => {
 
 script$q.__file = "src/components/BsInputText.vue";
 
-const _hoisted_1$p = { class: "input-group" };
-const _hoisted_2$b = ["data-bs-title", "disabled"];
+const _hoisted_1$o = { class: "input-group" };
+const _hoisted_2$a = ["data-bs-title", "disabled"];
 const _hoisted_3$6 = {
   key: 0,
   class: "input-group-text"
@@ -688,7 +687,7 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: vue.withCtx(() => [
-      vue.createElementVNode("div", _hoisted_1$p, [
+      vue.createElementVNode("div", _hoisted_1$o, [
         vue.withDirectives(vue.createElementVNode("input", vue.mergeProps({
           "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
           class: "form-control",
@@ -698,7 +697,7 @@ return (_ctx, _cache) => {
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value,
           disabled: disabled.value
-        }), null, 16 /* FULL_PROPS */, _hoisted_2$b), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_2$a), [
           [vue.vModelText, model.value]
         ]),
         (unit.value !== undefined)
@@ -715,11 +714,11 @@ return (_ctx, _cache) => {
 
 script$p.__file = "src/components/BsInputNumber.vue";
 
-const _hoisted_1$o = {
+const _hoisted_1$n = {
   class: "form-check form-switch",
   style: {"height":"38px"}
 };
-const _hoisted_2$a = ["disabled", "data-bs-title"];
+const _hoisted_2$9 = ["disabled", "data-bs-title"];
 
 
 var script$o = /*@__PURE__*/Object.assign({
@@ -759,8 +758,8 @@ var script$o = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -801,7 +800,7 @@ const width = vue.useModel(__props, 'width');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -815,7 +814,7 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: vue.withCtx(() => [
-      vue.createElementVNode("div", _hoisted_1$o, [
+      vue.createElementVNode("div", _hoisted_1$n, [
         vue.withDirectives(vue.createElementVNode("input", vue.mergeProps({
           "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
           class: "form-check-input",
@@ -826,7 +825,7 @@ return (_ctx, _cache) => {
           "data-bs-toggle": "tooltip",
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value
-        }), null, 16 /* FULL_PROPS */, _hoisted_2$a), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_2$9), [
           [vue.vModelCheckbox, model.value]
         ])
       ])
@@ -840,7 +839,7 @@ return (_ctx, _cache) => {
 
 script$o.__file = "src/components/BsInputSwitch.vue";
 
-const _hoisted_1$n = ["data-bs-title"];
+const _hoisted_1$m = ["data-bs-title"];
 
 
 var script$n = /*@__PURE__*/Object.assign({
@@ -875,8 +874,8 @@ var script$n = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -912,7 +911,7 @@ const help = vue.useModel(__props, 'help');
 const width = vue.useModel(__props, 'width');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -934,7 +933,7 @@ return (_ctx, _cache) => {
         "data-bs-toggle": "tooltip",
         "data-bs-custom-class": "custom-tooltip",
         "data-bs-title": help.value
-      }), null, 16 /* FULL_PROPS */, _hoisted_1$n), [
+      }), null, 16 /* FULL_PROPS */, _hoisted_1$m), [
         [vue.vModelText, model.value]
       ])
     ]),
@@ -947,8 +946,8 @@ return (_ctx, _cache) => {
 
 script$n.__file = "src/components/BsInputTextArea.vue";
 
-const _hoisted_1$m = ["data-bs-title"];
-const _hoisted_2$9 = ["onClick"];
+const _hoisted_1$l = ["data-bs-title"];
+const _hoisted_2$8 = ["onClick"];
 
 /**
  * Purpose: Use as a building block for providing a text area that can allow for multiple lines of text.
@@ -989,8 +988,8 @@ var script$m = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -1086,7 +1085,7 @@ const help = vue.useModel(__props, 'help');
 const width = vue.useModel(__props, 'width');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -1111,7 +1110,7 @@ return (_ctx, _cache) => {
           "data-bs-toggle": "tooltip",
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value
-        }), null, 16 /* FULL_PROPS */, _hoisted_1$m), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_1$l), [
           [vue.vModelText, model.value]
         ])
       ]),
@@ -1127,7 +1126,7 @@ return (_ctx, _cache) => {
           key: o.value,
           class: "dropdown-item",
           onClick: $event => (insertText(o.value))
-        }, vue.toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_2$9))
+        }, vue.toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_2$8))
       }), 128 /* KEYED_FRAGMENT */))
     ])
   ], 64 /* STABLE_FRAGMENT */))
@@ -1138,8 +1137,8 @@ return (_ctx, _cache) => {
 
 script$m.__file = "src/components/BsInputTextAreaFormat.vue";
 
-const _hoisted_1$l = { class: "input-group" };
-const _hoisted_2$8 = ["data-bs-title"];
+const _hoisted_1$k = { class: "input-group" };
+const _hoisted_2$7 = ["data-bs-title"];
 
 
 var script$l = /*@__PURE__*/Object.assign({
@@ -1214,7 +1213,7 @@ return (_ctx, _cache) => {
     help: help.value
   }, {
     default: vue.withCtx(() => [
-      vue.createElementVNode("div", _hoisted_1$l, [
+      vue.createElementVNode("div", _hoisted_1$k, [
         vue.withDirectives(vue.createElementVNode("input", vue.mergeProps({
           "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
           class: "form-control-plaintext",
@@ -1224,7 +1223,7 @@ return (_ctx, _cache) => {
           "data-bs-toggle": "tooltip",
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value
-        }), null, 16 /* FULL_PROPS */, _hoisted_2$8), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_2$7), [
           [vue.vModelText, model.value]
         ])
       ])
@@ -1238,11 +1237,11 @@ return (_ctx, _cache) => {
 
 script$l.__file = "src/components/BsInputReadonly.vue";
 
-const _hoisted_1$k = {
+const _hoisted_1$j = {
   class: "btn-group",
   role: "group"
 };
-const _hoisted_2$7 = ["value", "name", "id", "disabled"];
+const _hoisted_2$6 = ["value", "name", "id", "disabled"];
 const _hoisted_3$5 = ["for"];
 
 
@@ -1356,7 +1355,7 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: vue.withCtx(() => [
-      vue.createElementVNode("div", _hoisted_1$k, [
+      vue.createElementVNode("div", _hoisted_1$j, [
         (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(options.value, (o) => {
           return (vue.openBlock(), vue.createElementBlock(vue.Fragment, {
             key: o.value
@@ -1369,7 +1368,7 @@ return (_ctx, _cache) => {
               name: 'radio' + _ctx.$.uid,
               id: 'radio' + _ctx.$.uid + o.value,
               disabled: disabled.value
-            }, null, 8 /* PROPS */, _hoisted_2$7), [
+            }, null, 8 /* PROPS */, _hoisted_2$6), [
               [vue.vModelRadio, model.value]
             ]),
             vue.createElementVNode("label", {
@@ -1389,7 +1388,7 @@ return (_ctx, _cache) => {
 
 script$k.__file = "src/components/BsInputRadio.vue";
 
-const _hoisted_1$j = ["width", "height"];
+const _hoisted_1$i = ["width", "height"];
 
 
 var script$j = /*@__PURE__*/Object.assign({
@@ -1456,7 +1455,7 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     vue.createElementVNode("path", { d: "M15.384 6.115a.485.485 0 0 0-.047-.736A12.44 12.44 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.52.52 0 0 0 .668.05A11.45 11.45 0 0 1 8 4c2.507 0 4.827.802 6.716 2.164.205.148.49.13.668-.049" }, null, -1 /* CACHED */),
     vue.createElementVNode("path", { d: "M13.229 8.271a.482.482 0 0 0-.063-.745A9.46 9.46 0 0 0 8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065A8.46 8.46 0 0 1 8 7a8.46 8.46 0 0 1 4.576 1.336c.206.132.48.108.653-.065m-2.183 2.183c.226-.226.185-.605-.1-.75A6.5 6.5 0 0 0 8 9c-1.06 0-2.062.254-2.946.704-.285.145-.326.524-.1.75l.015.015c.16.16.407.19.611.09A5.5 5.5 0 0 1 8 10c.868 0 1.69.201 2.42.56.203.1.45.07.61-.091zM9.06 12.44c.196-.196.198-.52-.04-.66A2 2 0 0 0 8 11.5a2 2 0 0 0-1.02.28c-.238.14-.236.464-.04.66l.706.706a.5.5 0 0 0 .707 0l.707-.707z" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$j))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$i))
 }
 }
 
@@ -1464,8 +1463,8 @@ return (_ctx, _cache) => {
 
 script$j.__file = "src/components/IconWifi.vue";
 
-const _hoisted_1$i = ["disabled"];
-const _hoisted_2$6 = ["value"];
+const _hoisted_1$h = ["disabled"];
+const _hoisted_2$5 = ["value"];
 const _hoisted_3$4 = ["value"];
 /**
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
@@ -1523,8 +1522,8 @@ var script$i = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -1564,7 +1563,7 @@ const options = vue.useModel(__props, 'options');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -1595,14 +1594,14 @@ return (_ctx, _cache) => {
                 }, [
                   vue.createVNode(script$j),
                   vue.createTextVNode(vue.toDisplayString(o.label), 1 /* TEXT */)
-                ], 8 /* PROPS */, _hoisted_2$6))
+                ], 8 /* PROPS */, _hoisted_2$5))
               : (vue.openBlock(), vue.createElementBlock("option", {
                   key: 1,
                   value: o.value
                 }, vue.toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_3$4))
           ], 64 /* STABLE_FRAGMENT */))
         }), 128 /* KEYED_FRAGMENT */))
-      ], 16 /* FULL_PROPS */, _hoisted_1$i), [
+      ], 16 /* FULL_PROPS */, _hoisted_1$h), [
         [vue.vModelSelect, model.value]
       ])
     ]),
@@ -1615,7 +1614,7 @@ return (_ctx, _cache) => {
 
 script$i.__file = "src/components/BsSelect.vue";
 
-const _hoisted_1$h = ["width", "height"];
+const _hoisted_1$g = ["width", "height"];
 
 
 var script$h = /*@__PURE__*/Object.assign({
@@ -1682,7 +1681,7 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     vue.createElementVNode("path", { d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" }, null, -1 /* CACHED */),
     vue.createElementVNode("path", { d: "M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$h))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$g))
 }
 }
 
@@ -1690,7 +1689,7 @@ return (_ctx, _cache) => {
 
 script$h.__file = "src/components/IconXCircle.vue";
 
-const _hoisted_1$g = ["width", "height"];
+const _hoisted_1$f = ["width", "height"];
 
 
 var script$g = /*@__PURE__*/Object.assign({
@@ -1757,7 +1756,7 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     vue.createElementVNode("path", { d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" }, null, -1 /* CACHED */),
     vue.createElementVNode("path", { d: "m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$g))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$f))
 }
 }
 
@@ -1765,7 +1764,7 @@ return (_ctx, _cache) => {
 
 script$g.__file = "src/components/IconCheckCircle.vue";
 
-const _hoisted_1$f = ["width", "height"];
+const _hoisted_1$e = ["width", "height"];
 
 
 var script$f = /*@__PURE__*/Object.assign({
@@ -1832,7 +1831,7 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     vue.createElementVNode("path", { d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" }, null, -1 /* CACHED */),
     vue.createElementVNode("path", { d: "m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$f))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$e))
 }
 }
 
@@ -1840,7 +1839,7 @@ return (_ctx, _cache) => {
 
 script$f.__file = "src/components/IconInfoCircle.vue";
 
-const _hoisted_1$e = ["width", "height"];
+const _hoisted_1$d = ["width", "height"];
 
 
 var script$e = /*@__PURE__*/Object.assign({
@@ -1907,7 +1906,7 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     vue.createElementVNode("path", { d: "M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z" }, null, -1 /* CACHED */),
     vue.createElementVNode("path", { d: "M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$e))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$d))
 }
 }
 
@@ -1915,7 +1914,7 @@ return (_ctx, _cache) => {
 
 script$e.__file = "src/components/IconExclamationTriangle.vue";
 
-const _hoisted_1$d = {
+const _hoisted_1$c = {
   key: 5,
   type: "button",
   class: "btn-close",
@@ -2001,10 +2000,10 @@ const classNames = () => {
 };
 
 return (_ctx, _cache) => {
-  return (vue.openBlock(), vue.createElementBlock("div", {
-    class: vue.normalizeClass(classNames()),
+  return (vue.openBlock(), vue.createElementBlock("div", vue.mergeProps({
+    class: classNames(),
     role: "alert"
-  }, [
+  }, _ctx.$attrs), [
     (alert.value === 'danger')
       ? (vue.openBlock(), vue.createBlock(script$h, {
           key: 0,
@@ -2046,9 +2045,9 @@ return (_ctx, _cache) => {
         }))
       : vue.createCommentVNode("v-if", true),
     (dismissable.value && close.value === undefined)
-      ? (vue.openBlock(), vue.createElementBlock("button", _hoisted_1$d))
+      ? (vue.openBlock(), vue.createElementBlock("button", _hoisted_1$c))
       : vue.createCommentVNode("v-if", true)
-  ], 2 /* CLASS */))
+  ], 16 /* FULL_PROPS */))
 }
 }
 
@@ -2154,10 +2153,10 @@ function isValidMqttData(s) {
   return false
 }
 
-const _hoisted_1$c = ["data-bs-target"];
-const _hoisted_2$5 = ["id"];
+const _hoisted_1$b = ["data-bs-target"];
+const _hoisted_2$4 = ["id"];
 const _hoisted_3$3 = { class: "modal-dialog" };
-const _hoisted_4$3 = { class: "modal-content p-4" };
+const _hoisted_4$2 = { class: "modal-content p-4" };
 const _hoisted_5$2 = { class: "modal-header" };
 const _hoisted_6$2 = { class: "modal-title fs-5" };
 const _hoisted_7$2 = { class: "modal-body" };
@@ -2289,7 +2288,7 @@ return (_ctx, _cache) => {
       class: "btn btn-secondary",
       "data-bs-toggle": "modal",
       "data-bs-target": '#modal' + _ctx.$.uid
-    }), vue.toDisplayString(button.value), 17 /* TEXT, FULL_PROPS */, _hoisted_1$c),
+    }), vue.toDisplayString(button.value), 17 /* TEXT, FULL_PROPS */, _hoisted_1$b),
     vue.createElementVNode("div", {
       class: "modal fade modal-lg",
       id: 'modal' + _ctx.$.uid,
@@ -2297,7 +2296,7 @@ return (_ctx, _cache) => {
       "aria-hidden": "true"
     }, [
       vue.createElementVNode("div", _hoisted_3$3, [
-        vue.createElementVNode("div", _hoisted_4$3, [
+        vue.createElementVNode("div", _hoisted_4$2, [
           vue.createElementVNode("div", _hoisted_5$2, [
             vue.createElementVNode("h1", _hoisted_6$2, vue.toDisplayString(title.value), 1 /* TEXT */),
             _cache[0] || (_cache[0] = vue.createElementVNode("button", {
@@ -2329,7 +2328,7 @@ return (_ctx, _cache) => {
           ], -1 /* CACHED */))
         ])
       ])
-    ], 8 /* PROPS */, _hoisted_2$5)
+    ], 8 /* PROPS */, _hoisted_2$4)
   ], 64 /* STABLE_FRAGMENT */))
 }
 }
@@ -2338,10 +2337,10 @@ return (_ctx, _cache) => {
 
 script$c.__file = "src/components/BsModal.vue";
 
-const _hoisted_1$b = ["id", "data-bs-target"];
-const _hoisted_2$4 = ["id"];
+const _hoisted_1$a = ["id", "data-bs-target"];
+const _hoisted_2$3 = ["id"];
 const _hoisted_3$2 = { class: "modal-dialog" };
-const _hoisted_4$2 = { class: "modal-content p-4" };
+const _hoisted_4$1 = { class: "modal-content p-4" };
 const _hoisted_5$1 = { class: "modal-header" };
 const _hoisted_6$1 = { class: "modal-title fs-5" };
 const _hoisted_7$1 = { class: "modal-body" };
@@ -2423,7 +2422,7 @@ return (_ctx, _cache) => {
       hidden: "",
       "data-bs-toggle": "modal",
       "data-bs-target": '#modal' + _ctx.$.uid
-    }, " Testing ", 8 /* PROPS */, _hoisted_1$b),
+    }, " Testing ", 8 /* PROPS */, _hoisted_1$a),
     vue.createElementVNode("div", {
       class: "modal fade modal-lg",
       id: 'modal' + _ctx.$.uid,
@@ -2431,7 +2430,7 @@ return (_ctx, _cache) => {
       "aria-hidden": "true"
     }, [
       vue.createElementVNode("div", _hoisted_3$2, [
-        vue.createElementVNode("div", _hoisted_4$2, [
+        vue.createElementVNode("div", _hoisted_4$1, [
           vue.createElementVNode("div", _hoisted_5$1, [
             vue.createElementVNode("h1", _hoisted_6$1, vue.toDisplayString(title.value), 1 /* TEXT */)
           ]),
@@ -2452,7 +2451,7 @@ return (_ctx, _cache) => {
           ])
         ])
       ])
-    ], 8 /* PROPS */, _hoisted_2$4)
+    ], 8 /* PROPS */, _hoisted_2$3)
   ], 64 /* STABLE_FRAGMENT */))
 }
 }
@@ -2461,19 +2460,13 @@ return (_ctx, _cache) => {
 
 script$b.__file = "src/components/BsModalConfirm.vue";
 
-const _hoisted_1$a = {
-  class: "progress",
-  style: {"height":"20px"}
-};
 /**
  * Purpose: Show a progress bar
  */
 
-/**
- * Ref that contains the value of the progress bar (0-100) (required).
- */
-
-var script$a = {
+var script$a = /*@__PURE__*/Object.assign({
+  inheritAttrs: false
+}, {
   __name: 'BsProgress',
   props: {
     "progress": {
@@ -2493,6 +2486,11 @@ var script$a = {
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
  */
 
+
+
+/**
+ * Ref that contains the value of the progress bar (0-100) (required).
+ */
 const progress = vue.useModel(__props, 'progress');
 
 const progressStyle = vue.computed(() => {
@@ -2500,17 +2498,20 @@ const progressStyle = vue.computed(() => {
 });
 
 return (_ctx, _cache) => {
-  return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$a, [
+  return (vue.openBlock(), vue.createElementBlock("div", vue.mergeProps({
+    class: "progress",
+    style: {"height":"20px"}
+  }, _ctx.$attrs), [
     vue.createElementVNode("div", {
       class: "progress-bar",
       role: "progressbar",
       style: vue.normalizeStyle(progressStyle.value)
     }, null, 4 /* STYLE */)
-  ]))
+  ], 16 /* FULL_PROPS */))
 }
 }
 
-};
+});
 
 script$a.__file = "src/components/BsProgress.vue";
 
@@ -2518,7 +2519,7 @@ const _hoisted_1$9 = {
   class: "btn-group",
   role: "group"
 };
-const _hoisted_2$3 = ["disabled"];
+const _hoisted_2$2 = ["disabled"];
 
 
 var script$9 = /*@__PURE__*/Object.assign({
@@ -2609,7 +2610,7 @@ return (_ctx, _cache) => {
         vue.createElementVNode("input", vue.mergeProps({
           class: "form-control",
           type: "file"
-        }, _ctx.$attrs, { disabled: disabled.value }), null, 16 /* FULL_PROPS */, _hoisted_2$3)
+        }, _ctx.$attrs, { disabled: disabled.value }), null, 16 /* FULL_PROPS */, _hoisted_2$2)
       ])
     ]),
     _: 1 /* STABLE */
@@ -2621,43 +2622,42 @@ return (_ctx, _cache) => {
 
 script$9.__file = "src/components/BsFileUpload.vue";
 
-const _hoisted_1$8 = { class: "navbar navbar-expand-lg navbar-dark bg-primary" };
-const _hoisted_2$2 = { class: "container-fluid align-center" };
-const _hoisted_3$1 = { class: "navbar-brand" };
-const _hoisted_4$1 = {
+const _hoisted_1$8 = { class: "container-fluid align-center" };
+const _hoisted_2$1 = { class: "navbar-brand" };
+const _hoisted_3$1 = {
   class: "collapse navbar-collapse",
   id: "navbar"
 };
-const _hoisted_5 = { class: "navbar-nav" };
-const _hoisted_6 = {
+const _hoisted_4 = { class: "navbar-nav" };
+const _hoisted_5 = {
   key: 0,
   class: "nav-item"
 };
-const _hoisted_7 = {
+const _hoisted_6 = {
   key: 1,
   class: "nav-item dropdown"
 };
-const _hoisted_8 = ["id", "disabled"];
-const _hoisted_9 = {
+const _hoisted_7 = ["id", "disabled"];
+const _hoisted_8 = {
   key: 1,
   class: "badge text-bg-danger rounded-circle"
 };
-const _hoisted_10 = ["aria-labelledby"];
-const _hoisted_11 = {
+const _hoisted_9 = ["aria-labelledby"];
+const _hoisted_10 = {
   key: 0,
   class: "badge text-bg-danger rounded-circle"
 };
-const _hoisted_12 = { class: "text-white" };
-const _hoisted_13 = { key: 0 };
-const _hoisted_14 = {
+const _hoisted_11 = { class: "text-white" };
+const _hoisted_12 = { key: 0 };
+const _hoisted_13 = {
   key: 1,
   class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white"
 };
-const _hoisted_15 = { class: "p-2" };
-const _hoisted_16 = ["hidden"];
-const _hoisted_17 = { class: "p-2" };
-const _hoisted_18 = { class: "form-check form-switch" };
-const _hoisted_19 = ["checked", "disabled"];
+const _hoisted_14 = { class: "p-2" };
+const _hoisted_15 = ["hidden"];
+const _hoisted_16 = { class: "p-2" };
+const _hoisted_17 = { class: "form-check form-switch" };
+const _hoisted_18 = ["checked", "disabled"];
 
 /**
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
@@ -2666,9 +2666,9 @@ const _hoisted_19 = ["checked", "disabled"];
  * Now uses props-based approach - no Pinia dependency!
  */
 
-// Props
-
-var script$8 = {
+var script$8 = /*@__PURE__*/Object.assign({
+  inheritAttrs: false
+}, {
   __name: 'BsMenuBar',
   props: {
   /**
@@ -2724,6 +2724,9 @@ var script$8 = {
   emits: ['update:darkMode'],
   setup(__props, { emit: __emit }) {
 
+
+
+// Props
 const props = __props;
 
 // Events
@@ -2771,8 +2774,8 @@ vue.onMounted(() => {
 return (_ctx, _cache) => {
   const _component_router_link = vue.resolveComponent("router-link");
 
-  return (vue.openBlock(), vue.createElementBlock("nav", _hoisted_1$8, [
-    vue.createElementVNode("div", _hoisted_2$2, [
+  return (vue.openBlock(), vue.createElementBlock("nav", vue.mergeProps({ class: "navbar navbar-expand-lg navbar-dark bg-primary" }, _ctx.$attrs), [
+    vue.createElementVNode("div", _hoisted_1$8, [
       _cache[3] || (_cache[3] = vue.createElementVNode("button", {
         class: "navbar-toggler",
         type: "button",
@@ -2784,14 +2787,14 @@ return (_ctx, _cache) => {
       }, [
         vue.createElementVNode("span", { class: "navbar-toggler-icon" })
       ], -1 /* CACHED */)),
-      vue.createElementVNode("div", _hoisted_3$1, vue.toDisplayString(__props.brand), 1 /* TEXT */),
+      vue.createElementVNode("div", _hoisted_2$1, vue.toDisplayString(__props.brand), 1 /* TEXT */),
       _cache[4] || (_cache[4] = vue.createElementVNode("div", { class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white" }, null, -1 /* CACHED */)),
-      vue.createElementVNode("div", _hoisted_4$1, [
-        vue.createElementVNode("ul", _hoisted_5, [
+      vue.createElementVNode("div", _hoisted_3$1, [
+        vue.createElementVNode("ul", _hoisted_4, [
           (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(__props.menuItems, (item, index) => {
             return (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: index }, [
               (!item.subs || !item.subs.length)
-                ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_6, [
+                ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_5, [
                     vue.createVNode(_component_router_link, {
                       class: vue.normalizeClass([
                   'nav-link',
@@ -2816,7 +2819,7 @@ return (_ctx, _cache) => {
                       _: 2 /* DYNAMIC */
                     }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["class", "to", "disabled"])
                   ]))
-                : (vue.openBlock(), vue.createElementBlock("li", _hoisted_7, [
+                : (vue.openBlock(), vue.createElementBlock("li", _hoisted_6, [
                     vue.createElementVNode("a", {
                       onClick: menuClicked,
                       class: vue.normalizeClass([
@@ -2843,9 +2846,9 @@ return (_ctx, _cache) => {
                         : vue.createCommentVNode("v-if", true),
                       vue.createTextVNode(" " + vue.toDisplayString(item.label) + " ", 1 /* TEXT */),
                       (item.badge !== undefined && (typeof item.badge === 'function' ? item.badge() : item.badge) > 0)
-                        ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_9, vue.toDisplayString(typeof item.badge === 'function' ? item.badge() : item.badge), 1 /* TEXT */))
+                        ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_8, vue.toDisplayString(typeof item.badge === 'function' ? item.badge() : item.badge), 1 /* TEXT */))
                         : vue.createCommentVNode("v-if", true)
-                    ], 10 /* CLASS, PROPS */, _hoisted_8),
+                    ], 10 /* CLASS, PROPS */, _hoisted_7),
                     vue.createElementVNode("ul", {
                       class: "dropdown-menu",
                       "aria-labelledby": 'navbarDropdown' + item.label
@@ -2863,31 +2866,31 @@ return (_ctx, _cache) => {
                             default: vue.withCtx(() => [
                               vue.createTextVNode(vue.toDisplayString(dn.label) + " ", 1 /* TEXT */),
                               (dn.badge !== undefined && (typeof dn.badge === 'function' ? dn.badge() : dn.badge) > 0)
-                                ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_11, vue.toDisplayString(typeof dn.badge === 'function' ? dn.badge() : dn.badge), 1 /* TEXT */))
+                                ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_10, vue.toDisplayString(typeof dn.badge === 'function' ? dn.badge() : dn.badge), 1 /* TEXT */))
                                 : vue.createCommentVNode("v-if", true)
                             ]),
                             _: 2 /* DYNAMIC */
                           }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["to", "disabled"])
                         ]))
                       }), 128 /* KEYED_FRAGMENT */))
-                    ], 8 /* PROPS */, _hoisted_10)
+                    ], 8 /* PROPS */, _hoisted_9)
                   ]))
             ], 64 /* STABLE_FRAGMENT */))
           }), 128 /* KEYED_FRAGMENT */))
         ])
       ]),
       _cache[5] || (_cache[5] = vue.createElementVNode("div", { class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white" }, null, -1 /* CACHED */)),
-      vue.createElementVNode("div", _hoisted_12, vue.toDisplayString(__props.mdns), 1 /* TEXT */),
+      vue.createElementVNode("div", _hoisted_11, vue.toDisplayString(__props.mdns), 1 /* TEXT */),
       _cache[6] || (_cache[6] = vue.createElementVNode("div", { class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white" }, null, -1 /* CACHED */)),
       (__props.configChanged)
-        ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_13, [...(_cache[0] || (_cache[0] = [
+        ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_12, [...(_cache[0] || (_cache[0] = [
             vue.createElementVNode("span", { class: "badge bg-danger fs-6" }, "Save needed  ", -1 /* CACHED */)
           ]))]))
         : vue.createCommentVNode("v-if", true),
       (__props.configChanged)
-        ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_14))
+        ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_13))
         : vue.createCommentVNode("v-if", true),
-      vue.createElementVNode("div", _hoisted_15, [
+      vue.createElementVNode("div", _hoisted_14, [
         vue.createElementVNode("div", {
           class: "spinner-border gx-4",
           role: "status",
@@ -2895,10 +2898,10 @@ return (_ctx, _cache) => {
           hidden: !__props.disabled
         }, [...(_cache[1] || (_cache[1] = [
           vue.createElementVNode("span", { class: "visually-hidden" }, "Loading...", -1 /* CACHED */)
-        ]))], 8 /* PROPS */, _hoisted_16)
+        ]))], 8 /* PROPS */, _hoisted_15)
       ]),
-      vue.createElementVNode("div", _hoisted_17, [
-        vue.createElementVNode("div", _hoisted_18, [
+      vue.createElementVNode("div", _hoisted_16, [
+        vue.createElementVNode("div", _hoisted_17, [
           _cache[2] || (_cache[2] = vue.createTextVNode("  ", -1 /* CACHED */)),
           vue.createElementVNode("input", {
             checked: __props.darkMode,
@@ -2908,26 +2911,27 @@ return (_ctx, _cache) => {
             style: {"border-color":"white"},
             disabled: __props.disabled,
             onChange: handleDarkModeToggle
-          }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_19)
+          }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_18)
         ])
       ])
     ])
-  ]))
+  ], 16 /* FULL_PROPS */))
 }
 }
 
-};
+});
 
 script$8.__file = "src/components/BsMenuBar.vue";
 
-const _hoisted_1$7 = { class: "container-fluid" };
-const _hoisted_2$1 = {
+const _hoisted_1$7 = {
   class: "text-light text-center rounded-pill bg-primary",
   style: {"height":"30px"}
 };
 
 
-var script$7 = {
+var script$7 = /*@__PURE__*/Object.assign({
+  inheritAttrs: false
+}, {
   __name: 'BsFooter',
   props: {
     "text": {
@@ -2947,33 +2951,33 @@ var script$7 = {
  * Purpose: Provide a generic footer
  */
 
+
 /**
  * Text to show in the footer (required).
  */
 const text = vue.useModel(__props, 'text');
 
 return (_ctx, _cache) => {
-  return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$7, [
+  return (vue.openBlock(), vue.createElementBlock("div", vue.mergeProps({ class: "container-fluid" }, _ctx.$attrs), [
     _cache[0] || (_cache[0] = vue.createElementVNode("div", { style: {"height":"20px"} }, null, -1 /* CACHED */)),
-    vue.createElementVNode("div", _hoisted_2$1, vue.toDisplayString(text.value), 1 /* TEXT */)
-  ]))
+    vue.createElementVNode("div", _hoisted_1$7, vue.toDisplayString(text.value), 1 /* TEXT */)
+  ], 16 /* FULL_PROPS */))
 }
 }
 
-};
+});
 
 script$7.__file = "src/components/BsFooter.vue";
 
-const _hoisted_1$6 = { class: "has-validation pt-2" };
-const _hoisted_2 = {
+const _hoisted_1$6 = {
   key: 0,
   class: "form-label fw-bold"
 };
-const _hoisted_3 = {
+const _hoisted_2 = {
   key: 1,
   class: "badge text-bg-danger rounded-circle"
 };
-const _hoisted_4 = { class: "form-text" };
+const _hoisted_3 = { class: "form-text" };
 
 
 var script$6 = /*@__PURE__*/Object.assign({
@@ -3042,13 +3046,13 @@ const width = vue.useModel(__props, 'width');
 const badge = vue.useModel(__props, 'badge');
 
 return (_ctx, _cache) => {
-  return (vue.openBlock(), vue.createElementBlock("div", _hoisted_1$6, [
+  return (vue.openBlock(), vue.createElementBlock("div", vue.mergeProps({ class: "has-validation pt-2" }, _ctx.$attrs), [
     (label.value !== undefined)
-      ? (vue.openBlock(), vue.createElementBlock("label", _hoisted_2, vue.toDisplayString(label.value), 1 /* TEXT */))
+      ? (vue.openBlock(), vue.createElementBlock("label", _hoisted_1$6, vue.toDisplayString(label.value), 1 /* TEXT */))
       : vue.createCommentVNode("v-if", true),
     _cache[0] || (_cache[0] = vue.createTextVNode("  ", -1 /* CACHED */)),
     (badge.value)
-      ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_3, vue.toDisplayString(badge.value), 1 /* TEXT */))
+      ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_2, vue.toDisplayString(badge.value), 1 /* TEXT */))
       : vue.createCommentVNode("v-if", true),
     vue.createElementVNode("div", {
       class: vue.normalizeClass([width.value === undefined ? '' : 'col-' + width.value])
@@ -3056,8 +3060,8 @@ return (_ctx, _cache) => {
       vue.createCommentVNode(" @slot this is where the main component is located "),
       vue.renderSlot(_ctx.$slots, "default")
     ], 2 /* CLASS */),
-    vue.createElementVNode("div", _hoisted_4, vue.toDisplayString(help.value), 1 /* TEXT */)
-  ]))
+    vue.createElementVNode("div", _hoisted_3, vue.toDisplayString(help.value), 1 /* TEXT */)
+  ], 16 /* FULL_PROPS */))
 }
 }
 

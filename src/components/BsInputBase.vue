@@ -1,5 +1,5 @@
 <template>
-  <div class="has-validation pt-2">
+  <div class="has-validation pt-2" v-bind="$attrs">
     <label v-if="label !== undefined" class="form-label fw-bold">{{ label }}</label>
     &nbsp;<span v-if="badge" class="badge text-bg-danger rounded-circle">{{ badge }}</span>
     <div :class="[width === undefined ? '' : 'col-' + width]">

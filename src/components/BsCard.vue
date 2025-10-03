@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" v-bind="$attrs">
     <div :class="headerStyle()">{{ header }}</div>
     <div class="card-body">
       <h5 class="card-title">

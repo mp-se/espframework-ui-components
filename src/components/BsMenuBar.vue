@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" v-bind="$attrs">
     <div class="container-fluid align-center">
       <button
         class="navbar-toggler"
@@ -142,6 +142,9 @@ import { onMounted, watch } from 'vue'
  * Purpose: Provide a menu with dropdown options and dark mode toggle.
  * Now uses props-based approach - no Pinia dependency!
  */
+defineOptions({
+  inheritAttrs: false
+})
 
 // Props
 const props = defineProps({

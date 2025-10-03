@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid" v-bind="$attrs">
     <div style="height: 20px"></div>
     <div class="text-light text-center rounded-pill bg-primary" style="height: 30px">
       {{ text }}
@@ -15,6 +15,9 @@
 /**
  * Purpose: Provide a generic footer
  */
+defineOptions({
+  inheritAttrs: false
+})
 
 /**
  * Text to show in the footer (required).

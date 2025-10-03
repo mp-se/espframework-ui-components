@@ -1,5 +1,5 @@
 <template>
-  <div :class="classNames()" role="alert">
+  <div :class="classNames()" role="alert" v-bind="$attrs">
     <IconXCircle v-if="alert === 'danger'" height="20" width="20"></IconXCircle>
     <IconExclamationTriangle
       v-if="alert === 'warning'"

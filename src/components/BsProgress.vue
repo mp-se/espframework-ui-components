@@ -1,5 +1,5 @@
 <template>
-  <div class="progress" style="height: 20px">
+  <div class="progress" style="height: 20px" v-bind="$attrs">
     <div class="progress-bar" role="progressbar" :style="progressStyle"></div>
   </div>
 </template>
@@ -13,6 +13,9 @@ import { computed } from 'vue'
 /**
  * Purpose: Show a progress bar
  */
+defineOptions({
+  inheritAttrs: false
+})
 
 /**
  * Ref that contains the value of the progress bar (0-100) (required).
