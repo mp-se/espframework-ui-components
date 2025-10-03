@@ -1,4 +1,5 @@
 // src/index.js
+// ESP Framework UI Components Library
 
 // Package version
 export const version = '1.0.0'

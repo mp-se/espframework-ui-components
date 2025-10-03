@@ -7,12 +7,14 @@ on:
       - 'src/**'
       - 'package.json'
       - 'rollup.config.js'
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: read
     
     steps:
       - name: Checkout repository
@@ -35,15 +37,20 @@ jobs:
       - name: Check for changes in dist
         id: verify-changed-files
         run: |
+          echo "Checking for changes in dist directory..."
+          git status --porcelain dist/
           if [ -n "$(git status --porcelain dist/)" ]; then
+            echo "Changes detected in dist/"
             echo "changed=true" >> $GITHUB_OUTPUT
           else
+            echo "No changes detected in dist/"
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
       
       - name: Commit and push built files
         if: steps.verify-changed-files.outputs.changed == 'true'
         run: |
+          echo "Committing and pushing changes..."
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add dist/
