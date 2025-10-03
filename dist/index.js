@@ -2654,7 +2654,11 @@ const _hoisted_13 = {
   class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white"
 };
 const _hoisted_14 = { class: "p-2" };
-const _hoisted_15 = ["hidden"];
+const _hoisted_15 = {
+  class: "spinner-border gx-4",
+  role: "status",
+  style: {"color":"white"}
+};
 const _hoisted_16 = { class: "p-2" };
 const _hoisted_17 = { class: "form-check form-switch" };
 const _hoisted_18 = ["checked", "disabled"];
@@ -2891,14 +2895,11 @@ return (_ctx, _cache) => {
         ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_13))
         : vue.createCommentVNode("v-if", true),
       vue.createElementVNode("div", _hoisted_14, [
-        vue.createElementVNode("div", {
-          class: "spinner-border gx-4",
-          role: "status",
-          style: {"color":"white"},
-          hidden: !__props.disabled
-        }, [...(_cache[1] || (_cache[1] = [
+        vue.withDirectives(vue.createElementVNode("div", _hoisted_15, [...(_cache[1] || (_cache[1] = [
           vue.createElementVNode("span", { class: "visually-hidden" }, "Loading...", -1 /* CACHED */)
-        ]))], 8 /* PROPS */, _hoisted_15)
+        ]))], 512 /* NEED_PATCH */), [
+          [vue.vShow, __props.disabled]
+        ])
       ]),
       vue.createElementVNode("div", _hoisted_16, [
         vue.createElementVNode("div", _hoisted_17, [

@@ -1,4 +1,4 @@
-import { useModel, createElementBlock, openBlock, mergeProps, createElementVNode, normalizeClass, toDisplayString, createBlock, createCommentVNode, createTextVNode, resolveDynamicComponent, renderSlot, resolveComponent, withCtx, Fragment, renderList, ref, withDirectives, vModelDynamic, vModelText, vModelCheckbox, createVNode, withModifiers, vModelRadio, vModelSelect, computed, normalizeStyle, watch, onMounted, onBeforeUnmount } from 'vue';
+import { useModel, createElementBlock, openBlock, mergeProps, createElementVNode, normalizeClass, toDisplayString, createBlock, createCommentVNode, createTextVNode, resolveDynamicComponent, renderSlot, resolveComponent, withCtx, Fragment, renderList, ref, withDirectives, vModelDynamic, vModelText, vModelCheckbox, createVNode, withModifiers, vModelRadio, vModelSelect, computed, normalizeStyle, watch, onMounted, vShow, onBeforeUnmount } from 'vue';
 
 const _hoisted_1$t = { class: "card-body" };
 const _hoisted_2$d = { class: "card-title" };
@@ -2652,7 +2652,11 @@ const _hoisted_13 = {
   class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white"
 };
 const _hoisted_14 = { class: "p-2" };
-const _hoisted_15 = ["hidden"];
+const _hoisted_15 = {
+  class: "spinner-border gx-4",
+  role: "status",
+  style: {"color":"white"}
+};
 const _hoisted_16 = { class: "p-2" };
 const _hoisted_17 = { class: "form-check form-switch" };
 const _hoisted_18 = ["checked", "disabled"];
@@ -2889,14 +2893,11 @@ return (_ctx, _cache) => {
         ? (openBlock(), createElementBlock("div", _hoisted_13))
         : createCommentVNode("v-if", true),
       createElementVNode("div", _hoisted_14, [
-        createElementVNode("div", {
-          class: "spinner-border gx-4",
-          role: "status",
-          style: {"color":"white"},
-          hidden: !__props.disabled
-        }, [...(_cache[1] || (_cache[1] = [
+        withDirectives(createElementVNode("div", _hoisted_15, [...(_cache[1] || (_cache[1] = [
           createElementVNode("span", { class: "visually-hidden" }, "Loading...", -1 /* CACHED */)
-        ]))], 8 /* PROPS */, _hoisted_15)
+        ]))], 512 /* NEED_PATCH */), [
+          [vShow, __props.disabled]
+        ])
       ]),
       createElementVNode("div", _hoisted_16, [
         createElementVNode("div", _hoisted_17, [

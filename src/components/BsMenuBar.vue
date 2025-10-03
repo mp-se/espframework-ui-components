@@ -112,7 +112,7 @@
       <div class="vr d-none d-lg-flex h-200 mx-lg-2 text-white" v-if="configChanged"></div>
 
       <div class="p-2">
-        <div class="spinner-border gx-4" role="status" style="color: white" :hidden="!disabled">
+        <div class="spinner-border gx-4" role="status" style="color: white" v-show="disabled">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
