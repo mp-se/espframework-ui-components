@@ -80,11 +80,11 @@ const type = defineModel('type', {
 })
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = defineModel('badge', {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 })
 /**
  * Used internally to toggle field visibility between text / password
