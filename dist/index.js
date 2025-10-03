@@ -139,7 +139,7 @@ var script$t = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -462,7 +462,7 @@ var script$q = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -608,7 +608,7 @@ var script$p = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -745,7 +745,7 @@ var script$o = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -866,7 +866,7 @@ var script$n = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -980,7 +980,7 @@ var script$m = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -1165,7 +1165,7 @@ var script$l = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -1280,7 +1280,7 @@ var script$k = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -1498,7 +1498,7 @@ var script$i = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -2541,7 +2541,7 @@ var script$9 = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -2999,7 +2999,7 @@ var script$6 = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -3658,7 +3658,7 @@ function useTimers() {
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.1.1';
+const version = '1.1.2';
 
 exports.BsCard = script$u;
 exports.BsDropdown = script$t;

@@ -137,7 +137,7 @@ var script$t = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -460,7 +460,7 @@ var script$q = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -606,7 +606,7 @@ var script$p = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -743,7 +743,7 @@ var script$o = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -864,7 +864,7 @@ var script$n = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -978,7 +978,7 @@ var script$m = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -1163,7 +1163,7 @@ var script$l = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -1278,7 +1278,7 @@ var script$k = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -1496,7 +1496,7 @@ var script$i = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -2539,7 +2539,7 @@ var script$9 = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -2997,7 +2997,7 @@ var script$6 = /*@__PURE__*/Object.assign({
   type: [String, Number],
   default: undefined,
   validator: (value) => {
-    if (value === undefined || value === null) return true
+    if (value === undefined || value === null || value === '') return true
     if (typeof value === 'number') return value > 0 && value <= 12
     if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
     return false
@@ -3656,6 +3656,6 @@ function useTimers() {
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.1.1';
+const version = '1.1.2';
 
 export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, logDebug, logError, logInfo, roundVal, tempToC, tempToF, useFetch, useTimers, version };
