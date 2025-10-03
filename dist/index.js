@@ -477,8 +477,8 @@ var script$q = /*@__PURE__*/Object.assign({
 },
     "typeModifiers": {},
     "badge": {
-  type: Number,
-  default: 0
+  type: Boolean,
+  default: false
 },
     "badgeModifiers": {},
   },
@@ -512,7 +512,7 @@ const width = vue.useModel(__props, 'width');
 const type = vue.useModel(__props, 'type');
 
 /**
- * Specify the number to show in the badge to guide the user (optional).
+ * Specify if an badge should be shown to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 /**
@@ -759,8 +759,8 @@ var script$o = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Number,
-  default: 0
+  type: Boolean,
+  default: false
 },
     "badgeModifiers": {},
   },
@@ -801,7 +801,7 @@ const width = vue.useModel(__props, 'width');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify the number to show in the badge to guide the user (optional).
+ * Specify if an badge should be shown to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -875,8 +875,8 @@ var script$n = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Number,
-  default: 0
+  type: Boolean,
+  default: false
 },
     "badgeModifiers": {},
   },
@@ -912,7 +912,7 @@ const help = vue.useModel(__props, 'help');
 const width = vue.useModel(__props, 'width');
 
 /**
- * Specify the number to show in the badge to guide the user (optional).
+ * Specify if an badge should be shown to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -989,8 +989,8 @@ var script$m = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Number,
-  default: 0
+  type: Boolean,
+  default: false
 },
     "badgeModifiers": {},
   },
@@ -1086,7 +1086,7 @@ const help = vue.useModel(__props, 'help');
 const width = vue.useModel(__props, 'width');
 
 /**
- * Specify the number to show in the badge to guide the user (optional).
+ * Specify if an badge should be shown to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -1523,8 +1523,8 @@ var script$i = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Number,
-  default: 0
+  type: Boolean,
+  default: false
 },
     "badgeModifiers": {},
   },
@@ -1564,7 +1564,7 @@ const options = vue.useModel(__props, 'options');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify the number to show in the badge to guide the user (optional).
+ * Specify if an badge should be shown to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
