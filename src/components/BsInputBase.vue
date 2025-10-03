@@ -1,7 +1,7 @@
 <template>
   <div class="has-validation pt-2">
     <label v-if="label !== undefined" class="form-label fw-bold">{{ label }}</label>
-    &nbsp;<span v-if="badge" class="badge text-bg-danger rounded-circle">1</span>
+    &nbsp;<span v-if="badge" class="badge text-bg-danger rounded-circle">{{ badge }}</span>
     <div :class="[width === undefined ? '' : 'col-' + width]">
       <!-- @slot this is where the main component is located -->
       <slot></slot>
@@ -54,10 +54,10 @@ const width = defineModel('width', {
 })
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = defineModel('badge', {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 })
 </script>

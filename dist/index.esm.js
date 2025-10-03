@@ -178,8 +178,8 @@ var script$t = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -231,7 +231,7 @@ const callback = useModel(__props, 'callback');
 const disabled = useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 
@@ -475,8 +475,8 @@ var script$q = /*@__PURE__*/Object.assign({
 },
     "typeModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -510,7 +510,7 @@ const width = useModel(__props, 'width');
 const type = useModel(__props, 'type');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 /**
@@ -625,8 +625,8 @@ var script$p = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -672,7 +672,7 @@ const unit = useModel(__props, 'unit');
 const disabled = useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 
@@ -757,8 +757,8 @@ var script$o = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -799,7 +799,7 @@ const width = useModel(__props, 'width');
 const disabled = useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 
@@ -873,8 +873,8 @@ var script$n = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -910,7 +910,7 @@ const help = useModel(__props, 'help');
 const width = useModel(__props, 'width');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 
@@ -987,8 +987,8 @@ var script$m = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -1084,7 +1084,7 @@ const help = useModel(__props, 'help');
 const width = useModel(__props, 'width');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 
@@ -1292,8 +1292,8 @@ var script$k = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -1340,7 +1340,7 @@ const width = useModel(__props, 'width');
 const disabled = useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 
@@ -1521,8 +1521,8 @@ var script$i = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -1562,7 +1562,7 @@ const options = useModel(__props, 'options');
 const disabled = useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 
@@ -2551,8 +2551,8 @@ var script$9 = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -2589,7 +2589,7 @@ const width = useModel(__props, 'width');
 const disabled = useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 
@@ -3001,8 +3001,8 @@ var script$6 = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -3035,7 +3035,7 @@ const help = useModel(__props, 'help');
 const width = useModel(__props, 'width');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = useModel(__props, 'badge');
 
@@ -3046,7 +3046,7 @@ return (_ctx, _cache) => {
       : createCommentVNode("v-if", true),
     _cache[0] || (_cache[0] = createTextVNode("  ", -1 /* CACHED */)),
     (badge.value)
-      ? (openBlock(), createElementBlock("span", _hoisted_3, "1"))
+      ? (openBlock(), createElementBlock("span", _hoisted_3, toDisplayString(badge.value), 1 /* TEXT */))
       : createCommentVNode("v-if", true),
     createElementVNode("div", {
       class: normalizeClass([width.value === undefined ? '' : 'col-' + width.value])
@@ -3652,6 +3652,6 @@ function useTimers() {
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.0.0';
+const version = '1.1.1';
 
 export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, logDebug, logError, logInfo, roundVal, tempToC, tempToF, useFetch, useTimers, version };

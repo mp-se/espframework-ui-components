@@ -180,8 +180,8 @@ var script$t = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -233,7 +233,7 @@ const callback = vue.useModel(__props, 'callback');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -477,8 +477,8 @@ var script$q = /*@__PURE__*/Object.assign({
 },
     "typeModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -512,7 +512,7 @@ const width = vue.useModel(__props, 'width');
 const type = vue.useModel(__props, 'type');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 /**
@@ -627,8 +627,8 @@ var script$p = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -674,7 +674,7 @@ const unit = vue.useModel(__props, 'unit');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -759,8 +759,8 @@ var script$o = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -801,7 +801,7 @@ const width = vue.useModel(__props, 'width');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -875,8 +875,8 @@ var script$n = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -912,7 +912,7 @@ const help = vue.useModel(__props, 'help');
 const width = vue.useModel(__props, 'width');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -989,8 +989,8 @@ var script$m = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -1086,7 +1086,7 @@ const help = vue.useModel(__props, 'help');
 const width = vue.useModel(__props, 'width');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -1294,8 +1294,8 @@ var script$k = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -1342,7 +1342,7 @@ const width = vue.useModel(__props, 'width');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -1523,8 +1523,8 @@ var script$i = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -1564,7 +1564,7 @@ const options = vue.useModel(__props, 'options');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -2553,8 +2553,8 @@ var script$9 = /*@__PURE__*/Object.assign({
 },
     "disabledModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -2591,7 +2591,7 @@ const width = vue.useModel(__props, 'width');
 const disabled = vue.useModel(__props, 'disabled');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -3003,8 +3003,8 @@ var script$6 = /*@__PURE__*/Object.assign({
 },
     "widthModifiers": {},
     "badge": {
-  type: Boolean,
-  default: false
+  type: Number,
+  default: 0
 },
     "badgeModifiers": {},
   },
@@ -3037,7 +3037,7 @@ const help = vue.useModel(__props, 'help');
 const width = vue.useModel(__props, 'width');
 
 /**
- * Specify if an badge should be shown to guide the user (optional).
+ * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = vue.useModel(__props, 'badge');
 
@@ -3048,7 +3048,7 @@ return (_ctx, _cache) => {
       : vue.createCommentVNode("v-if", true),
     _cache[0] || (_cache[0] = vue.createTextVNode("  ", -1 /* CACHED */)),
     (badge.value)
-      ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_3, "1"))
+      ? (vue.openBlock(), vue.createElementBlock("span", _hoisted_3, vue.toDisplayString(badge.value), 1 /* TEXT */))
       : vue.createCommentVNode("v-if", true),
     vue.createElementVNode("div", {
       class: vue.normalizeClass([width.value === undefined ? '' : 'col-' + width.value])
@@ -3654,7 +3654,7 @@ function useTimers() {
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.0.0';
+const version = '1.1.1';
 
 exports.BsCard = script$u;
 exports.BsDropdown = script$t;
