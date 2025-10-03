@@ -2789,23 +2789,23 @@ return (_ctx, _cache) => {
       }, [
         createElementVNode("span", { class: "navbar-toggler-icon" })
       ], -1 /* CACHED */)),
-      createElementVNode("div", _hoisted_2$1, toDisplayString(__props.brand), 1 /* TEXT */),
+      createElementVNode("div", _hoisted_2$1, toDisplayString(props.brand), 1 /* TEXT */),
       _cache[4] || (_cache[4] = createElementVNode("div", { class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white" }, null, -1 /* CACHED */)),
       createElementVNode("div", _hoisted_3$1, [
         createElementVNode("ul", _hoisted_4, [
-          (openBlock(true), createElementBlock(Fragment, null, renderList(__props.menuItems, (item, index) => {
+          (openBlock(true), createElementBlock(Fragment, null, renderList(props.menuItems, (item, index) => {
             return (openBlock(), createElementBlock(Fragment, { key: index }, [
               (!item.subs || !item.subs.length)
                 ? (openBlock(), createElementBlock("li", _hoisted_5, [
                     createVNode(_component_router_link, {
                       class: normalizeClass([
                   'nav-link',
-                  __props.currentRoute && __props.currentRoute.split('/')[1] === item.path.split('/')[1]
+                  props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
                     : ''
                 ]),
                       to: item.path,
-                      disabled: __props.disabled
+                      disabled: props.disabled
                     }, {
                       default: withCtx(() => [
                         (item.icon !== undefined)
@@ -2827,7 +2827,7 @@ return (_ctx, _cache) => {
                       class: normalizeClass([
                   'nav-link',
                   'dropdown-toggle',
-                  __props.currentRoute && __props.currentRoute.split('/')[1] === item.path.split('/')[1]
+                  props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
                     : ''
                 ]),
@@ -2836,7 +2836,7 @@ return (_ctx, _cache) => {
                       "data-bs-toggle": "dropdown",
                       "aria-expanded": "false",
                       "data-bs-auto-close": "true",
-                      disabled: __props.disabled
+                      disabled: props.disabled
                     }, [
                       (item.icon !== undefined)
                         ? (openBlock(), createBlock(resolveDynamicComponent(item.icon), {
@@ -2863,7 +2863,7 @@ return (_ctx, _cache) => {
                             onClick: subMenuClicked,
                             class: "dropdown-item",
                             to: dn.path,
-                            disabled: __props.disabled
+                            disabled: props.disabled
                           }, {
                             default: withCtx(() => [
                               createTextVNode(toDisplayString(dn.label) + " ", 1 /* TEXT */),
@@ -2882,33 +2882,33 @@ return (_ctx, _cache) => {
         ])
       ]),
       _cache[5] || (_cache[5] = createElementVNode("div", { class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white" }, null, -1 /* CACHED */)),
-      createElementVNode("div", _hoisted_11, toDisplayString(__props.mdns), 1 /* TEXT */),
+      createElementVNode("div", _hoisted_11, toDisplayString(props.mdns), 1 /* TEXT */),
       _cache[6] || (_cache[6] = createElementVNode("div", { class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white" }, null, -1 /* CACHED */)),
-      (__props.configChanged)
+      (props.configChanged)
         ? (openBlock(), createElementBlock("div", _hoisted_12, [...(_cache[0] || (_cache[0] = [
             createElementVNode("span", { class: "badge bg-danger fs-6" }, "Save needed  ", -1 /* CACHED */)
           ]))]))
         : createCommentVNode("v-if", true),
-      (__props.configChanged)
+      (props.configChanged)
         ? (openBlock(), createElementBlock("div", _hoisted_13))
         : createCommentVNode("v-if", true),
       createElementVNode("div", _hoisted_14, [
         withDirectives(createElementVNode("div", _hoisted_15, [...(_cache[1] || (_cache[1] = [
           createElementVNode("span", { class: "visually-hidden" }, "Loading...", -1 /* CACHED */)
         ]))], 512 /* NEED_PATCH */), [
-          [vShow, __props.disabled]
+          [vShow, props.disabled]
         ])
       ]),
       createElementVNode("div", _hoisted_16, [
         createElementVNode("div", _hoisted_17, [
           _cache[2] || (_cache[2] = createTextVNode("  ", -1 /* CACHED */)),
           createElementVNode("input", {
-            checked: __props.darkMode,
+            checked: props.darkMode,
             class: "form-check-input",
             type: "checkbox",
             role: "switch",
             style: {"border-color":"white"},
-            disabled: __props.disabled,
+            disabled: props.disabled,
             onChange: handleDarkModeToggle
           }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_18)
         ])
@@ -3657,6 +3657,6 @@ function useTimers() {
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.1.2';
+const version = '1.1.3';
 
 export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, logDebug, logError, logInfo, roundVal, tempToC, tempToF, useFetch, useTimers, version };

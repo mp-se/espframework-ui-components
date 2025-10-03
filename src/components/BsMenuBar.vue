@@ -14,24 +14,24 @@
       </button>
 
       <div class="navbar-brand">
-        {{ brand }}
+        {{ props.brand }}
       </div>
 
       <div class="vr d-none d-lg-flex h-200 mx-lg-2 text-white"></div>
 
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav">
-          <template v-for="(item, index) in menuItems" :key="index">
+          <template v-for="(item, index) in props.menuItems" :key="index">
             <li v-if="!item.subs || !item.subs.length" class="nav-item">
               <router-link
                 :class="[
                   'nav-link',
-                  currentRoute && currentRoute.split('/')[1] === item.path.split('/')[1]
+                  props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
                     : ''
                 ]"
                 :to="item.path"
-                :disabled="disabled"
+                :disabled="props.disabled"
               >
                 <component
                   v-if="item.icon !== undefined"
@@ -50,7 +50,7 @@
                 :class="[
                   'nav-link',
                   'dropdown-toggle',
-                  currentRoute && currentRoute.split('/')[1] === item.path.split('/')[1]
+                  props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
                     : ''
                 ]"
@@ -59,7 +59,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
                 data-bs-auto-close="true"
-                :disabled="disabled"
+                :disabled="props.disabled"
               >
                 <component
                   v-if="item.icon !== undefined"
@@ -82,7 +82,7 @@
                     @click="subMenuClicked"
                     class="dropdown-item"
                     :to="dn.path"
-                    :disabled="disabled"
+                    :disabled="props.disabled"
                     >{{ dn.label }}
                     <span
                       v-if="dn.badge !== undefined && (typeof dn.badge === 'function' ? dn.badge() : dn.badge) > 0"
@@ -100,31 +100,31 @@
       <div class="vr d-none d-lg-flex h-200 mx-lg-2 text-white"></div>
 
       <div class="text-white">
-        {{ mdns }}
+        {{ props.mdns }}
       </div>
 
       <div class="vr d-none d-lg-flex h-200 mx-lg-2 text-white"></div>
 
-      <div v-if="configChanged">
+      <div v-if="props.configChanged">
         <span class="badge bg-danger fs-6">Save needed &nbsp;</span>
       </div>
 
-      <div class="vr d-none d-lg-flex h-200 mx-lg-2 text-white" v-if="configChanged"></div>
+      <div class="vr d-none d-lg-flex h-200 mx-lg-2 text-white" v-if="props.configChanged"></div>
 
       <div class="p-2">
-        <div class="spinner-border gx-4" role="status" style="color: white" v-show="disabled">
+        <div class="spinner-border gx-4" role="status" style="color: white" v-show="props.disabled">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
       <div class="p-2">
         <div class="form-check form-switch">
           &nbsp;<input
-            :checked="darkMode"
+            :checked="props.darkMode"
             class="form-check-input"
             type="checkbox"
             role="switch"
             style="border-color: white"
-            :disabled="disabled"
+            :disabled="props.disabled"
             @change="handleDarkModeToggle"
           />
         </div>

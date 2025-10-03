@@ -2791,23 +2791,23 @@ return (_ctx, _cache) => {
       }, [
         vue.createElementVNode("span", { class: "navbar-toggler-icon" })
       ], -1 /* CACHED */)),
-      vue.createElementVNode("div", _hoisted_2$1, vue.toDisplayString(__props.brand), 1 /* TEXT */),
+      vue.createElementVNode("div", _hoisted_2$1, vue.toDisplayString(props.brand), 1 /* TEXT */),
       _cache[4] || (_cache[4] = vue.createElementVNode("div", { class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white" }, null, -1 /* CACHED */)),
       vue.createElementVNode("div", _hoisted_3$1, [
         vue.createElementVNode("ul", _hoisted_4, [
-          (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(__props.menuItems, (item, index) => {
+          (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(props.menuItems, (item, index) => {
             return (vue.openBlock(), vue.createElementBlock(vue.Fragment, { key: index }, [
               (!item.subs || !item.subs.length)
                 ? (vue.openBlock(), vue.createElementBlock("li", _hoisted_5, [
                     vue.createVNode(_component_router_link, {
                       class: vue.normalizeClass([
                   'nav-link',
-                  __props.currentRoute && __props.currentRoute.split('/')[1] === item.path.split('/')[1]
+                  props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
                     : ''
                 ]),
                       to: item.path,
-                      disabled: __props.disabled
+                      disabled: props.disabled
                     }, {
                       default: vue.withCtx(() => [
                         (item.icon !== undefined)
@@ -2829,7 +2829,7 @@ return (_ctx, _cache) => {
                       class: vue.normalizeClass([
                   'nav-link',
                   'dropdown-toggle',
-                  __props.currentRoute && __props.currentRoute.split('/')[1] === item.path.split('/')[1]
+                  props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
                     : ''
                 ]),
@@ -2838,7 +2838,7 @@ return (_ctx, _cache) => {
                       "data-bs-toggle": "dropdown",
                       "aria-expanded": "false",
                       "data-bs-auto-close": "true",
-                      disabled: __props.disabled
+                      disabled: props.disabled
                     }, [
                       (item.icon !== undefined)
                         ? (vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(item.icon), {
@@ -2865,7 +2865,7 @@ return (_ctx, _cache) => {
                             onClick: subMenuClicked,
                             class: "dropdown-item",
                             to: dn.path,
-                            disabled: __props.disabled
+                            disabled: props.disabled
                           }, {
                             default: vue.withCtx(() => [
                               vue.createTextVNode(vue.toDisplayString(dn.label) + " ", 1 /* TEXT */),
@@ -2884,33 +2884,33 @@ return (_ctx, _cache) => {
         ])
       ]),
       _cache[5] || (_cache[5] = vue.createElementVNode("div", { class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white" }, null, -1 /* CACHED */)),
-      vue.createElementVNode("div", _hoisted_11, vue.toDisplayString(__props.mdns), 1 /* TEXT */),
+      vue.createElementVNode("div", _hoisted_11, vue.toDisplayString(props.mdns), 1 /* TEXT */),
       _cache[6] || (_cache[6] = vue.createElementVNode("div", { class: "vr d-none d-lg-flex h-200 mx-lg-2 text-white" }, null, -1 /* CACHED */)),
-      (__props.configChanged)
+      (props.configChanged)
         ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_12, [...(_cache[0] || (_cache[0] = [
             vue.createElementVNode("span", { class: "badge bg-danger fs-6" }, "Save needed  ", -1 /* CACHED */)
           ]))]))
         : vue.createCommentVNode("v-if", true),
-      (__props.configChanged)
+      (props.configChanged)
         ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_13))
         : vue.createCommentVNode("v-if", true),
       vue.createElementVNode("div", _hoisted_14, [
         vue.withDirectives(vue.createElementVNode("div", _hoisted_15, [...(_cache[1] || (_cache[1] = [
           vue.createElementVNode("span", { class: "visually-hidden" }, "Loading...", -1 /* CACHED */)
         ]))], 512 /* NEED_PATCH */), [
-          [vue.vShow, __props.disabled]
+          [vue.vShow, props.disabled]
         ])
       ]),
       vue.createElementVNode("div", _hoisted_16, [
         vue.createElementVNode("div", _hoisted_17, [
           _cache[2] || (_cache[2] = vue.createTextVNode("  ", -1 /* CACHED */)),
           vue.createElementVNode("input", {
-            checked: __props.darkMode,
+            checked: props.darkMode,
             class: "form-check-input",
             type: "checkbox",
             role: "switch",
             style: {"border-color":"white"},
-            disabled: __props.disabled,
+            disabled: props.disabled,
             onChange: handleDarkModeToggle
           }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_18)
         ])
@@ -3659,7 +3659,7 @@ function useTimers() {
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.1.2';
+const version = '1.1.3';
 
 exports.BsCard = script$u;
 exports.BsDropdown = script$t;
