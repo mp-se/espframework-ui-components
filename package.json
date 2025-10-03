@@ -1,0 +1,49 @@
+{
+  "name": "@mp-se/espframework-ui-components",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Reusable Vue components for ESP Framework UI",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mp-se/espframework-ui-components.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "echo \"No tests yet\" && exit 0",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "rollup": "^4.9.6",
+    "rollup-plugin-css-only": "^4.5.5",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-vue": "^6.0.0"
+  },
+  "keywords": [
+    "vue",
+    "components",
+    "esp32",
+    "esp-framework",
+    "ui",
+    "bootstrap"
+  ],
+  "author": "Magnus Persson",
+  "license": "MIT",
+  "dependencies": {
+    "@mp-se/espframework-ui-components": "file:"
+  }
+}
