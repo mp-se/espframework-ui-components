@@ -2382,8 +2382,13 @@ var script$b = /*@__PURE__*/Object.assign({
   }
 },
     "titleModifiers": {},
+    "hidden": {
+  type: Boolean,
+  default: true
+},
+    "hiddenModifiers": {},
   },
-  emits: ["update:callback", "update:message", "update:id", "update:title"],
+  emits: ["update:callback", "update:message", "update:id", "update:title", "update:hidden"],
   setup(__props) {
 
 /**
@@ -2411,16 +2416,21 @@ const id = useModel(__props, 'id');
  */
 const title = useModel(__props, 'title');
 
+/**
+ * Whether the button should be hidden (optional).
+ */
+const hidden = useModel(__props, 'hidden');
+
 return (_ctx, _cache) => {
   return (openBlock(), createElementBlock(Fragment, null, [
-    createElementVNode("button", {
+    createElementVNode("button", mergeProps({
       id: id.value,
       type: "button",
       class: "btn btn-secondary",
-      hidden: "",
+      style: { display: hidden.value ? 'none' : 'inline-block' },
       "data-bs-toggle": "modal",
       "data-bs-target": '#modal' + _ctx.$.uid
-    }, " Testing ", 8 /* PROPS */, _hoisted_1$a),
+    }, _ctx.$attrs), " This should hidden ", 16 /* FULL_PROPS */, _hoisted_1$a),
     createElementVNode("div", {
       class: "modal fade modal-lg",
       id: 'modal' + _ctx.$.uid,

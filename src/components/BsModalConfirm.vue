@@ -3,11 +3,12 @@
     :id="id"
     type="button"
     class="btn btn-secondary"
-    hidden
+    :style="{ display: hidden ? 'none' : 'inline-block' }"
     data-bs-toggle="modal"
     :data-bs-target="'#modal' + $.uid"
+    v-bind="$attrs"
   >
-    Testing
+    This should hidden
   </button>
   <div class="modal fade modal-lg" :id="'modal' + $.uid" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
@@ -91,5 +92,13 @@ const title = defineModel('title', {
   validator: (value) => {
     return typeof value === 'string' && value.trim().length > 0
   }
+})
+
+/**
+ * Whether the button should be hidden (optional).
+ */
+const hidden = defineModel('hidden', {
+  type: Boolean,
+  default: true
 })
 </script>
