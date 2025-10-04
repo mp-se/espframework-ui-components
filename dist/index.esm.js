@@ -2117,6 +2117,42 @@ function tempToC(f) {
 }
 
 /**
+ * Convert PSI (Pounds per Square Inch) to Bar
+ * @param {number} p - Pressure in PSI
+ * @returns {number} Pressure in Bar
+ */
+function psiToBar(p) {
+  return p * 0.0689475729
+}
+
+/**
+ * Convert PSI (Pounds per Square Inch) to kPa (Kilopascals)
+ * @param {number} p - Pressure in PSI
+ * @returns {number} Pressure in kPa
+ */
+function psiToKPa(p) {
+  return p * 6.89475729
+}
+
+/**
+ * Convert Bar to PSI (Pounds per Square Inch)
+ * @param {number} p - Pressure in Bar
+ * @returns {number} Pressure in PSI
+ */
+function barToPsi(p) {
+  return p / 0.0689475729
+}
+
+/**
+ * Convert kPa (Kilopascals) to PSI (Pounds per Square Inch)
+ * @param {number} p - Pressure in kPa
+ * @returns {number} Pressure in PSI
+ */
+function kpaToPsi(p) {
+  return p / 6.89475729
+}
+
+/**
  * Validate if string is valid JSON
  * @param {string} s - String to validate
  * @returns {boolean} True if valid JSON
@@ -3667,6 +3703,6 @@ function useTimers() {
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.1.3';
+const version = '1.2.0';
 
-export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, logDebug, logError, logInfo, roundVal, tempToC, tempToF, useFetch, useTimers, version };
+export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, barToPsi, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, tempToC, tempToF, useFetch, useTimers, version };

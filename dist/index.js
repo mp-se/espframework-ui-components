@@ -2119,6 +2119,42 @@ function tempToC(f) {
 }
 
 /**
+ * Convert PSI (Pounds per Square Inch) to Bar
+ * @param {number} p - Pressure in PSI
+ * @returns {number} Pressure in Bar
+ */
+function psiToBar(p) {
+  return p * 0.0689475729
+}
+
+/**
+ * Convert PSI (Pounds per Square Inch) to kPa (Kilopascals)
+ * @param {number} p - Pressure in PSI
+ * @returns {number} Pressure in kPa
+ */
+function psiToKPa(p) {
+  return p * 6.89475729
+}
+
+/**
+ * Convert Bar to PSI (Pounds per Square Inch)
+ * @param {number} p - Pressure in Bar
+ * @returns {number} Pressure in PSI
+ */
+function barToPsi(p) {
+  return p / 0.0689475729
+}
+
+/**
+ * Convert kPa (Kilopascals) to PSI (Pounds per Square Inch)
+ * @param {number} p - Pressure in kPa
+ * @returns {number} Pressure in PSI
+ */
+function kpaToPsi(p) {
+  return p / 6.89475729
+}
+
+/**
  * Validate if string is valid JSON
  * @param {string} s - String to validate
  * @returns {boolean} True if valid JSON
@@ -3669,7 +3705,7 @@ function useTimers() {
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.1.3';
+const version = '1.2.0';
 
 exports.BsCard = script$u;
 exports.BsDropdown = script$t;
@@ -3702,14 +3738,18 @@ exports.IconTools = script$4;
 exports.IconUpArrow = script$2;
 exports.IconWifi = script$j;
 exports.IconXCircle = script$h;
+exports.barToPsi = barToPsi;
 exports.gravityToPlato = gravityToPlato;
 exports.gravityToSG = gravityToSG;
 exports.isValidFormData = isValidFormData;
 exports.isValidJson = isValidJson;
 exports.isValidMqttData = isValidMqttData;
+exports.kpaToPsi = kpaToPsi;
 exports.logDebug = logDebug;
 exports.logError = logError;
 exports.logInfo = logInfo;
+exports.psiToBar = psiToBar;
+exports.psiToKPa = psiToKPa;
 exports.roundVal = roundVal;
 exports.tempToC = tempToC;
 exports.tempToF = tempToF;

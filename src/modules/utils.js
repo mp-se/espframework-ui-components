@@ -47,6 +47,42 @@ export function tempToC(f) {
 }
 
 /**
+ * Convert PSI (Pounds per Square Inch) to Bar
+ * @param {number} p - Pressure in PSI
+ * @returns {number} Pressure in Bar
+ */
+export function psiToBar(p) {
+  return p * 0.0689475729
+}
+
+/**
+ * Convert PSI (Pounds per Square Inch) to kPa (Kilopascals)
+ * @param {number} p - Pressure in PSI
+ * @returns {number} Pressure in kPa
+ */
+export function psiToKPa(p) {
+  return p * 6.89475729
+}
+
+/**
+ * Convert Bar to PSI (Pounds per Square Inch)
+ * @param {number} p - Pressure in Bar
+ * @returns {number} Pressure in PSI
+ */
+export function barToPsi(p) {
+  return p / 0.0689475729
+}
+
+/**
+ * Convert kPa (Kilopascals) to PSI (Pounds per Square Inch)
+ * @param {number} p - Pressure in kPa
+ * @returns {number} Pressure in PSI
+ */
+export function kpaToPsi(p) {
+  return p / 6.89475729
+}
+
+/**
  * Validate if string is valid JSON
  * @param {string} s - String to validate
  * @returns {boolean} True if valid JSON

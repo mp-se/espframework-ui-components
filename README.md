@@ -67,7 +67,8 @@ export default {
 - `logDebug`, `logInfo`, `logError` - Logging functions
 - `useFetch` - Fetch composable for Vue 3
 - `useTimers` - Timer management composable
-- `roundVal`, `tempToC`, `tempToF` - Utility functions
+- `roundVal`, `tempToC`, `tempToF` - Temperature conversion utilities
+- `psiToBar`, `psiToKPa`, `barToPsi`, `kpaToPsi` - Pressure conversion utilities
 - `isValidJson`, `isValidFormData` - Validation helpers
 
 ## 🛠️ Development

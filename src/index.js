@@ -2,7 +2,7 @@
 // ESP Framework UI Components Library
 
 // Package version
-export const version = '1.1.3'
+export const version = '1.2.0'
 
 // Basic UI Components
 export { default as BsCard } from './components/BsCard.vue'
@@ -54,6 +54,10 @@ export {
   gravityToSG, 
   tempToF, 
   tempToC, 
+  psiToBar,
+  psiToKPa,
+  barToPsi,
+  kpaToPsi,
   isValidJson, 
   isValidFormData, 
   isValidMqttData 
