@@ -2,6 +2,7 @@
 
 var vue = require('vue');
 
+var _documentCurrentScript = typeof document !== 'undefined' ? document.currentScript : null;
 const _hoisted_1$t = { class: "card-body" };
 const _hoisted_2$d = { class: "card-title" };
 const _hoisted_3$9 = { class: "card-text" };
@@ -2055,9 +2056,42 @@ return (_ctx, _cache) => {
 
 script$d.__file = "src/components/BsMessage.vue";
 
+function readEnvVar(name) {
+  // 1) Check a runtime-injected global shim (useful for demos or non-Vite runtimes)
+  try {
+    if (globalThis && globalThis.__ENV__ && typeof globalThis.__ENV__[name] !== 'undefined') {
+      return globalThis.__ENV__[name]
+    }
+  } catch (e) {
+    // ignore
+  }
+
+  // 2) Check Node-style process.env when running in Node
+  try {
+    if (typeof process !== 'undefined' && process.env && typeof process.env[name] !== 'undefined') {
+      return process.env[name]
+    }
+  } catch (e) {
+    // ignore
+  }
+
+  // 3) Try import.meta.env (works when bundlers inject it). Access inside try/catch to avoid
+  // syntax/runtime errors in environments where import.meta is not present.
+  try {
+    if (({ url: (typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.js', document.baseURI).href)) }) && undefined && typeof undefined[name] !== 'undefined') {
+      return undefined[name]
+    }
+  } catch (e) {
+    // import.meta may not be available in some runtimes; ignore errors
+  }
+
+  return undefined
+}
+
 function logDebug(...args) {
-  // console.log("Debug: env=", import.meta.env);
-  if (undefined.VITE_APP_DEBUG === undefined) return
+  const debugVal = readEnvVar('VITE_APP_DEBUG');
+  // Treat '0', 'false', '', undefined as falsy; anything else truthy
+  if (!debugVal) return
   console.log('Debug', ...args);
 }
 

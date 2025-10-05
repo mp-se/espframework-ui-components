@@ -19,6 +19,14 @@ export default defineConfig({
       }
     },
     {
+      file: 'dist/espframework-ui-components.umd.js',
+      format: 'umd',
+      name: 'EspFrameworkUiComponents',
+      globals: {
+        'vue': 'Vue'
+      }
+    },
+    {
       file: 'dist/index.esm.js',
       format: 'esm'
     }
