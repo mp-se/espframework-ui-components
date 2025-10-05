@@ -715,10 +715,7 @@ return (_ctx, _cache) => {
 
 script$p.__file = "src/components/BsInputNumber.vue";
 
-const _hoisted_1$n = {
-  class: "form-check form-switch",
-  style: {"height":"38px"}
-};
+const _hoisted_1$n = { class: "form-check form-switch" };
 const _hoisted_2$9 = ["disabled", "data-bs-title"];
 
 
@@ -805,6 +802,7 @@ const disabled = vue.useModel(__props, 'disabled');
  */
 const badge = vue.useModel(__props, 'badge');
 
+
 return (_ctx, _cache) => {
   const _component_BsInputBase = vue.resolveComponent("BsInputBase");
 
@@ -825,7 +823,8 @@ return (_ctx, _cache) => {
           disabled: disabled.value,
           "data-bs-toggle": "tooltip",
           "data-bs-custom-class": "custom-tooltip",
-          "data-bs-title": help.value
+          "data-bs-title": help.value,
+          style: {"transform":"scale(1.5)","transform-origin":"left center","display":"inline-block"}
         }), null, 16 /* FULL_PROPS */, _hoisted_2$9), [
           [vue.vModelCheckbox, model.value]
         ])
@@ -2989,7 +2988,7 @@ return (_ctx, _cache) => {
             class: "form-check-input",
             type: "checkbox",
             role: "switch",
-            style: {"border-color":"white"},
+            style: {"border-color":"white","transform":"scale(1.5)","transform-origin":"left center","display":"inline-block"},
             disabled: props.disabled,
             onChange: handleDarkModeToggle
           }, null, 40 /* PROPS, NEED_HYDRATION */, _hoisted_18)

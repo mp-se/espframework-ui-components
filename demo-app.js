@@ -145,18 +145,9 @@
       </div>
       <div class="col-md-6 mb-4">
         <div class="card p-3">
-          <h5>BsMessage - Supported Alert Types</h5>
-          <BsMessage alert="success">This is a success alert message</BsMessage>
-          <BsMessage alert="danger">This is a danger alert message</BsMessage>
-          <BsMessage alert="warning">This is a warning alert message</BsMessage>
-          <BsMessage alert="info">This is an info alert message</BsMessage>
-        </div>
-      </div>
-      <div class="col-md-6 mb-4">
-        <div class="card p-3">
-          <h5>Menu (top)</h5>
-          <p class="small text-muted">The menu is shown across the top of the page to demonstrate full-width layout.</p>
-          <p class="mt-2">Last clicked: {{ lastMenuClick }}</p>
+          <h5>BsFileUpload</h5>
+          <BsFileUpload label="Upload File" accept=".txt,.json" help="Select a text or JSON file" @file-selected="handleFileSelect"></BsFileUpload>
+          <p class="mt-2">Selected file: {{ selectedFile?.name || 'None' }}</p>
         </div>
       </div>
       <div class="col-md-6 mb-4">
@@ -168,9 +159,11 @@
       </div>
       <div class="col-md-6 mb-4">
         <div class="card p-3">
-          <h5>BsFileUpload</h5>
-          <BsFileUpload label="Upload File" accept=".txt,.json" help="Select a text or JSON file" @file-selected="handleFileSelect"></BsFileUpload>
-          <p class="mt-2">Selected file: {{ selectedFile?.name || 'None' }}</p>
+          <h5>BsMessage - Supported Alert Types</h5>
+          <BsMessage alert="success">This is a success alert message</BsMessage>
+          <BsMessage alert="danger">This is a danger alert message</BsMessage>
+          <BsMessage alert="warning">This is a warning alert message</BsMessage>
+          <BsMessage alert="info">This is an info alert message</BsMessage>
         </div>
       </div>
     </div>

@@ -123,7 +123,7 @@
             class="form-check-input"
             type="checkbox"
             role="switch"
-            style="border-color: white"
+            style="border-color: white; transform: scale(1.5); transform-origin: left center; display: inline-block;"
             :disabled="props.disabled"
             @change="handleDarkModeToggle"
           />
