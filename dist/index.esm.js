@@ -1,4 +1,4 @@
-import { useModel, createElementBlock, openBlock, mergeProps, createElementVNode, normalizeClass, toDisplayString, createBlock, createCommentVNode, createTextVNode, resolveDynamicComponent, renderSlot, resolveComponent, withCtx, Fragment, renderList, ref, withDirectives, vModelDynamic, vModelText, vModelCheckbox, createVNode, withModifiers, vModelRadio, vModelSelect, computed, normalizeStyle, watch, onMounted, vShow, onBeforeUnmount } from 'vue';
+import { useModel, createElementBlock, openBlock, mergeProps, createElementVNode, normalizeClass, toDisplayString, createBlock, createCommentVNode, createTextVNode, resolveDynamicComponent, renderSlot, resolveComponent, withCtx, Fragment, renderList, ref, withDirectives, vModelDynamic, vModelText, vModelCheckbox, createVNode, withModifiers, vModelRadio, vModelSelect, computed, normalizeStyle, vShow, onBeforeUnmount } from 'vue';
 
 const _hoisted_1$t = { class: "card-body" };
 const _hoisted_2$d = { class: "card-title" };
@@ -2817,16 +2817,6 @@ const handleDarkModeToggle = (event) => {
   emit('update:darkMode', event.target.checked);
 };
 
-// Apply dark mode styling
-const setMode = (isDark) => {
-  const htmlElement = document.documentElement;
-  if (isDark) {
-    htmlElement.setAttribute('data-bs-theme', 'dark');
-  } else {
-    htmlElement.setAttribute('data-bs-theme', 'light');
-  }
-};
-
 // Handle menu click to manage dropdowns
 const menuClicked = () => {
   // Optional: emit event for parent to handle if needed
@@ -2840,16 +2830,6 @@ const subMenuClicked = () => {
     dnList[i].classList.remove('show');
   }
 };
-
-// Watch for dark mode changes
-watch(() => props.darkMode, (newValue) => {
-  setMode(newValue);
-}, { immediate: true });
-
-// Set initial mode on mount
-onMounted(() => {
-  setMode(props.darkMode);
-});
 
 return (_ctx, _cache) => {
   const _component_router_link = resolveComponent("router-link");

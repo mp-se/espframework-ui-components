@@ -2822,16 +2822,6 @@
     emit('update:darkMode', event.target.checked);
   };
 
-  // Apply dark mode styling
-  const setMode = (isDark) => {
-    const htmlElement = document.documentElement;
-    if (isDark) {
-      htmlElement.setAttribute('data-bs-theme', 'dark');
-    } else {
-      htmlElement.setAttribute('data-bs-theme', 'light');
-    }
-  };
-
   // Handle menu click to manage dropdowns
   const menuClicked = () => {
     // Optional: emit event for parent to handle if needed
@@ -2845,16 +2835,6 @@
       dnList[i].classList.remove('show');
     }
   };
-
-  // Watch for dark mode changes
-  vue.watch(() => props.darkMode, (newValue) => {
-    setMode(newValue);
-  }, { immediate: true });
-
-  // Set initial mode on mount
-  vue.onMounted(() => {
-    setMode(props.darkMode);
-  });
 
   return (_ctx, _cache) => {
     const _component_router_link = vue.resolveComponent("router-link");
