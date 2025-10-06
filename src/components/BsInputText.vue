@@ -19,42 +19,42 @@
 </template>
 
 <script setup>
-import IconEyeSlash from './IconEyeSlash.vue'
-import IconEye from './IconEye.vue'
+import IconEyeSlash from './IconEyeSlash.vue';
+import IconEye from './IconEye.vue';
 /**
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
  */
 
-import { ref } from 'vue'
+import { ref } from 'vue';
 /**
  * Purpose: Proviude an input field
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 /**
  * This is the v-model field that will be used to bind the component to (required).
  */
 const model = defineModel({
   type: [String, Number],
-  default: ''
-})
+  default: '',
+});
 
 /**
  * This text is shown above the form component (optional).
  */
 const label = defineModel('label', {
   type: String,
-  default: undefined
-})
+  default: undefined,
+});
 
 /**
  * Help text is shown below the field to provide user help with input (optional).
  */
 const help = defineModel('help', {
   type: String,
-  default: undefined
-})
+  default: undefined,
+});
 
 /**
  * Specify the width to force a specific size (optional).
@@ -62,13 +62,14 @@ const help = defineModel('help', {
 const width = defineModel('width', {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
-})
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
+});
 
 /**
  * Type of the input field, defaults to 'text' (optional, 'password' or 'text').
@@ -76,22 +77,22 @@ const width = defineModel('width', {
 const type = defineModel('type', {
   type: String,
   default: 'text',
-  validator: (value) => ['text', 'password', 'email', 'url'].includes(value)
-})
+  validator: value => ['text', 'password', 'email', 'url'].includes(value),
+});
 
 /**
  * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = defineModel('badge', {
   type: Number,
-  default: 0
-})
+  default: 0,
+});
 /**
  * Used internally to toggle field visibility between text / password
  */
-const flag = ref(false)
+const flag = ref(false);
 
 const toggle = () => {
-  flag.value = !flag.value
-}
+  flag.value = !flag.value;
+};
 </script>

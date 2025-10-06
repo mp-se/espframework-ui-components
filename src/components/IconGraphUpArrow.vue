@@ -1,5 +1,12 @@
 <template>
-  <svg v-bind="$attrs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" :width="width" :height="height">
+  <svg
+    v-bind="$attrs"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    :width="width"
+    :height="height"
+  >
     <path
       fill-rule="evenodd"
       d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"
@@ -16,8 +23,8 @@
  * Purpose: Show an svg icon on the UI. Used embedded svg to avoid downloading data from internet.
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 
 /**
  * Width of the icon (optional).
@@ -25,15 +32,15 @@ defineOptions({
 const width = defineModel('width', {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
-    const num = Number(value)
-    return !isNaN(num) && num > 0
-  }
-})
+    const num = Number(value);
+    return !isNaN(num) && num > 0;
+  },
+});
 
 /**
  * Height of the icon (optional).
@@ -41,13 +48,13 @@ const width = defineModel('width', {
 const height = defineModel('height', {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
-    const num = Number(value)
-    return !isNaN(num) && num > 0
-  }
-})
+    const num = Number(value);
+    return !isNaN(num) && num > 0;
+  },
+});
 </script>

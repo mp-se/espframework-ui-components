@@ -1,36 +1,36 @@
 // JS-mounted demo bootstrapper (camelCase-friendly)
-;(function () {
-  const WAIT_TIMEOUT = 5000
-  const POLL_INTERVAL = 100
+(function () {
+  const WAIT_TIMEOUT = 5000;
+  const POLL_INTERVAL = 100;
 
   function waitFor(conditionFn, timeout = WAIT_TIMEOUT) {
-    const start = Date.now()
+    const start = Date.now();
     return new Promise((resolve, reject) => {
       (function poll() {
         try {
-          if (conditionFn()) return resolve()
+          if (conditionFn()) return resolve();
         } catch (e) {}
-        if (Date.now() - start > timeout) return reject(new Error('waitFor timeout'))
-        setTimeout(poll, POLL_INTERVAL)
-      })()
-    })
+        if (Date.now() - start > timeout) return reject(new Error('waitFor timeout'));
+        setTimeout(poll, POLL_INTERVAL);
+      })();
+    });
   }
 
   async function boot() {
     try {
       if (document.readyState === 'loading') {
-        await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }))
+        await new Promise(r => document.addEventListener('DOMContentLoaded', r, { once: true }));
       }
 
-      await waitFor(() => window.Vue && window.EspFrameworkUiComponents, WAIT_TIMEOUT)
+      await waitFor(() => window.Vue && window.EspFrameworkUiComponents, WAIT_TIMEOUT);
 
-      if (window.__ESP_UI_APP__) return
+      if (window.__ESP_UI_APP__) return;
 
-      const { createApp } = window.Vue
-      const exported = window.EspFrameworkUiComponents
-  if (!createApp || !exported) throw new Error('Vue or UMD not available')
+      const { createApp } = window.Vue;
+      const exported = window.EspFrameworkUiComponents;
+      if (!createApp || !exported) throw new Error('Vue or UMD not available');
 
-  const template = `
+      const template = `
 <div class="container-fluid p-4">
   <BsMenuBar
     :menuItems="menuItems"
@@ -203,13 +203,27 @@
     </BsFooter>
   </section>
 </div>
-  `
+  `;
 
       const app = createApp({
         template,
         data() {
           return {
-            icons: ['IconCheckCircle','IconCloudUpArrow','IconCpu','IconExclamationTriangle','IconEye','IconEyeSlash','IconGraphUpArrow','IconHome','IconInfoCircle','IconTools','IconUpArrow','IconWifi','IconXCircle'],
+            icons: [
+              'IconCheckCircle',
+              'IconCloudUpArrow',
+              'IconCpu',
+              'IconExclamationTriangle',
+              'IconEye',
+              'IconEyeSlash',
+              'IconGraphUpArrow',
+              'IconHome',
+              'IconInfoCircle',
+              'IconTools',
+              'IconUpArrow',
+              'IconWifi',
+              'IconXCircle',
+            ],
             inputText: 'Hello World',
             inputTextArea: '',
             inputTextAreaFormat: '',
@@ -218,17 +232,17 @@
             inputRadio: null,
             radioOptions: [
               { label: 'Option A', value: 'A' },
-              { label: 'Option B', value: 'B' }
+              { label: 'Option B', value: 'B' },
             ],
             inputReadonly: 'Read-only sample',
             selectValue: null,
             selectOptions: [
               { label: 'One', value: 'one' },
-              { label: 'Two', value: 'two' }
+              { label: 'Two', value: 'two' },
             ],
             dropdownItems: [
               { label: 'Reload', value: 'reload' },
-              { label: 'Settings', value: 'settings' }
+              { label: 'Settings', value: 'settings' },
             ],
             progressValue: 75,
             confirmResult: null,
@@ -238,51 +252,74 @@
             darkMode: false,
             menuItems: [
               { label: 'Home', icon: 'IconHome', path: '/' },
-              { label: 'Device', icon: 'IconCpu', path: '/device', badge: 2, subs: [ { label: 'Settings', path: '/device/settings', badge: 1 } ] }
+              {
+                label: 'Device',
+                icon: 'IconCpu',
+                path: '/device',
+                badge: 2,
+                subs: [{ label: 'Settings', path: '/device/settings', badge: 1 }],
+              },
             ],
             lastMenuClick: null,
             lastDropdownSelect: null,
-            selectedFile: null
-          }
+            selectedFile: null,
+          };
         },
         methods: {
           handleMenuClick(item) {
-            this.currentRoute = item.path || this.currentRoute
-            this.lastMenuClick = item.label || item.path || null
-            console.log('Menu clicked', item)
+            this.currentRoute = item.path || this.currentRoute;
+            this.lastMenuClick = item.label || item.path || null;
+            console.log('Menu clicked', item);
           },
-          incrementProgress() { this.progressValue = (Number(this.progressValue) + 10) % 100 },
-          handleConfirm(res) { this.confirmResult = res },
-          openConfirm() { const btn = document.getElementById('demo-confirm'); if (btn) btn.dispatchEvent(new MouseEvent('click', { bubbles: true })) },
-          handleDarkModeUpdate(val) { this.darkMode = !!val; this.configChanged = this.darkMode },
+          incrementProgress() {
+            this.progressValue = (Number(this.progressValue) + 10) % 100;
+          },
+          handleConfirm(res) {
+            this.confirmResult = res;
+          },
+          openConfirm() {
+            const btn = document.getElementById('demo-confirm');
+            if (btn) btn.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+          },
+          handleDarkModeUpdate(val) {
+            this.darkMode = !!val;
+            this.configChanged = this.darkMode;
+          },
           handleDropdownSelect(value) {
-            if (value && typeof value === 'object') this.lastDropdownSelect = value.label || JSON.stringify(value)
-            else this.lastDropdownSelect = value
+            if (value && typeof value === 'object')
+              this.lastDropdownSelect = value.label || JSON.stringify(value);
+            else this.lastDropdownSelect = value;
           },
-          handleFileSelect(file) { this.selectedFile = file }
-        }
-      })
+          handleFileSelect(file) {
+            this.selectedFile = file;
+          },
+        },
+      });
 
       // Register components exported by the UMD bundle (PascalCase)
       Object.entries(exported).forEach(([name, comp]) => {
         try {
-          if (!comp) return
-          app.component(name, comp)
+          if (!comp) return;
+          app.component(name, comp);
         } catch (e) {
-          console.warn('register failed', name, e)
+          console.warn('register failed', name, e);
         }
-      })
+      });
 
       // RouterLink stub
-      app.component('RouterLink', { props: ['to','disabled'], emits: ['click'], template: '<a :href="to" @click.prevent="$emit(\'click\')"><slot></slot></a>' })
+      app.component('RouterLink', {
+        props: ['to', 'disabled'],
+        emits: ['click'],
+        template: '<a :href="to" @click.prevent="$emit(\'click\')"><slot></slot></a>',
+      });
 
-      app.mount('#app-root')
-      window.__ESP_UI_APP__ = true
-      console.info('ESP demo mounted (JS template, camelCase)')
+      app.mount('#app-root');
+      window.__ESP_UI_APP__ = true;
+      console.info('ESP demo mounted (JS template, camelCase)');
     } catch (err) {
-      console.error('Failed to boot demo', err)
+      console.error('Failed to boot demo', err);
     }
   }
 
-  boot()
-})()
+  boot();
+})();

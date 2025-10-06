@@ -28,7 +28,7 @@
                   'nav-link',
                   props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
-                    : ''
+                    : '',
                 ]"
                 :to="item.path"
                 :disabled="props.disabled"
@@ -52,7 +52,7 @@
                   'dropdown-toggle',
                   props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
-                    : ''
+                    : '',
                 ]"
                 :id="'navbarDropdown' + item.label"
                 role="button"
@@ -71,7 +71,10 @@
 
                 {{ item.label }}
                 <span
-                  v-if="item.badge !== undefined && (typeof item.badge === 'function' ? item.badge() : item.badge) > 0"
+                  v-if="
+                    item.badge !== undefined &&
+                    (typeof item.badge === 'function' ? item.badge() : item.badge) > 0
+                  "
                   class="badge text-bg-danger rounded-circle"
                   >{{ typeof item.badge === 'function' ? item.badge() : item.badge }}</span
                 >
@@ -85,7 +88,10 @@
                     :disabled="props.disabled"
                     >{{ dn.label }}
                     <span
-                      v-if="dn.badge !== undefined && (typeof dn.badge === 'function' ? dn.badge() : dn.badge) > 0"
+                      v-if="
+                        dn.badge !== undefined &&
+                        (typeof dn.badge === 'function' ? dn.badge() : dn.badge) > 0
+                      "
                       class="badge text-bg-danger rounded-circle"
                       >{{ typeof dn.badge === 'function' ? dn.badge() : dn.badge }}</span
                     ></router-link
@@ -123,7 +129,12 @@
             class="form-check-input"
             type="checkbox"
             role="switch"
-            style="border-color: white; transform: scale(1.5); transform-origin: left center; display: inline-block;"
+            style="
+              border-color: white;
+              transform: scale(1.5);
+              transform-origin: left center;
+              display: inline-block;
+            "
             :disabled="props.disabled"
             @change="handleDarkModeToggle"
           />
@@ -134,17 +145,17 @@
 </template>
 
 <script setup>
-import { onMounted, watch } from 'vue'
+import { onMounted, watch } from 'vue';
 
 /**
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
- * 
+ *
  * Purpose: Provide a menu with dropdown options and dark mode toggle.
  * Now uses props-based approach - no Pinia dependency!
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 
 // Props
 const props = defineProps({
@@ -153,71 +164,71 @@ const props = defineProps({
    */
   brand: {
     type: String,
-    default: 'Brand'
+    default: 'Brand',
   },
   /**
    * Whether the menu is disabled (optional)
    */
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   /**
    * Array of menu items to display (required)
    */
   menuItems: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   /**
    * Current dark mode state (required)
    */
   darkMode: {
     type: Boolean,
-    default: false
+    default: false,
   },
   /**
    * MDNS name to display (optional)
    */
   mdns: {
     type: String,
-    default: ''
+    default: '',
   },
   /**
    * Whether config has changed and needs saving (optional)
    */
   configChanged: {
     type: Boolean,
-    default: false
+    default: false,
   },
   /**
    * Current route path for active menu highlighting (optional)
    */
   currentRoute: {
     type: String,
-    default: ''
-  }
-})
+    default: '',
+  },
+});
 
 // Events
-const emit = defineEmits(['update:darkMode'])
+const emit = defineEmits(['update:darkMode']);
 
 // Handle dark mode toggle
-const handleDarkModeToggle = (event) => {
-  emit('update:darkMode', event.target.checked)
-}
+const handleDarkModeToggle = event => {
+  emit('update:darkMode', event.target.checked);
+};
 
 // Handle menu click to manage dropdowns
 const menuClicked = () => {
   // Optional: emit event for parent to handle if needed
-}
+};
 
 // Handle submenu click to close dropdowns (fixes Bootstrap/Vue conflict)
 const subMenuClicked = () => {
   // Added to fix the issue with dropdown-menu shown after select due to conflict with VueJS and BootstrapJS
-  const dnList = document.getElementsByClassName('dropdown-menu show')
+  const dnList = document.getElementsByClassName('dropdown-menu show');
   for (var i = 0; i < dnList.length; i++) {
-    dnList[i].classList.remove('show')
+    dnList[i].classList.remove('show');
   }
-}
+};
 </script>

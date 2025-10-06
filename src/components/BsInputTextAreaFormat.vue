@@ -24,14 +24,14 @@
 /**
  * Note! Limitation is one of these components per page since hardcode ID's are used.
  */
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 /**
  * Purpose: Use as a building block for providing a text area that can allow for multiple lines of text.
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 
 const contextMenuOptions = ref([
   { label: 'Cancel', value: '' },
@@ -67,34 +67,34 @@ const contextMenuOptions = ref([
   { label: 'Corrected gravity, ${corr-gravity}', value: '${corr-gravity}' },
   {
     label: 'Corrected Gravity (SG), ${corr-gravity-sg}',
-    value: '${corr-gravity-sg}'
+    value: '${corr-gravity-sg}',
   },
   {
     label: 'Corrected Gravity (Plato), ${corr-gravity-plato}',
-    value: '${corr-gravity-plato}'
+    value: '${corr-gravity-plato}',
   },
-  { label: 'Gravity Velocity, ${velocity}', value: '${velocity}' }
-])
+  { label: 'Gravity Velocity, ${velocity}', value: '${velocity}' },
+]);
 
-const insertText = (value) => {
+const insertText = value => {
   if (value.length > 0) {
-    const obj = document.getElementById('textArea')
+    const obj = document.getElementById('textArea');
     model.value =
       obj.value.substring(0, obj.selectionStart) +
       value +
-      obj.value.substring(obj.selectionEnd, obj.value.length)
+      obj.value.substring(obj.selectionEnd, obj.value.length);
   }
 
-  const menu = document.getElementById('contextMenu')
-  menu.style.display = 'none'
-}
+  const menu = document.getElementById('contextMenu');
+  menu.style.display = 'none';
+};
 
-const openContextMenu = (event) => {
-  const menu = document.getElementById('contextMenu')
-  menu.style.display = 'block'
-  menu.style.left = event.pageX + 'px'
-  menu.style.top = event.pageY + 'px'
-}
+const openContextMenu = event => {
+  const menu = document.getElementById('contextMenu');
+  menu.style.display = 'block';
+  menu.style.left = event.pageX + 'px';
+  menu.style.top = event.pageY + 'px';
+};
 
 /**
  * This is the v-model field that will be used to bind the component to (required).
@@ -102,26 +102,26 @@ const openContextMenu = (event) => {
 const model = defineModel({
   type: String,
   default: '',
-  validator: (value) => {
-    return typeof value === 'string'
-  }
-})
+  validator: value => {
+    return typeof value === 'string';
+  },
+});
 
 /**
  * This text is shown above the form component (optional).
  */
 const label = defineModel('label', {
   type: String,
-  default: undefined
-})
+  default: undefined,
+});
 
 /**
  * Help text is shown below the field to provide user help with input (optional).
  */
 const help = defineModel('help', {
   type: String,
-  default: undefined
-})
+  default: undefined,
+});
 
 /**
  * Specify the width to force a specific size (optional).
@@ -129,19 +129,20 @@ const help = defineModel('help', {
 const width = defineModel('width', {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
-})
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
+});
 
 /**
  * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = defineModel('badge', {
   type: Number,
-  default: 0
-})
+  default: 0,
+});
 </script>

@@ -29,10 +29,10 @@
 </template>
 
 <script setup>
-import IconXCircle from './IconXCircle.vue'
-import IconCheckCircle from './IconCheckCircle.vue'
-import IconInfoCircle from './IconInfoCircle.vue'
-import IconExclamationTriangle from './IconExclamationTriangle.vue'
+import IconXCircle from './IconXCircle.vue';
+import IconCheckCircle from './IconCheckCircle.vue';
+import IconInfoCircle from './IconInfoCircle.vue';
+import IconExclamationTriangle from './IconExclamationTriangle.vue';
 
 /**
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
@@ -42,18 +42,18 @@ import IconExclamationTriangle from './IconExclamationTriangle.vue'
  * Purpose: Show a alert with a message
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 /**
  * Text message to show in alert (required).
  */
 const message = defineModel('message', {
   type: String,
   default: 'Message',
-  validator: (value) => {
-    return typeof value === 'string'
-  }
-})
+  validator: value => {
+    return typeof value === 'string';
+  },
+});
 
 /**
  * If set to 'true' then the message can be closed by the user (optional).
@@ -61,12 +61,12 @@ const message = defineModel('message', {
 const dismissable = defineModel('dismissable', {
   type: [Boolean, String],
   default: false,
-  validator: (value) => {
-    if (typeof value === 'boolean') return true
-    if (typeof value === 'string') return ['true', 'false'].includes(value.toLowerCase())
-    return false
-  }
-})
+  validator: value => {
+    if (typeof value === 'boolean') return true;
+    if (typeof value === 'string') return ['true', 'false'].includes(value.toLowerCase());
+    return false;
+  },
+});
 
 /**
  * The type of the alert (Danger|Success|Warning|Info) (required).
@@ -74,8 +74,8 @@ const dismissable = defineModel('dismissable', {
 const alert = defineModel('alert', {
   type: String,
   default: 'info',
-  validator: (value) => ['danger', 'success', 'warning', 'info'].includes(value.toLowerCase())
-})
+  validator: value => ['danger', 'success', 'warning', 'info'].includes(value.toLowerCase()),
+});
 
 /**
  * Function to call when close button is used (optional).
@@ -83,15 +83,15 @@ const alert = defineModel('alert', {
 const close = defineModel('close', {
   type: Function,
   default: () => {},
-  validator: (value) => {
-    return typeof value === 'function'
-  }
-})
+  validator: value => {
+    return typeof value === 'function';
+  },
+});
 
 const classNames = () => {
   const cn = dismissable.value
     ? 'alert alert-' + alert.value + ' align-items-center alert-dismissible fade show'
-    : 'alert alert-' + alert.value + ' align-items-center'
-  return cn
-}
+    : 'alert alert-' + alert.value + ' align-items-center';
+  return cn;
+};
 </script>

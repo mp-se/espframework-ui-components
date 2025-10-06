@@ -47,8 +47,8 @@
  * Purpose: Show a yes/no dialog to confirm an action
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 
 /**
  * Ref to callback where true/false will be a parameter (required).
@@ -56,10 +56,10 @@ defineOptions({
 const callback = defineModel('callback', {
   type: Function,
   default: undefined,
-  validator: (value) => {
-    return value === undefined || typeof value === 'function'
-  }
-})
+  validator: value => {
+    return value === undefined || typeof value === 'function';
+  },
+});
 
 /**
  * Ref to dialog message (required).
@@ -67,10 +67,10 @@ const callback = defineModel('callback', {
 const message = defineModel('message', {
   type: String,
   default: 'Are you sure?',
-  validator: (value) => {
-    return typeof value === 'string' && value.trim().length > 0
-  }
-})
+  validator: value => {
+    return typeof value === 'string' && value.trim().length > 0;
+  },
+});
 
 /**
  * Ref to dialog id (required).
@@ -78,10 +78,10 @@ const message = defineModel('message', {
 const id = defineModel('id', {
   type: String,
   default: 'confirm-modal',
-  validator: (value) => {
-    return typeof value === 'string' && /^[a-zA-Z][a-zA-Z0-9-_]*$/.test(value)
-  }
-})
+  validator: value => {
+    return typeof value === 'string' && /^[a-zA-Z][a-zA-Z0-9-_]*$/.test(value);
+  },
+});
 
 /**
  * Modal title (required).
@@ -89,16 +89,16 @@ const id = defineModel('id', {
 const title = defineModel('title', {
   type: String,
   default: 'Confirm Action',
-  validator: (value) => {
-    return typeof value === 'string' && value.trim().length > 0
-  }
-})
+  validator: value => {
+    return typeof value === 'string' && value.trim().length > 0;
+  },
+});
 
 /**
  * Whether the button should be hidden (optional).
  */
 const hidden = defineModel('hidden', {
   type: Boolean,
-  default: true
-})
+  default: true,
+});
 </script>

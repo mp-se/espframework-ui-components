@@ -1,4 +1,4 @@
-import { logDebug } from './logger.js'
+import { logDebug } from './logger.js';
 
 /**
  * Round a numeric value to specified decimal places
@@ -7,7 +7,7 @@ import { logDebug } from './logger.js'
  * @returns {number} Rounded value
  */
 export function roundVal(val, decimals) {
-  return parseFloat(Number(val).toFixed(decimals))
+  return parseFloat(Number(val).toFixed(decimals));
 }
 
 /**
@@ -16,7 +16,7 @@ export function roundVal(val, decimals) {
  * @returns {number} Plato degrees
  */
 export function gravityToPlato(sg) {
-  return 135.997 * sg * sg * sg - 630.272 * sg * sg + 1111.14 * sg - 616.868
+  return 135.997 * sg * sg * sg - 630.272 * sg * sg + 1111.14 * sg - 616.868;
 }
 
 /**
@@ -25,7 +25,7 @@ export function gravityToPlato(sg) {
  * @returns {number} Specific gravity
  */
 export function gravityToSG(p) {
-  return 1 + p / (258.6 - 227.1 * (p / 258.2))
+  return 1 + p / (258.6 - 227.1 * (p / 258.2));
 }
 
 /**
@@ -34,7 +34,7 @@ export function gravityToSG(p) {
  * @returns {number} Temperature in Fahrenheit
  */
 export function tempToF(c) {
-  return c * 1.8 + 32.0
+  return c * 1.8 + 32.0;
 }
 
 /**
@@ -43,7 +43,7 @@ export function tempToF(c) {
  * @returns {number} Temperature in Celsius
  */
 export function tempToC(f) {
-  return (f - 32.0) / 1.8
+  return (f - 32.0) / 1.8;
 }
 
 /**
@@ -52,7 +52,7 @@ export function tempToC(f) {
  * @returns {number} Pressure in Bar
  */
 export function psiToBar(p) {
-  return p * 0.0689475729
+  return p * 0.0689475729;
 }
 
 /**
@@ -61,7 +61,7 @@ export function psiToBar(p) {
  * @returns {number} Pressure in kPa
  */
 export function psiToKPa(p) {
-  return p * 6.89475729
+  return p * 6.89475729;
 }
 
 /**
@@ -70,7 +70,7 @@ export function psiToKPa(p) {
  * @returns {number} Pressure in PSI
  */
 export function barToPsi(p) {
-  return p / 0.0689475729
+  return p / 0.0689475729;
 }
 
 /**
@@ -79,7 +79,7 @@ export function barToPsi(p) {
  * @returns {number} Pressure in PSI
  */
 export function kpaToPsi(p) {
-  return p / 6.89475729
+  return p / 6.89475729;
 }
 
 /**
@@ -89,12 +89,12 @@ export function kpaToPsi(p) {
  */
 export function isValidJson(s) {
   try {
-    JSON.stringify(JSON.parse(s))
-    return true
+    JSON.stringify(JSON.parse(s));
+    return true;
   } catch (e) {
-    logDebug('utils.isValidJson()', e)
+    logDebug('utils.isValidJson()', e);
   }
-  return false
+  return false;
 }
 
 /**
@@ -103,8 +103,8 @@ export function isValidJson(s) {
  * @returns {boolean} True if valid form data
  */
 export function isValidFormData(s) {
-  if (s.startsWith('?')) return true
-  return false
+  if (s.startsWith('?')) return true;
+  return false;
 }
 
 /**
@@ -113,6 +113,41 @@ export function isValidFormData(s) {
  * @returns {boolean} True if valid MQTT data
  */
 export function isValidMqttData(s) {
-  if (s.indexOf('|') >= 0) return true
-  return false
+  if (s.indexOf('|') >= 0) return true;
+  return false;
+}
+
+/**
+ * Validate all forms with the `.needs-validation` class and apply Bootstrap styles.
+ *
+ * Behavior:
+ * - Finds all forms matching `.needs-validation` in the document.
+ * - Calls the native HTML5 `checkValidity()` on each form.
+ * - Adds the `was-validated` class to show Bootstrap validation UI.
+ * - Returns true if all forms are valid, false otherwise.
+ *
+ * Note: This function is safe to call in non-browser contexts (Node) — it will
+ * short-circuit and return true if `document` is not available.
+ *
+ * @returns {boolean} true if all matching forms are valid
+ */
+export function validateCurrentForm() {
+  // If there's no DOM (e.g. running in Node), short-circuit and return true
+  if (typeof document === 'undefined' || !document.querySelectorAll) {
+    try {
+      logDebug('validateCurrentForm: document not available, skipping validation');
+    } catch (e) {}
+    return true;
+  }
+
+  let valid = true;
+  const forms = document.querySelectorAll('.needs-validation');
+
+  Array.from(forms).forEach(form => {
+    if (!form.checkValidity()) valid = false;
+
+    form.classList.add('was-validated');
+  });
+
+  return valid;
 }

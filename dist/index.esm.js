@@ -6,37 +6,46 @@ const _hoisted_3$9 = { class: "card-text" };
 
 
 var script$u = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsCard',
   props: {
     "header": {
   type: String,
-  default: 'Card Header'
+  default: 'Card Header',
 },
     "headerModifiers": {},
     "title": {
   type: String,
-  default: 'Card Title'
+  default: 'Card Title',
 },
     "titleModifiers": {},
     "icon": {
   type: [Object, String],
-  default: undefined
+  default: undefined,
 },
     "iconModifiers": {},
     "iserr": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "iserrModifiers": {},
     "color": {
   type: String,
   default: 'primary',
-  validator: (value) => {
-    const validColors = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
-    return validColors.includes(value)
-  }
+  validator: value => {
+    const validColors = [
+      'primary',
+      'secondary',
+      'success',
+      'danger',
+      'warning',
+      'info',
+      'light',
+      'dark',
+    ];
+    return validColors.includes(value);
+  },
 },
     "colorModifiers": {},
   },
@@ -76,11 +85,11 @@ const iserr = useModel(__props, 'iserr');
 const headerColor = useModel(__props, 'color');
 
 const headerStyle = () => {
-  if (iserr.value !== undefined && iserr.value) return 'card-header bg-danger-subtle'
+  if (iserr.value !== undefined && iserr.value) return 'card-header bg-danger-subtle';
 
-  if (headerColor.value === undefined) return 'card-header bg-primary-subtle'
+  if (headerColor.value === undefined) return 'card-header bg-primary-subtle';
 
-  return 'card-header bg-' + headerColor.value + '-subtle'
+  return 'card-header bg-' + headerColor.value + '-subtle';
 };
 
 return (_ctx, _cache) => {
@@ -119,66 +128,66 @@ const _hoisted_4$3 = ["onClick"];
 
 
 var script$t = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsDropdown',
   props: {
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "options": {
   type: Array,
   default: () => [],
-  validator: (options) => {
-    return options.every(option => 
-      option && typeof option === 'object' && 
-      'label' in option && 'value' in option
-    )
-  }
+  validator: options => {
+    return options.every(
+      option => option && typeof option === 'object' && 'label' in option && 'value' in option
+    );
+  },
 },
     "optionsModifiers": {},
     "button": {
   type: String,
   default: 'Select',
-  validator: (value) => {
-    return typeof value === 'string' && value.trim().length > 0
-  }
+  validator: value => {
+    return typeof value === 'string' && value.trim().length > 0;
+  },
 },
     "buttonModifiers": {},
     "callback": {
   type: Function,
   default: () => {},
-  validator: (value) => {
-    return typeof value === 'function'
-  }
+  validator: value => {
+    return typeof value === 'function';
+  },
 },
     "callbackModifiers": {},
     "disabled": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "disabledModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -279,34 +288,34 @@ const _hoisted_1$r = ["width", "height"];
 
 
 var script$s = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconEyeSlash',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -355,34 +364,34 @@ const _hoisted_1$q = ["width", "height"];
 
 
 var script$r = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconEye',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -437,45 +446,46 @@ const _hoisted_3$7 = {
  */
 
 var script$q = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsInputText',
   props: {
     "modelValue": {
   type: [String, Number],
-  default: ''
+  default: '',
 },
     "modelModifiers": {},
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "type": {
   type: String,
   default: 'text',
-  validator: (value) => ['text', 'password', 'email', 'url'].includes(value)
+  validator: value => ['text', 'password', 'email', 'url'].includes(value),
 },
     "typeModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -583,49 +593,50 @@ const _hoisted_3$6 = {
 
 
 var script$p = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsInputNumber',
   props: {
     "modelValue": {
   type: [Number, String],
-  default: 0
+  default: 0,
 },
     "modelModifiers": {},
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "unit": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "unitModifiers": {},
     "disabled": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "disabledModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -717,44 +728,45 @@ const _hoisted_2$9 = ["disabled", "data-bs-title"];
 
 
 var script$o = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsInputSwitch',
   props: {
     "modelValue": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "modelModifiers": {},
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "disabled": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "disabledModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -799,7 +811,6 @@ const disabled = useModel(__props, 'disabled');
  */
 const badge = useModel(__props, 'badge');
 
-
 return (_ctx, _cache) => {
   const _component_BsInputBase = resolveComponent("BsInputBase");
 
@@ -840,39 +851,40 @@ const _hoisted_1$m = ["data-bs-title"];
 
 
 var script$n = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsInputTextArea',
   props: {
     "modelValue": {
   type: String,
-  default: ''
+  default: '',
 },
     "modelModifiers": {},
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -951,42 +963,43 @@ const _hoisted_2$8 = ["onClick"];
  */
 
 var script$m = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsInputTextAreaFormat',
   props: {
     "modelValue": {
   type: String,
   default: '',
-  validator: (value) => {
-    return typeof value === 'string'
-  }
+  validator: value => {
+    return typeof value === 'string';
+  },
 },
     "modelModifiers": {},
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -1032,16 +1045,16 @@ const contextMenuOptions = ref([
   { label: 'Corrected gravity, ${corr-gravity}', value: '${corr-gravity}' },
   {
     label: 'Corrected Gravity (SG), ${corr-gravity-sg}',
-    value: '${corr-gravity-sg}'
+    value: '${corr-gravity-sg}',
   },
   {
     label: 'Corrected Gravity (Plato), ${corr-gravity-plato}',
-    value: '${corr-gravity-plato}'
+    value: '${corr-gravity-plato}',
   },
-  { label: 'Gravity Velocity, ${velocity}', value: '${velocity}' }
+  { label: 'Gravity Velocity, ${velocity}', value: '${velocity}' },
 ]);
 
-const insertText = (value) => {
+const insertText = value => {
   if (value.length > 0) {
     const obj = document.getElementById('textArea');
     model.value =
@@ -1054,7 +1067,7 @@ const insertText = (value) => {
   menu.style.display = 'none';
 };
 
-const openContextMenu = (event) => {
+const openContextMenu = event => {
   const menu = document.getElementById('contextMenu');
   menu.style.display = 'block';
   menu.style.left = event.pageX + 'px';
@@ -1139,34 +1152,35 @@ const _hoisted_2$7 = ["data-bs-title"];
 
 
 var script$l = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsInputReadonly',
   props: {
     "modelValue": {
   type: [String, Number],
-  default: ''
+  default: '',
 },
     "modelModifiers": {},
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
   },
@@ -1243,55 +1257,55 @@ const _hoisted_3$5 = ["for"];
 
 
 var script$k = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsInputRadio',
   props: {
     "modelValue": {
   type: [String, Number, Boolean],
-  default: null
+  default: null,
 },
     "modelModifiers": {},
     "options": {
   type: Array,
   default: () => [],
-  validator: (options) => {
-    return options.every(option => 
-      option && typeof option === 'object' && 
-      'label' in option && 'value' in option
-    )
-  }
+  validator: options => {
+    return options.every(
+      option => option && typeof option === 'object' && 'label' in option && 'value' in option
+    );
+  },
 },
     "optionsModifiers": {},
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "disabled": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "disabledModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -1389,34 +1403,34 @@ const _hoisted_1$i = ["width", "height"];
 
 
 var script$j = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconWifi',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -1472,55 +1486,55 @@ const _hoisted_3$4 = ["value"];
  */
 
 var script$i = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsSelect',
   props: {
     "modelValue": {
   type: [String, Number, Boolean],
-  default: null
+  default: null,
 },
     "modelModifiers": {},
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "options": {
   type: Array,
   default: () => [],
-  validator: (options) => {
-    return options.every(option => 
-      option && typeof option === 'object' && 
-      'label' in option && 'value' in option
-    )
-  }
+  validator: options => {
+    return options.every(
+      option => option && typeof option === 'object' && 'label' in option && 'value' in option
+    );
+  },
 },
     "optionsModifiers": {},
     "disabled": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "disabledModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -1615,34 +1629,34 @@ const _hoisted_1$g = ["width", "height"];
 
 
 var script$h = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconXCircle',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -1690,34 +1704,34 @@ const _hoisted_1$f = ["width", "height"];
 
 
 var script$g = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconCheckCircle',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -1765,34 +1779,34 @@ const _hoisted_1$e = ["width", "height"];
 
 
 var script$f = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconInfoCircle',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -1840,34 +1854,34 @@ const _hoisted_1$d = ["width", "height"];
 
 
 var script$e = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconExclamationTriangle',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -1928,40 +1942,40 @@ const _hoisted_1$c = {
  */
 
 var script$d = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsMessage',
   props: {
     "message": {
   type: String,
   default: 'Message',
-  validator: (value) => {
-    return typeof value === 'string'
-  }
+  validator: value => {
+    return typeof value === 'string';
+  },
 },
     "messageModifiers": {},
     "dismissable": {
   type: [Boolean, String],
   default: false,
-  validator: (value) => {
-    if (typeof value === 'boolean') return true
-    if (typeof value === 'string') return ['true', 'false'].includes(value.toLowerCase())
-    return false
-  }
+  validator: value => {
+    if (typeof value === 'boolean') return true;
+    if (typeof value === 'string') return ['true', 'false'].includes(value.toLowerCase());
+    return false;
+  },
 },
     "dismissableModifiers": {},
     "alert": {
   type: String,
   default: 'info',
-  validator: (value) => ['danger', 'success', 'warning', 'info'].includes(value.toLowerCase())
+  validator: value => ['danger', 'success', 'warning', 'info'].includes(value.toLowerCase()),
 },
     "alertModifiers": {},
     "close": {
   type: Function,
   default: () => {},
-  validator: (value) => {
-    return typeof value === 'function'
-  }
+  validator: value => {
+    return typeof value === 'function';
+  },
 },
     "closeModifiers": {},
   },
@@ -1993,7 +2007,7 @@ const classNames = () => {
   const cn = dismissable.value
     ? 'alert alert-' + alert.value + ' align-items-center alert-dismissible fade show'
     : 'alert alert-' + alert.value + ' align-items-center';
-  return cn
+  return cn;
 };
 
 return (_ctx, _cache) => {
@@ -2056,7 +2070,7 @@ function readEnvVar(name) {
   // 1) Check a runtime-injected global shim (useful for demos or non-Vite runtimes)
   try {
     if (globalThis && globalThis.__ENV__ && typeof globalThis.__ENV__[name] !== 'undefined') {
-      return globalThis.__ENV__[name]
+      return globalThis.__ENV__[name];
     }
   } catch (e) {
     // ignore
@@ -2065,7 +2079,7 @@ function readEnvVar(name) {
   // 2) Check Node-style process.env when running in Node
   try {
     if (typeof process !== 'undefined' && process.env && typeof process.env[name] !== 'undefined') {
-      return process.env[name]
+      return process.env[name];
     }
   } catch (e) {
     // ignore
@@ -2075,19 +2089,19 @@ function readEnvVar(name) {
   // syntax/runtime errors in environments where import.meta is not present.
   try {
     if (import.meta && import.meta.env && typeof import.meta.env[name] !== 'undefined') {
-      return import.meta.env[name]
+      return import.meta.env[name];
     }
   } catch (e) {
     // import.meta may not be available in some runtimes; ignore errors
   }
 
-  return undefined
+  return undefined;
 }
 
 function logDebug(...args) {
   const debugVal = readEnvVar('VITE_APP_DEBUG');
   // Treat '0', 'false', '', undefined as falsy; anything else truthy
-  if (!debugVal) return
+  if (!debugVal) return;
   console.log('Debug', ...args);
 }
 
@@ -2109,7 +2123,7 @@ function logError(...args) {
  * @returns {number} Rounded value
  */
 function roundVal(val, decimals) {
-  return parseFloat(Number(val).toFixed(decimals))
+  return parseFloat(Number(val).toFixed(decimals));
 }
 
 /**
@@ -2118,7 +2132,7 @@ function roundVal(val, decimals) {
  * @returns {number} Plato degrees
  */
 function gravityToPlato(sg) {
-  return 135.997 * sg * sg * sg - 630.272 * sg * sg + 1111.14 * sg - 616.868
+  return 135.997 * sg * sg * sg - 630.272 * sg * sg + 1111.14 * sg - 616.868;
 }
 
 /**
@@ -2127,7 +2141,7 @@ function gravityToPlato(sg) {
  * @returns {number} Specific gravity
  */
 function gravityToSG(p) {
-  return 1 + p / (258.6 - 227.1 * (p / 258.2))
+  return 1 + p / (258.6 - 227.1 * (p / 258.2));
 }
 
 /**
@@ -2136,7 +2150,7 @@ function gravityToSG(p) {
  * @returns {number} Temperature in Fahrenheit
  */
 function tempToF(c) {
-  return c * 1.8 + 32.0
+  return c * 1.8 + 32.0;
 }
 
 /**
@@ -2145,7 +2159,7 @@ function tempToF(c) {
  * @returns {number} Temperature in Celsius
  */
 function tempToC(f) {
-  return (f - 32.0) / 1.8
+  return (f - 32.0) / 1.8;
 }
 
 /**
@@ -2154,7 +2168,7 @@ function tempToC(f) {
  * @returns {number} Pressure in Bar
  */
 function psiToBar(p) {
-  return p * 0.0689475729
+  return p * 0.0689475729;
 }
 
 /**
@@ -2163,7 +2177,7 @@ function psiToBar(p) {
  * @returns {number} Pressure in kPa
  */
 function psiToKPa(p) {
-  return p * 6.89475729
+  return p * 6.89475729;
 }
 
 /**
@@ -2172,7 +2186,7 @@ function psiToKPa(p) {
  * @returns {number} Pressure in PSI
  */
 function barToPsi(p) {
-  return p / 0.0689475729
+  return p / 0.0689475729;
 }
 
 /**
@@ -2181,7 +2195,7 @@ function barToPsi(p) {
  * @returns {number} Pressure in PSI
  */
 function kpaToPsi(p) {
-  return p / 6.89475729
+  return p / 6.89475729;
 }
 
 /**
@@ -2192,11 +2206,11 @@ function kpaToPsi(p) {
 function isValidJson(s) {
   try {
     JSON.stringify(JSON.parse(s));
-    return true
+    return true;
   } catch (e) {
     logDebug('utils.isValidJson()', e);
   }
-  return false
+  return false;
 }
 
 /**
@@ -2205,8 +2219,8 @@ function isValidJson(s) {
  * @returns {boolean} True if valid form data
  */
 function isValidFormData(s) {
-  if (s.startsWith('?')) return true
-  return false
+  if (s.startsWith('?')) return true;
+  return false;
 }
 
 /**
@@ -2215,8 +2229,43 @@ function isValidFormData(s) {
  * @returns {boolean} True if valid MQTT data
  */
 function isValidMqttData(s) {
-  if (s.indexOf('|') >= 0) return true
-  return false
+  if (s.indexOf('|') >= 0) return true;
+  return false;
+}
+
+/**
+ * Validate all forms with the `.needs-validation` class and apply Bootstrap styles.
+ *
+ * Behavior:
+ * - Finds all forms matching `.needs-validation` in the document.
+ * - Calls the native HTML5 `checkValidity()` on each form.
+ * - Adds the `was-validated` class to show Bootstrap validation UI.
+ * - Returns true if all forms are valid, false otherwise.
+ *
+ * Note: This function is safe to call in non-browser contexts (Node) — it will
+ * short-circuit and return true if `document` is not available.
+ *
+ * @returns {boolean} true if all matching forms are valid
+ */
+function validateCurrentForm() {
+  // If there's no DOM (e.g. running in Node), short-circuit and return true
+  if (typeof document === 'undefined' || !document.querySelectorAll) {
+    try {
+      logDebug('validateCurrentForm: document not available, skipping validation');
+    } catch (e) {}
+    return true;
+  }
+
+  let valid = true;
+  const forms = document.querySelectorAll('.needs-validation');
+
+  Array.from(forms).forEach(form => {
+    if (!form.checkValidity()) valid = false;
+
+    form.classList.add('was-validated');
+  });
+
+  return valid;
 }
 
 const _hoisted_1$b = ["data-bs-target"];
@@ -2233,33 +2282,33 @@ const _hoisted_10$1 = { class: "text-danger" };
 
 
 var script$c = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsModal',
   props: {
     "modelValue": {
   type: [String, Object, Array],
-  default: ''
+  default: '',
 },
     "modelModifiers": {},
     "button": {
   type: String,
-  default: 'Open Modal'
+  default: 'Open Modal',
 },
     "buttonModifiers": {},
     "title": {
   type: String,
-  default: 'Modal'
+  default: 'Modal',
 },
     "titleModifiers": {},
     "json": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "jsonModifiers": {},
     "mqtt": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "mqttModifiers": {},
   },
@@ -2298,12 +2347,12 @@ const json = useModel(__props, 'json');
  */
 const mqtt = useModel(__props, 'mqtt');
 
-const format = (s) => {
-  if (mqtt.value) return s
+const format = s => {
+  if (mqtt.value) return s;
 
-  if (isValidJson(model.value)) return JSON.stringify(JSON.parse(s), null, 2)
-  if (isValidFormData(model.value)) return s.replaceAll('&', '&\n\r')
-  return s
+  if (isValidJson(model.value)) return JSON.stringify(JSON.parse(s), null, 2);
+  if (isValidFormData(model.value)) return s.replaceAll('&', '&\n\r');
+  return s;
 };
 
 const checkCode = () => {
@@ -2314,7 +2363,7 @@ const checkCode = () => {
       const input = model.value;
       const arr = input.replaceAll('\n', '').split('|');
 
-      arr.forEach((value) => {
+      arr.forEach(value => {
         const data = value.substring(value.indexOf(':') + 1);
 
         if (data.indexOf('{') >= 0 && data.indexOf('}') > 0) {
@@ -2328,13 +2377,13 @@ const checkCode = () => {
       });
     }
 
-    return true
+    return true;
   }
 
-  if (isValidFormData(model.value)) return true
+  if (isValidFormData(model.value)) return true;
 
   if (isValidJson(model.value)) {
-    return true
+    return true;
   } else if (json.value) {
     try {
       // Will show additional json parse errors if enabled
@@ -2344,7 +2393,7 @@ const checkCode = () => {
     }
   }
 
-  return false
+  return false;
 };
 
 return (_ctx, _cache) => {
@@ -2414,45 +2463,45 @@ const _hoisted_8$1 = { class: "modal-footer" };
 
 
 var script$b = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsModalConfirm',
   props: {
     "callback": {
   type: Function,
   default: undefined,
-  validator: (value) => {
-    return value === undefined || typeof value === 'function'
-  }
+  validator: value => {
+    return value === undefined || typeof value === 'function';
+  },
 },
     "callbackModifiers": {},
     "message": {
   type: String,
   default: 'Are you sure?',
-  validator: (value) => {
-    return typeof value === 'string' && value.trim().length > 0
-  }
+  validator: value => {
+    return typeof value === 'string' && value.trim().length > 0;
+  },
 },
     "messageModifiers": {},
     "id": {
   type: String,
   default: 'confirm-modal',
-  validator: (value) => {
-    return typeof value === 'string' && /^[a-zA-Z][a-zA-Z0-9-_]*$/.test(value)
-  }
+  validator: value => {
+    return typeof value === 'string' && /^[a-zA-Z][a-zA-Z0-9-_]*$/.test(value);
+  },
 },
     "idModifiers": {},
     "title": {
   type: String,
   default: 'Confirm Action',
-  validator: (value) => {
-    return typeof value === 'string' && value.trim().length > 0
-  }
+  validator: value => {
+    return typeof value === 'string' && value.trim().length > 0;
+  },
 },
     "titleModifiers": {},
     "hidden": {
   type: Boolean,
-  default: true
+  default: true,
 },
     "hiddenModifiers": {},
   },
@@ -2541,17 +2590,17 @@ script$b.__file = "src/components/BsModalConfirm.vue";
  */
 
 var script$a = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsProgress',
   props: {
     "progress": {
   type: [Number, String],
   default: 0,
-  validator: (value) => {
+  validator: value => {
     const num = Number(value);
-    return !isNaN(num) && num >= 0 && num <= 100
-  }
+    return !isNaN(num) && num >= 0 && num <= 100;
+  },
 },
     "progressModifiers": {},
   },
@@ -2570,7 +2619,7 @@ var script$a = /*@__PURE__*/Object.assign({
 const progress = useModel(__props, 'progress');
 
 const progressStyle = computed(() => {
-  return 'width: ' + progress.value + '%'
+  return 'width: ' + progress.value + '%';
 });
 
 return (_ctx, _cache) => {
@@ -2599,39 +2648,40 @@ const _hoisted_2$2 = ["disabled"];
 
 
 var script$9 = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsFileUpload',
   props: {
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "disabled": {
   type: Boolean,
-  default: false
+  default: false,
 },
     "disabledModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -2741,13 +2791,13 @@ const _hoisted_18 = ["checked", "disabled"];
 
 /**
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
- * 
+ *
  * Purpose: Provide a menu with dropdown options and dark mode toggle.
  * Now uses props-based approach - no Pinia dependency!
  */
 
 var script$8 = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsMenuBar',
   props: {
@@ -2756,50 +2806,50 @@ var script$8 = /*@__PURE__*/Object.assign({
    */
   brand: {
     type: String,
-    default: 'Brand'
+    default: 'Brand',
   },
   /**
    * Whether the menu is disabled (optional)
    */
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   /**
    * Array of menu items to display (required)
    */
   menuItems: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   /**
    * Current dark mode state (required)
    */
   darkMode: {
     type: Boolean,
-    default: false
+    default: false,
   },
   /**
    * MDNS name to display (optional)
    */
   mdns: {
     type: String,
-    default: ''
+    default: '',
   },
   /**
    * Whether config has changed and needs saving (optional)
    */
   configChanged: {
     type: Boolean,
-    default: false
+    default: false,
   },
   /**
    * Current route path for active menu highlighting (optional)
    */
   currentRoute: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 },
   emits: ['update:darkMode'],
   setup(__props, { emit: __emit }) {
@@ -2813,7 +2863,7 @@ const props = __props;
 const emit = __emit;
 
 // Handle dark mode toggle
-const handleDarkModeToggle = (event) => {
+const handleDarkModeToggle = event => {
   emit('update:darkMode', event.target.checked);
 };
 
@@ -2860,7 +2910,7 @@ return (_ctx, _cache) => {
                   'nav-link',
                   props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
-                    : ''
+                    : '',
                 ]),
                       to: item.path,
                       disabled: props.disabled
@@ -2887,7 +2937,7 @@ return (_ctx, _cache) => {
                   'dropdown-toggle',
                   props.currentRoute && props.currentRoute.split('/')[1] === item.path.split('/')[1]
                     ? ' active fw-bold'
-                    : ''
+                    : '',
                 ]),
                       id: 'navbarDropdown' + item.label,
                       role: "button",
@@ -2905,7 +2955,10 @@ return (_ctx, _cache) => {
                           }))
                         : createCommentVNode("v-if", true),
                       createTextVNode(" " + toDisplayString(item.label) + " ", 1 /* TEXT */),
-                      (item.badge !== undefined && (typeof item.badge === 'function' ? item.badge() : item.badge) > 0)
+                      (
+                    item.badge !== undefined &&
+                    (typeof item.badge === 'function' ? item.badge() : item.badge) > 0
+                  )
                         ? (openBlock(), createElementBlock("span", _hoisted_8, toDisplayString(typeof item.badge === 'function' ? item.badge() : item.badge), 1 /* TEXT */))
                         : createCommentVNode("v-if", true)
                     ], 10 /* CLASS, PROPS */, _hoisted_7),
@@ -2925,7 +2978,10 @@ return (_ctx, _cache) => {
                           }, {
                             default: withCtx(() => [
                               createTextVNode(toDisplayString(dn.label) + " ", 1 /* TEXT */),
-                              (dn.badge !== undefined && (typeof dn.badge === 'function' ? dn.badge() : dn.badge) > 0)
+                              (
+                        dn.badge !== undefined &&
+                        (typeof dn.badge === 'function' ? dn.badge() : dn.badge) > 0
+                      )
                                 ? (openBlock(), createElementBlock("span", _hoisted_10, toDisplayString(typeof dn.badge === 'function' ? dn.badge() : dn.badge), 1 /* TEXT */))
                                 : createCommentVNode("v-if", true)
                             ]),
@@ -2987,13 +3043,13 @@ const _hoisted_1$7 = {
 
 
 var script$7 = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsFooter',
   props: {
     "text": {
   type: String,
-  default: 'Footer Text'
+  default: 'Footer Text',
 },
     "textModifiers": {},
   },
@@ -3038,34 +3094,35 @@ const _hoisted_3 = { class: "form-text" };
 
 
 var script$6 = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'BsInputBase',
   props: {
     "label": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "labelModifiers": {},
     "help": {
   type: String,
-  default: undefined
+  default: undefined,
 },
     "helpModifiers": {},
     "width": {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
 },
     "widthModifiers": {},
     "badge": {
   type: Number,
-  default: 0
+  default: 0,
 },
     "badgeModifiers": {},
   },
@@ -3130,34 +3187,34 @@ const _hoisted_1$5 = ["width", "height"];
 
 
 var script$5 = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconHome',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -3204,34 +3261,34 @@ const _hoisted_1$4 = ["width", "height"];
 
 
 var script$4 = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconTools',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -3278,34 +3335,34 @@ const _hoisted_1$3 = ["width", "height"];
 
 
 var script$3 = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconCpu',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -3352,34 +3409,34 @@ const _hoisted_1$2 = ["width", "height"];
 
 
 var script$2 = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconUpArrow',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -3429,34 +3486,34 @@ const _hoisted_1$1 = ["width", "height"];
 
 
 var script$1 = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconGraphUpArrow',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -3506,34 +3563,34 @@ const _hoisted_1 = ["width", "height"];
 
 
 var script = /*@__PURE__*/Object.assign({
-  inheritAttrs: false
+  inheritAttrs: false,
 }, {
   __name: 'IconCloudUpArrow',
   props: {
     "width": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "widthModifiers": {},
     "height": {
   type: [String, Number],
   default: 16,
-  validator: (value) => {
+  validator: value => {
     // Accept CSS units like "1rem", "16px", etc. or numeric values
     if (typeof value === 'string') {
-      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim())
+      return /^(\d+(\.\d+)?)(px|rem|em|%|vh|vw|pt|pc|in|cm|mm|ex|ch|lh)?$/.test(value.trim());
     }
     const num = Number(value);
-    return !isNaN(num) && num > 0
-  }
+    return !isNaN(num) && num > 0;
+  },
 },
     "heightModifiers": {},
   },
@@ -3582,33 +3639,32 @@ script.__file = "src/components/IconCloudUpArrow.vue";
 
 function useFetch() {
   const controllers = ref(new Set());
-  
+
   const managedFetch = async (url, options = {}) => {
     const controller = new AbortController();
     controllers.value.add(controller);
-    
+
     try {
       const response = await fetch(url, {
         ...options,
-        signal: controller.signal
+        signal: controller.signal,
       });
-      
+
       controllers.value.delete(controller);
-      return response
-      
+      return response;
     } catch (error) {
       controllers.value.delete(controller);
-      
+
       if (error.name === 'AbortError') {
         logDebug('useFetch.managedFetch()', 'Request aborted:', url);
-        return null
+        return null;
       }
-      
+
       logError('useFetch.managedFetch()', 'Fetch error:', error);
-      throw error
+      throw error;
     }
   };
-  
+
   const abortAllRequests = () => {
     controllers.value.forEach(controller => {
       controller.abort();
@@ -3616,90 +3672,90 @@ function useFetch() {
     controllers.value.clear();
     logDebug('useFetch.abortAllRequests()', 'All fetch requests aborted');
   };
-  
-  const abortRequest = (controller) => {
+
+  const abortRequest = controller => {
     if (controllers.value.has(controller)) {
       controller.abort();
       controllers.value.delete(controller);
     }
   };
-  
+
   onBeforeUnmount(() => {
     abortAllRequests();
   });
-  
+
   if (typeof window !== 'undefined') {
     const handleUnload = () => {
       abortAllRequests();
     };
-    
+
     window.addEventListener('beforeunload', handleUnload);
-    
+
     onBeforeUnmount(() => {
       window.removeEventListener('beforeunload', handleUnload);
     });
   }
-  
+
   return {
     managedFetch,
     abortAllRequests,
     abortRequest,
-    activeControllers: controllers
-  }
+    activeControllers: controllers,
+  };
 }
 
 function useTimers() {
   const timeouts = ref(new Set());
   const intervals = ref(new Set());
-  
+
   const createTimeout = (callback, delay) => {
     const timeoutId = setTimeout(() => {
       timeouts.value.delete(timeoutId);
       callback();
     }, delay);
-    
+
     timeouts.value.add(timeoutId);
-    return timeoutId
+    return timeoutId;
   };
-  
+
   const createInterval = (callback, delay) => {
     const intervalId = setInterval(callback, delay);
     intervals.value.add(intervalId);
-    return intervalId
+    return intervalId;
   };
-  
-  const clearManagedTimeout = (timeoutId) => {
+
+  const clearManagedTimeout = timeoutId => {
     if (timeouts.value.has(timeoutId)) {
       clearTimeout(timeoutId);
       timeouts.value.delete(timeoutId);
     }
   };
-  
-  const clearManagedInterval = (intervalId) => {
+
+  const clearManagedInterval = intervalId => {
     if (intervals.value.has(intervalId)) {
       clearInterval(intervalId);
       intervals.value.delete(intervalId);
     }
   };
-  
+
   const clearAllTimers = () => {
     timeouts.value.forEach(timeoutId => {
       clearTimeout(timeoutId);
     });
     timeouts.value.clear();
-    
+
     intervals.value.forEach(intervalId => {
       clearInterval(intervalId);
     });
     intervals.value.clear();
-    
+
     logDebug('useTimers.clearAllTimers()', 'All timers cleared');
   };
-  
+
   onBeforeUnmount(() => {
     clearAllTimers();
   });
-  
+
   return {
     createTimeout,
     createInterval,
@@ -3707,8 +3763,8 @@ function useTimers() {
     clearManagedInterval,
     clearAllTimers,
     activeTimeouts: timeouts,
-    activeIntervals: intervals
-  }
+    activeIntervals: intervals,
+  };
 }
 
 // src/index.js
@@ -3717,4 +3773,4 @@ function useTimers() {
 // Package version
 const version = '1.2.0';
 
-export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, barToPsi, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, tempToC, tempToF, useFetch, useTimers, version };
+export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, barToPsi, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version };

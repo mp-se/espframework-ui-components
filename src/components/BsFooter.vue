@@ -16,14 +16,14 @@
  * Purpose: Provide a generic footer
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 
 /**
  * Text to show in the footer (required).
  */
 const text = defineModel('text', {
   type: String,
-  default: 'Footer Text'
-})
+  default: 'Footer Text',
+});
 </script>

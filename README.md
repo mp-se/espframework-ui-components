@@ -20,15 +20,15 @@ npm install @mp-se/espframework-ui-components
 ## 🔧 Usage
 
 ```javascript
-import { BsCard, BsInputText, IconWifi, logInfo } from '@mp-se/espframework-ui-components'
+import { BsCard, BsInputText, IconWifi, logInfo } from '@mp-se/espframework-ui-components';
 
 export default {
   components: {
     BsCard,
     BsInputText,
-    IconWifi
-  }
-}
+    IconWifi,
+  },
+};
 ```
 
 ```vue
@@ -44,6 +44,7 @@ export default {
 ## 📚 Components
 
 ### UI Components
+
 - `BsCard` - Bootstrap card component
 - `BsDropdown` - Dropdown menu
 - `BsInputText` - Text input with validation
@@ -56,6 +57,7 @@ export default {
 - And many more...
 
 ### Icon Components
+
 - `IconWifi` - WiFi signal icon
 - `IconEye/IconEyeSlash` - Visibility toggles
 - `IconCheckCircle` - Success states
@@ -83,4 +85,3 @@ npm run build
 # Development mode with watch
 npm run dev
 ```
-

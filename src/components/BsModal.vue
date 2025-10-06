@@ -42,105 +42,105 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { isValidJson, isValidFormData } from '../modules/utils.js'
+import { ref } from 'vue';
+import { isValidJson, isValidFormData } from '../modules/utils.js';
 // Using native JSON.parse instead of json-parse-even-better-errors to reduce external dependencies
 
-const jsonError = ref('')
+const jsonError = ref('');
 
 /**
  * Purpose: Show a button that activates a modal with close button, title and content. Support json pretty.
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 
 /**
  * Ref to fetch data from (required).
  */
 const model = defineModel({
   type: [String, Object, Array],
-  default: ''
-})
+  default: '',
+});
 
 /**
  * Text on button that activates the modal (required).
  */
 const button = defineModel('button', {
   type: String,
-  default: 'Open Modal'
-})
+  default: 'Open Modal',
+});
 
 /**
  * Modal title (required).
  */
 const title = defineModel('title', {
   type: String,
-  default: 'Modal'
-})
+  default: 'Modal',
+});
 
 /**
  * If json errors should be detected (optional).
  */
 const json = defineModel('json', {
   type: Boolean,
-  default: false
-})
+  default: false,
+});
 
 /**
  * Force mqtt format (optional).
  */
 const mqtt = defineModel('mqtt', {
   type: Boolean,
-  default: false
-})
+  default: false,
+});
 
-const format = (s) => {
-  if (mqtt.value) return s
+const format = s => {
+  if (mqtt.value) return s;
 
-  if (isValidJson(model.value)) return JSON.stringify(JSON.parse(s), null, 2)
-  if (isValidFormData(model.value)) return s.replaceAll('&', '&\n\r')
-  return s
-}
+  if (isValidJson(model.value)) return JSON.stringify(JSON.parse(s), null, 2);
+  if (isValidFormData(model.value)) return s.replaceAll('&', '&\n\r');
+  return s;
+};
 
 const checkCode = () => {
-  jsonError.value = ''
+  jsonError.value = '';
 
   if (mqtt.value) {
     if (json.value) {
-      const input = model.value
-      const arr = input.replaceAll('\n', '').split('|')
+      const input = model.value;
+      const arr = input.replaceAll('\n', '').split('|');
 
-      arr.forEach((value) => {
-        const data = value.substring(value.indexOf(':') + 1)
+      arr.forEach(value => {
+        const data = value.substring(value.indexOf(':') + 1);
 
         if (data.indexOf('{') >= 0 && data.indexOf('}') > 0) {
           try {
             // Will show additional json parse errors if enabled
-            JSON.parse(data)
+            JSON.parse(data);
           } catch (e) {
-            jsonError.value = e.message
+            jsonError.value = e.message;
           }
         }
-      })
+      });
     }
 
-    return true
+    return true;
   }
 
-  if (isValidFormData(model.value)) return true
+  if (isValidFormData(model.value)) return true;
 
   if (isValidJson(model.value)) {
-    return true
+    return true;
   } else if (json.value) {
     try {
       // Will show additional json parse errors if enabled
-      JSON.parse(model.value)
+      JSON.parse(model.value);
     } catch (e) {
-      jsonError.value = e.message
+      jsonError.value = e.message;
     }
   }
 
-  return false
-}
+  return false;
+};
 </script>

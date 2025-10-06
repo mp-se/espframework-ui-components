@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import IconWifi from './IconWifi.vue'
+import IconWifi from './IconWifi.vue';
 /**
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
  */
@@ -21,31 +21,31 @@ import IconWifi from './IconWifi.vue'
  * Purpose: Provide a select option
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 /**
  * Ref to bind value to (required).
  */
 const model = defineModel({
   type: [String, Number, Boolean],
-  default: null
-})
+  default: null,
+});
 
 /**
  * This text is shown above the form component (optional).
  */
 const label = defineModel('label', {
   type: String,
-  default: undefined
-})
+  default: undefined,
+});
 
 /**
  * Help text is shown below the field to provide user help with input (optional).
  */
 const help = defineModel('help', {
   type: String,
-  default: undefined
-})
+  default: undefined,
+});
 
 /**
  * Specify the width to force a specific size (optional).
@@ -53,13 +53,14 @@ const help = defineModel('help', {
 const width = defineModel('width', {
   type: [String, Number],
   default: undefined,
-  validator: (value) => {
-    if (value === undefined || value === null || value === '') return true
-    if (typeof value === 'number') return value > 0 && value <= 12
-    if (typeof value === 'string') return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value)
-    return false
-  }
-})
+  validator: value => {
+    if (value === undefined || value === null || value === '') return true;
+    if (typeof value === 'number') return value > 0 && value <= 12;
+    if (typeof value === 'string')
+      return /^(\d|1[0-2])$|^(sm|md|lg|xl|xxl)-(\d|1[0-2])$/.test(value);
+    return false;
+  },
+});
 
 /**
  * Options for the dropdown in the format [ { label: "label", value: "value" } ]
@@ -68,27 +69,26 @@ const width = defineModel('width', {
 const options = defineModel('options', {
   type: Array,
   default: () => [],
-  validator: (options) => {
-    return options.every(option => 
-      option && typeof option === 'object' && 
-      'label' in option && 'value' in option
-    )
-  }
-})
+  validator: options => {
+    return options.every(
+      option => option && typeof option === 'object' && 'label' in option && 'value' in option
+    );
+  },
+});
 
 /**
  * Ref that steers if this component is enabled or not (optional).
  */
 const disabled = defineModel('disabled', {
   type: Boolean,
-  default: false
-})
+  default: false,
+});
 
 /**
  * Specify the number to show in the badge to guide the user (optional).
  */
 const badge = defineModel('badge', {
   type: Number,
-  default: 0
-})
+  default: 0,
+});
 </script>
