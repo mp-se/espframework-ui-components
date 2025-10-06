@@ -4130,7 +4130,11 @@ const sharedHttpClient = new HttpClient();
 // ESP Framework UI Components Library
 
 // Package version
+<<<<<<< HEAD
 const version = '1.3.2';
+=======
+const version = '1.3.1';
+>>>>>>> 931569972d6c87de23db797d5b66a6cc798bd10d
 
 exports.BsCard = script$u;
 exports.BsDropdown = script$t;
