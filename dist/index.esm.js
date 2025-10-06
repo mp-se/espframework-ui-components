@@ -3919,6 +3919,204 @@ class HttpClient {
     }
   }
 
+  // Upload a file or FormData using XMLHttpRequest to support progress events.
+  // path: endpoint path (e.g. 'api/firmware/upload')
+  // data: File or FormData
+  // opts: { fieldName = 'file', timeoutMs, onProgress }
+  uploadFile(path, data, opts = {}) {
+    const { fieldName = 'file', timeoutMs = 120000, onProgress } = opts;
+
+    return new Promise(resolve => {
+      try {
+        const url = this.buildUrl(path);
+        const xhr = new XMLHttpRequest();
+        xhr.timeout = timeoutMs;
+
+        xhr.onerror = e => {
+          logError('httpClient.uploadFile()', e);
+          resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
+        };
+
+        xhr.ontimeout = e => {
+          logError('httpClient.uploadFile()', 'timeout', e);
+          resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
+        };
+
+        xhr.onloadend = () => {
+          const ok = xhr.status >= 200 && xhr.status < 300;
+          if (ok) {
+            resolve({ success: true, status: xhr.status, text: xhr.responseText });
+          } else {
+            logError('httpClient.uploadFile()', `HTTP ${xhr.status}`);
+            resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
+          }
+        };
+
+        if (xhr.upload && typeof onProgress === 'function') {
+          xhr.upload.addEventListener('progress', ev => {
+            if (ev.lengthComputable) {
+              const percent = (ev.loaded / ev.total) * 100;
+              try {
+                onProgress(percent);
+              } catch (e) {
+                logError('httpClient.uploadFile.onProgress()', e);
+              }
+            }
+          });
+        }
+
+        // Prepare form data
+        let payload;
+        if (data instanceof FormData) {
+          payload = data;
+        } else {
+          payload = new FormData();
+          payload.append(fieldName, data);
+        }
+
+        xhr.open('POST', url, true);
+        // Set Authorization header if token present
+        if (this.token) {
+          try {
+            xhr.setRequestHeader('Authorization', this.token);
+          } catch (e) {
+            // Some browsers may throw when setting forbidden headers; safest to ignore
+            logError('httpClient.uploadFile.setRequestHeader()', e);
+          }
+        }
+
+        xhr.send(payload);
+      } catch (err) {
+        logError('httpClient.uploadFile()', err);
+        resolve({ success: false, status: 0, text: '' });
+      }
+    });
+  }
+
+  // Build a websocket URL from the client's baseURL and a path.
+  buildWsUrl(path) {
+    const base = this.baseURL || '';
+    let wsBase = base;
+    try {
+      if (base.startsWith('https://')) wsBase = base.replace(/^https:\/\//i, 'wss://');
+      else if (base.startsWith('http://')) wsBase = base.replace(/^http:\/\//i, 'ws://');
+      else wsBase = base;
+    } catch (e) {
+      wsBase = base;
+    }
+
+    if (!path) return wsBase;
+    if (path.startsWith('ws://') || path.startsWith('wss://')) return path;
+    return wsBase.endsWith('/') || path.startsWith('/')
+      ? wsBase + path.replace(/^\//, '')
+      : wsBase + path;
+  }
+
+  // Create a WebSocket for a given path. Returns the raw WebSocket and a small helper to close.
+  // opts: { protocols?, onOpen?, onMessage?, onClose?, onError?, autoReconnect?: boolean, reconnectIntervalMs?: number }
+  createWebSocket(path, opts = {}) {
+    const {
+      protocols,
+      onOpen,
+      onMessage,
+      onClose,
+      onError,
+      autoReconnect = false,
+      reconnectIntervalMs = 3000,
+    } = opts;
+
+    let socket = null;
+    let shouldReconnect = autoReconnect;
+    let reconnectTimer = null;
+
+    const open = () => {
+      const url = this.buildWsUrl(path);
+      socket = protocols ? new WebSocket(url, protocols) : new WebSocket(url);
+
+      socket.onopen = ev => {
+        if (typeof onOpen === 'function') onOpen(ev);
+      };
+      socket.onmessage = ev => {
+        if (typeof onMessage === 'function') onMessage(ev);
+      };
+      socket.onclose = ev => {
+        if (typeof onClose === 'function') onClose(ev);
+        if (shouldReconnect) {
+          reconnectTimer = setTimeout(() => open(), reconnectIntervalMs);
+        }
+      };
+      socket.onerror = ev => {
+        if (typeof onError === 'function') onError(ev);
+      };
+    };
+
+    open();
+
+    const close = () => {
+      shouldReconnect = false;
+      if (reconnectTimer) {
+        clearTimeout(reconnectTimer);
+        reconnectTimer = null;
+      }
+      if (socket) {
+        try {
+          socket.close();
+        } catch (e) {
+          logError('httpClient.createWebSocket.close()', e);
+        }
+        socket = null;
+      }
+    };
+
+    return { socketGetter: () => socket, close };
+  }
+
+  // Perform a device restart via /api/restart and optionally schedule a client redirect
+  // mdns: optional mDNS name (without .local) used to redirect to the device after restart
+  // opts: { redirectDelayMs = 8000 }
+  async restart(mdns, opts = {}) {
+    const { redirectDelayMs = 8000 } = opts;
+    try {
+      const json = await this.getJson('api/restart');
+
+      // If caller provided an mdns name and restart succeeded, schedule a redirect
+      if (json && json.status === true && typeof window !== 'undefined' && mdns) {
+        const redirectUrl = 'http://' + mdns + '.local';
+        const redirectTimeout = setTimeout(() => {
+          try {
+            location.href = redirectUrl;
+          } catch (error) {
+            logError('httpClient.restart.redirect()', error);
+            // Fallback to reload
+            try {
+              window.location.reload();
+            } catch (_e) {
+              // ignore
+            }
+          }
+        }, redirectDelayMs);
+
+        // Clean up on page unload to avoid dangling timeout
+        if (typeof window !== 'undefined') {
+          window.addEventListener(
+            'beforeunload',
+            () => {
+              clearTimeout(redirectTimeout);
+            },
+            { once: true }
+          );
+        }
+
+        return { success: true, json, redirectScheduled: true };
+      }
+
+      return { success: true, json, redirectScheduled: false };
+    } catch (err) {
+      logError('httpClient.restart()', err);
+      return { success: false, error: err };
+    }
+  }
+
   // token is stored only in-memory; no explicit clearToken API
 }
 
@@ -3929,6 +4127,6 @@ const sharedHttpClient = new HttpClient();
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.2.0';
+const version = '1.3.0';
 
 export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, HttpClient, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, barToPsi, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version };
