@@ -136,7 +136,9 @@ export function validateCurrentForm() {
   if (typeof document === 'undefined' || !document.querySelectorAll) {
     try {
       logDebug('validateCurrentForm: document not available, skipping validation');
-    } catch (e) {}
+    } catch (e) {
+      // ignore logging failures
+    }
     return true;
   }
 

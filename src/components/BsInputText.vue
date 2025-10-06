@@ -11,8 +11,8 @@
         :data-bs-title="help"
       />
       <span v-if="type === 'password'" class="input-group-text">
-        <IconEye v-if="!flag" @click="toggle" width="1rem" height="1rem"></IconEye>
-        <IconEyeSlash v-if="flag" @click="toggle" width="1rem" height="1rem"></IconEyeSlash>
+        <IconEye v-if="!flag" width="1rem" height="1rem" @click="toggle"></IconEye>
+        <IconEyeSlash v-if="flag" width="1rem" height="1rem" @click="toggle"></IconEyeSlash>
       </span>
     </div>
   </BsInputBase>

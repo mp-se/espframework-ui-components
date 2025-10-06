@@ -13,10 +13,10 @@
     <slot />
     <button
       v-if="dismissable && close !== undefined"
-      @click="close(alert)"
       type="button"
       class="btn-close"
       aria-label="Close"
+      @click="close(alert)"
     ></button>
     <button
       v-if="dismissable && close === undefined"

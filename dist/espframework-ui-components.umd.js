@@ -563,17 +563,17 @@
                 (!flag.value)
                   ? (vue.openBlock(), vue.createBlock(script$r, {
                       key: 0,
-                      onClick: toggle,
                       width: "1rem",
-                      height: "1rem"
+                      height: "1rem",
+                      onClick: toggle
                     }))
                   : vue.createCommentVNode("v-if", true),
                 (flag.value)
                   ? (vue.openBlock(), vue.createBlock(script$s, {
                       key: 1,
-                      onClick: toggle,
                       width: "1rem",
-                      height: "1rem"
+                      height: "1rem",
+                      onClick: toggle
                     }))
                   : vue.createCommentVNode("v-if", true)
               ]))
@@ -1116,7 +1116,6 @@
       }, {
         default: vue.withCtx(() => [
           vue.withDirectives(vue.createElementVNode("textarea", vue.mergeProps({
-            onContextmenu: vue.withModifiers(openContextMenu, ["right","prevent"]),
             id: "textArea",
             "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
             class: "form-control",
@@ -1124,7 +1123,8 @@
           }, _ctx.$attrs, {
             "data-bs-toggle": "tooltip",
             "data-bs-custom-class": "custom-tooltip",
-            "data-bs-title": help.value
+            "data-bs-title": help.value,
+            onContextmenu: vue.withModifiers(openContextMenu, ["right","prevent"])
           }), null, 16 /* FULL_PROPS */, _hoisted_1$l), [
             [vue.vModelText, model.value]
           ])
@@ -1132,9 +1132,9 @@
         _: 1 /* STABLE */
       }, 8 /* PROPS */, ["width", "label", "help", "badge"]),
       vue.createElementVNode("div", {
-        onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.closeContextMenu && _ctx.closeContextMenu(...args))),
         id: "contextMenu",
-        class: "dropdown-menu"
+        class: "dropdown-menu",
+        onClick: _cache[1] || (_cache[1] = (...args) => (_ctx.closeContextMenu && _ctx.closeContextMenu(...args)))
       }, [
         (vue.openBlock(true), vue.createElementBlock(vue.Fragment, null, vue.renderList(contextMenuOptions.value, (o) => {
           return (vue.openBlock(), vue.createElementBlock("a", {
@@ -1257,7 +1257,7 @@
     class: "btn-group",
     role: "group"
   };
-  const _hoisted_2$6 = ["value", "name", "id", "disabled"];
+  const _hoisted_2$6 = ["id", "value", "name", "disabled"];
   const _hoisted_3$5 = ["for"];
 
 
@@ -1377,12 +1377,12 @@
               key: o.value
             }, [
               vue.withDirectives(vue.createElementVNode("input", {
+                id: 'radio' + _ctx.$.uid + o.value,
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
                 type: "radio",
                 class: "btn-check",
-                "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
                 value: o.value,
                 name: 'radio' + _ctx.$.uid,
-                id: 'radio' + _ctx.$.uid + o.value,
                 disabled: disabled.value
               }, null, 8 /* PROPS */, _hoisted_2$6), [
                 [vue.vModelRadio, model.value]
@@ -2054,10 +2054,10 @@
       (dismissable.value && close.value !== undefined)
         ? (vue.openBlock(), vue.createElementBlock("button", {
             key: 4,
-            onClick: _cache[0] || (_cache[0] = $event => (close.value(alert.value))),
             type: "button",
             class: "btn-close",
-            "aria-label": "Close"
+            "aria-label": "Close",
+            onClick: _cache[0] || (_cache[0] = $event => (close.value(alert.value)))
           }))
         : vue.createCommentVNode("v-if", true),
       (dismissable.value && close.value === undefined)
@@ -2257,7 +2257,9 @@
     if (typeof document === 'undefined' || !document.querySelectorAll) {
       try {
         logDebug('validateCurrentForm: document not available, skipping validation');
-      } catch (e) {}
+      } catch (e) {
+        // ignore logging failures
+      }
       return true;
     }
 
@@ -2410,8 +2412,8 @@
         "data-bs-target": '#modal' + _ctx.$.uid
       }), vue.toDisplayString(button.value), 17 /* TEXT, FULL_PROPS */, _hoisted_1$b),
       vue.createElementVNode("div", {
-        class: "modal fade modal-lg",
         id: 'modal' + _ctx.$.uid,
+        class: "modal fade modal-lg",
         tabindex: "-1",
         "aria-hidden": "true"
       }, [
@@ -2554,8 +2556,8 @@
         "data-bs-target": '#modal' + _ctx.$.uid
       }, _ctx.$attrs), " This should hidden ", 16 /* FULL_PROPS */, _hoisted_1$a),
       vue.createElementVNode("div", {
-        class: "modal fade modal-lg",
         id: 'modal' + _ctx.$.uid,
+        class: "modal fade modal-lg",
         tabindex: "-1",
         "aria-hidden": "true"
       }, [
@@ -2567,16 +2569,16 @@
             vue.createElementVNode("div", _hoisted_7$1, vue.toDisplayString(message.value), 1 /* TEXT */),
             vue.createElementVNode("div", _hoisted_8$1, [
               vue.createElementVNode("button", {
-                onClick: _cache[0] || (_cache[0] = $event => (callback.value(true))),
                 type: "button",
                 class: "btn btn-primary",
-                "data-bs-dismiss": "modal"
+                "data-bs-dismiss": "modal",
+                onClick: _cache[0] || (_cache[0] = $event => (callback.value(true)))
               }, " Confirm "),
               vue.createElementVNode("button", {
-                onClick: _cache[1] || (_cache[1] = $event => (callback.value(false))),
                 type: "button",
                 class: "btn btn-secondary",
-                "data-bs-dismiss": "modal"
+                "data-bs-dismiss": "modal",
+                onClick: _cache[1] || (_cache[1] = $event => (callback.value(false)))
               }, " Cancel ")
             ])
           ])
@@ -2756,8 +2758,8 @@
   const _hoisted_1$8 = { class: "container-fluid align-center" };
   const _hoisted_2$1 = { class: "navbar-brand" };
   const _hoisted_3$1 = {
-    class: "collapse navbar-collapse",
-    id: "navbar"
+    id: "navbar",
+    class: "collapse navbar-collapse"
   };
   const _hoisted_4 = { class: "navbar-nav" };
   const _hoisted_5 = {
@@ -2794,12 +2796,6 @@
   const _hoisted_17 = { class: "form-check form-switch" };
   const _hoisted_18 = ["checked", "disabled"];
 
-  /**
-   * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
-   *
-   * Purpose: Provide a menu with dropdown options and dark mode toggle.
-   * Now uses props-based approach - no Pinia dependency!
-   */
 
   var script$8 = /*@__PURE__*/Object.assign({
     inheritAttrs: false,
@@ -2859,6 +2855,12 @@
     emits: ['update:darkMode'],
     setup(__props, { emit: __emit }) {
 
+  /**
+   * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
+   *
+   * Purpose: Provide a menu with dropdown options and dark mode toggle.
+   * Now uses props-based approach - no Pinia dependency!
+   */
 
 
   // Props
@@ -2936,7 +2938,7 @@
                     ]))
                   : (vue.openBlock(), vue.createElementBlock("li", _hoisted_6, [
                       vue.createElementVNode("a", {
-                        onClick: menuClicked,
+                        id: 'navbarDropdown' + item.label,
                         class: vue.normalizeClass([
                     'nav-link',
                     'dropdown-toggle',
@@ -2944,12 +2946,12 @@
                       ? ' active fw-bold'
                       : '',
                   ]),
-                        id: 'navbarDropdown' + item.label,
                         role: "button",
                         "data-bs-toggle": "dropdown",
                         "aria-expanded": "false",
                         "data-bs-auto-close": "true",
-                        disabled: props.disabled
+                        disabled: props.disabled,
+                        onClick: menuClicked
                       }, [
                         (item.icon !== undefined)
                           ? (vue.openBlock(), vue.createBlock(vue.resolveDynamicComponent(item.icon), {
@@ -2976,10 +2978,10 @@
                             key: dn.path
                           }, [
                             vue.createVNode(_component_router_link, {
-                              onClick: subMenuClicked,
                               class: "dropdown-item",
                               to: dn.path,
-                              disabled: props.disabled
+                              disabled: props.disabled,
+                              onClick: subMenuClicked
                             }, {
                               default: vue.withCtx(() => [
                                 vue.createTextVNode(vue.toDisplayString(dn.label) + " ", 1 /* TEXT */),
@@ -3772,6 +3774,162 @@
     };
   }
 
+  // Minimal centralized HTTP client to standardize fetch usage across the app.
+  // Provides timeout, automatic Authorization header injection (from a getter),
+  // convenience helpers returning Promises (json/text), and built-in logging.
+  class HttpClient {
+    constructor() {
+      // autodetect base URL from env or window location
+      if (typeof ({ url: (typeof document === 'undefined' && typeof location === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : typeof document === 'undefined' ? location.href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('espframework-ui-components.umd.js', document.baseURI).href)) }) !== 'undefined' && undefined && undefined.VITE_APP_HOST) {
+        this.baseURL = undefined.VITE_APP_HOST;
+      } else if (typeof window !== 'undefined' && window.location) {
+        this.baseURL = window.location.href;
+      } else {
+        this.baseURL = '';
+      }
+
+      // default timeout (ms)
+      this.timeout =
+        typeof ({ url: (typeof document === 'undefined' && typeof location === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : typeof document === 'undefined' ? location.href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('espframework-ui-components.umd.js', document.baseURI).href)) }) !== 'undefined' && undefined && undefined.VITE_FETCH_TIMEOUT
+          ? Number(undefined.VITE_FETCH_TIMEOUT)
+          : 8000;
+
+      this.token = '';
+    }
+
+    buildUrl(path) {
+      if (!path) return this.baseURL;
+      if (path.startsWith('http://') || path.startsWith('https://')) return path;
+      return this.baseURL.endsWith('/') || path.startsWith('/')
+        ? this.baseURL + path.replace(/^\//, '')
+        : this.baseURL + path;
+    }
+
+    async request(path, { method = 'GET', headers = {}, body, timeout } = {}) {
+      const url = this.buildUrl(path);
+      const controller = new AbortController();
+      const t = timeout === undefined ? this.timeout : timeout;
+
+      const finalHeaders = Object.assign({}, headers);
+      if (this.token && !Object.keys(finalHeaders).some(k => k.toLowerCase() === 'authorization')) {
+        finalHeaders['Authorization'] = this.token;
+      }
+
+      const timer = setTimeout(() => controller.abort(), t);
+
+      const res = await fetch(url, {
+        method,
+        headers: finalHeaders,
+        body,
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      return res;
+    }
+
+    async getJson(path, opts = {}) {
+      const res = await this.request(path, Object.assign({ method: 'GET' }, opts));
+      if (!res) return null;
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+      return res.json();
+    }
+
+    async postJson(path, data, opts = {}) {
+      const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
+      const body = JSON.stringify(data);
+      const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+      return res;
+    }
+
+    async postText(path, data, opts = {}) {
+      const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
+      const body = JSON.stringify(data);
+      const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+      return res.text();
+    }
+
+    // Convenience helper to interact with the device filesystem API.
+    // Accepts a data object, posts to 'api/filesystem' and returns an object
+    // { success: boolean, text: string } to match previous callers' expectations.
+    async filesystemRequest(data) {
+      try {
+        logInfo('httpClient.filesystemRequest()', 'Sending /api/filesystem');
+        const text = await this.postText('api/filesystem', data);
+        return { success: true, text };
+      } catch (err) {
+        logError('httpClient.filesystemRequest()', err);
+        return { success: false, text: '' };
+      }
+    }
+
+    // Ping the device to check connectivity. Returns boolean success/failure.
+    async ping() {
+      try {
+        await this.getJson('api/ping');
+        return true;
+      } catch (err) {
+        logError('httpClient.ping()', err);
+        return false;
+      }
+    }
+
+    // Map device push error codes to human readable messages
+    getErrorString(code) {
+      switch (code) {
+        case -100:
+          return 'Skipped since SSL is used';
+        case 200:
+          return 'Success (200)';
+        case 401:
+          return 'Access denied (401)';
+        case 404:
+          return 'Endpoint not found (404)';
+        case 422:
+          return 'Paylod cannot be parsed, check format and http headers';
+        default:
+          return '';
+      }
+    }
+
+    // Perform Basic auth against device and store token on success.
+    // optional `basicBase` should be the base64 encoded "user:pass" string (without the 'Basic ' prefix)
+    // Performs auth, logs errors internally and returns boolean success/failure.
+    async auth(basicBase) {
+      try {
+        const base = basicBase;
+        logInfo('httpClient.auth()', 'Requesting /api/auth');
+        const response = await this.request('api/auth', {
+          method: 'GET',
+          headers: { Authorization: 'Basic ' + base },
+        });
+        if (!response.ok) {
+          const err = new Error(`HTTP ${response.status}: ${response.statusText}`);
+          logError('httpClient.auth()', err);
+          return false;
+        }
+        const json = await response.json();
+        if (json && json.token) {
+          this.token = json.token;
+          logInfo('httpClient.auth()', 'Authentication succeeded, token set');
+          return true;
+        }
+        const noTokenErr = new Error('Authentication response did not contain token');
+        logError('httpClient.auth()', noTokenErr);
+        return false;
+      } catch (err) {
+        logError('httpClient.auth()', err);
+        return false;
+      }
+    }
+
+    // token is stored only in-memory; no explicit clearToken API
+  }
+
+  // Shared singleton client (will be initialized lazily; consumers should set baseURL/token/timeout)
+  const sharedHttpClient = new HttpClient();
+
   // src/index.js
   // ESP Framework UI Components Library
 
@@ -3796,6 +3954,7 @@
   exports.BsModalConfirm = script$b;
   exports.BsProgress = script$a;
   exports.BsSelect = script$i;
+  exports.HttpClient = HttpClient;
   exports.IconCheckCircle = script$g;
   exports.IconCloudUpArrow = script;
   exports.IconCpu = script$3;
@@ -3822,6 +3981,7 @@
   exports.psiToBar = psiToBar;
   exports.psiToKPa = psiToKPa;
   exports.roundVal = roundVal;
+  exports.sharedHttpClient = sharedHttpClient;
   exports.tempToC = tempToC;
   exports.tempToF = tempToF;
   exports.useFetch = useFetch;

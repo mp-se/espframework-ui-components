@@ -20,6 +20,7 @@
     "dev": "rollup -c -w",
     "test": "echo \"No tests yet\" && exit 0",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,json,md,css,scss,html}\"",
+    "lint": "eslint --ext .js,.vue src demo-app.js demo.html || true",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
@@ -29,6 +30,11 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/compiler-sfc": "^3.5.22",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^8.10.2",
+    "eslint-plugin-prettier": "^4.2.5",
+    "eslint-plugin-vue": "^9.33.0",
     "prettier": "^2.8.8",
     "rollup": "^4.9.6",
     "rollup-plugin-css-only": "^4.5.5",

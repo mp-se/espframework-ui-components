@@ -1,7 +1,6 @@
 <template>
   <BsInputBase :width="width" :label="label" :help="help" :badge="badge">
     <textarea
-      @click.right.prevent="openContextMenu"
       id="textArea"
       v-model="model"
       class="form-control"
@@ -10,10 +9,11 @@
       data-bs-toggle="tooltip"
       data-bs-custom-class="custom-tooltip"
       :data-bs-title="help"
+      @click.right.prevent="openContextMenu"
     ></textarea>
   </BsInputBase>
 
-  <div @click="closeContextMenu" id="contextMenu" class="dropdown-menu">
+  <div id="contextMenu" class="dropdown-menu" @click="closeContextMenu">
     <template v-for="o in contextMenuOptions" :key="o.value">
       <a class="dropdown-item" @click="insertText(o.value)">{{ o.label }}</a>
     </template>

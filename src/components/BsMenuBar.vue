@@ -19,7 +19,7 @@
 
       <div class="vr d-none d-lg-flex h-200 mx-lg-2 text-white"></div>
 
-      <div class="collapse navbar-collapse" id="navbar">
+      <div id="navbar" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <template v-for="(item, index) in props.menuItems" :key="index">
             <li v-if="!item.subs || !item.subs.length" class="nav-item">
@@ -34,8 +34,8 @@
                 :disabled="props.disabled"
               >
                 <component
-                  v-if="item.icon !== undefined"
                   :is="item.icon"
+                  v-if="item.icon !== undefined"
                   width="1rem"
                   height="1rem"
                   style="color: white"
@@ -46,7 +46,7 @@
             </li>
             <li v-else class="nav-item dropdown">
               <a
-                @click="menuClicked"
+                :id="'navbarDropdown' + item.label"
                 :class="[
                   'nav-link',
                   'dropdown-toggle',
@@ -54,16 +54,16 @@
                     ? ' active fw-bold'
                     : '',
                 ]"
-                :id="'navbarDropdown' + item.label"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
                 data-bs-auto-close="true"
                 :disabled="props.disabled"
+                @click="menuClicked"
               >
                 <component
-                  v-if="item.icon !== undefined"
                   :is="item.icon"
+                  v-if="item.icon !== undefined"
                   width="1rem"
                   height="1rem"
                   style="color: white"
@@ -82,10 +82,10 @@
               <ul class="dropdown-menu" :aria-labelledby="'navbarDropdown' + item.label">
                 <li v-for="dn in item.subs" :key="dn.path">
                   <router-link
-                    @click="subMenuClicked"
                     class="dropdown-item"
                     :to="dn.path"
                     :disabled="props.disabled"
+                    @click="subMenuClicked"
                     >{{ dn.label }}
                     <span
                       v-if="
@@ -115,10 +115,10 @@
         <span class="badge bg-danger fs-6">Save needed &nbsp;</span>
       </div>
 
-      <div class="vr d-none d-lg-flex h-200 mx-lg-2 text-white" v-if="props.configChanged"></div>
+      <div v-if="props.configChanged" class="vr d-none d-lg-flex h-200 mx-lg-2 text-white"></div>
 
       <div class="p-2">
-        <div class="spinner-border gx-4" role="status" style="color: white" v-show="props.disabled">
+        <div v-show="props.disabled" class="spinner-border gx-4" role="status" style="color: white">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
@@ -145,8 +145,6 @@
 </template>
 
 <script setup>
-import { onMounted, watch } from 'vue';
-
 /**
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
  *

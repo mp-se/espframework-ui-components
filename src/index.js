@@ -45,6 +45,8 @@ export { useTimers } from './composables/useTimers.js';
 
 // Utilities (ESP Framework modules)
 export { logDebug, logInfo, logError } from './modules/logger.js';
+// HTTP client (factory and shared singleton)
+export { HttpClient, sharedHttpClient } from './modules/httpClient.js';
 
 // Utilities (ESP Framework conversion & validation functions)
 export {

@@ -9,7 +9,9 @@
       (function poll() {
         try {
           if (conditionFn()) return resolve();
-        } catch (e) {}
+        } catch (e) {
+          /* ignored - conditionFn may throw while probing */
+        }
         if (Date.now() - start > timeout) return reject(new Error('waitFor timeout'));
         setTimeout(poll, POLL_INTERVAL);
       })();
@@ -206,7 +208,6 @@
   `;
 
       const app = createApp({
-        template,
         data() {
           return {
             icons: [
@@ -294,6 +295,7 @@
             this.selectedFile = file;
           },
         },
+        template,
       });
 
       // Register components exported by the UMD bundle (PascalCase)

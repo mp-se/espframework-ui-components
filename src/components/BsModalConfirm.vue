@@ -10,7 +10,7 @@
   >
     This should hidden
   </button>
-  <div class="modal fade modal-lg" :id="'modal' + $.uid" tabindex="-1" aria-hidden="true">
+  <div :id="'modal' + $.uid" class="modal fade modal-lg" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content p-4">
         <div class="modal-header">
@@ -21,18 +21,18 @@
         </div>
         <div class="modal-footer">
           <button
-            @click="callback(true)"
             type="button"
             class="btn btn-primary"
             data-bs-dismiss="modal"
+            @click="callback(true)"
           >
             Confirm
           </button>
           <button
-            @click="callback(false)"
             type="button"
             class="btn btn-secondary"
             data-bs-dismiss="modal"
+            @click="callback(false)"
           >
             Cancel
           </button>

@@ -3,7 +3,7 @@
     <div :class="headerStyle()">{{ header }}</div>
     <div class="card-body">
       <h5 class="card-title">
-        <component v-if="icon !== undefined" :is="icon" width="16" height="16"></component>
+        <component :is="icon" v-if="icon !== undefined" width="16" height="16"></component>
         {{ title }}
       </h5>
       <p class="card-text">

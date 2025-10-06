@@ -3,12 +3,12 @@
     <div class="btn-group" role="group">
       <template v-for="o in options" :key="o.value">
         <input
+          :id="'radio' + $.uid + o.value"
+          v-model="model"
           type="radio"
           class="btn-check"
-          v-model="model"
           :value="o.value"
           :name="'radio' + $.uid"
-          :id="'radio' + $.uid + o.value"
           :disabled="disabled"
         />
         <label class="btn btn-outline-primary" :for="'radio' + $.uid + o.value">{{
