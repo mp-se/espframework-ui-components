@@ -4215,7 +4215,7 @@
   // ESP Framework UI Components Library
 
   // Package version
-  const version = '1.4.0';
+  const version = '1.4.1';
 
   exports.BsCard = script$u;
   exports.BsDropdown = script$t;

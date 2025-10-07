@@ -4210,6 +4210,6 @@ const sharedHttpClient = new HttpClient();
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.4.0';
+const version = '1.4.1';
 
 export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, HttpClient, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, barToPsi, formatTime, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version };
