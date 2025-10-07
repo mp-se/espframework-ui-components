@@ -2269,6 +2269,89 @@ function validateCurrentForm() {
 
   return valid;
 }
+/**
+ * Format a time duration into a human-readable string.
+ *
+ * By default the input value `t` is treated as seconds. Set options.input = 'ms'
+ * to treat the value as milliseconds.
+ *
+ * Options:
+ * - input: 's' | 'ms' (default 's') - unit of the provided value
+ * - compact: boolean (default false) - if true, return only the largest non-zero unit (e.g. "2h")
+ * - decimals: number (default 0) - decimal places for seconds when needed
+ *
+ * Examples:
+ * formatTime(3661) -> "1h 1m 1s"
+ * formatTime(3661, { compact: true }) -> "1h"
+ * formatTime(1500, { input: 'ms' }) -> "1s 500ms" (milliseconds are converted to seconds fraction)
+ *
+ * @param {number} t - duration (seconds by default, milliseconds if options.input === 'ms')
+ * @param {Object} [options]
+ * @param {'s'|'ms'} [options.input='s']
+ * @param {boolean} [options.compact=false]
+ * @param {number} [options.decimals=0]
+ * @returns {string} Human readable duration
+ */
+function formatTime(t, options = {}) {
+  const { input = 's', compact = false, decimals = 0 } = options || {};
+
+  if (t == null || Number.isNaN(Number(t))) return '';
+
+  // Convert to seconds (may be fractional)
+  let totalSeconds = Number(t);
+  if (input === 'ms') totalSeconds = totalSeconds / 1000;
+
+  const sign = totalSeconds < 0 ? '-' : '';
+  totalSeconds = Math.abs(totalSeconds);
+
+  const days = Math.floor(totalSeconds / 86400);
+  totalSeconds -= days * 86400;
+
+  const hours = Math.floor(totalSeconds / 3600);
+  totalSeconds -= hours * 3600;
+
+  const minutes = Math.floor(totalSeconds / 60);
+  totalSeconds -= minutes * 60;
+
+  // seconds may be fractional
+  const seconds = totalSeconds;
+
+  const parts = [];
+  if (days > 0) parts.push(days + 'd');
+  if (hours > 0) parts.push(hours + 'h');
+  if (minutes > 0) parts.push(minutes + 'm');
+
+  // Format seconds with decimals when appropriate
+  const formatSeconds = s => {
+    if (decimals > 0) return s.toFixed(decimals) + 's';
+    // show integer seconds when fractional is effectively zero
+    const intSec = Math.floor(s);
+    if (Math.abs(s - intSec) < 1e-9) return intSec + 's';
+    return s + 's';
+  };
+
+  // When there are no day/hour/minute parts, always include seconds (even 0s)
+  if (parts.length === 0) {
+    parts.push(formatSeconds(seconds));
+  } else if (seconds >= 1) {
+    // include seconds when >= 1s
+    parts.push(formatSeconds(seconds));
+  }
+
+  // If compact requested, return only the largest non-zero unit
+  if (compact) {
+    const first = parts.find(p => !p.startsWith('0'));
+    return sign + (first || '0s');
+  }
+
+  // Trim trailing zero-value parts (e.g., omit "0s" unless it's the only part)
+  const trimmed = parts.filter(p => {
+    if (p.startsWith('0') && parts.length > 1) return false;
+    return true;
+  });
+
+  return sign + trimmed.join(' ');
+}
 
 const _hoisted_1$b = ["data-bs-target"];
 const _hoisted_2$4 = ["id"];
@@ -4127,10 +4210,6 @@ const sharedHttpClient = new HttpClient();
 // ESP Framework UI Components Library
 
 // Package version
-<<<<<<< HEAD
-const version = '1.3.2';
-=======
-const version = '1.3.1';
->>>>>>> 931569972d6c87de23db797d5b66a6cc798bd10d
+const version = '1.4.0';
 
-export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, HttpClient, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, barToPsi, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version };
+export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, HttpClient, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, barToPsi, formatTime, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version };
