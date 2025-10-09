@@ -1,6 +1,6 @@
 {
   "name": "@mp-se/espframework-ui-components",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "type": "module",
   "description": "Reusable Vue components for ESP Framework UI",
   "main": "dist/index.js",
@@ -18,7 +18,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-  "test": "vitest run",
+    "test": "vitest run",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,json,md,css,scss,html}\"",
     "lint": "eslint --ext .js,.vue src demo-app.js demo.html || true",
     "prepublishOnly": "npm run build"

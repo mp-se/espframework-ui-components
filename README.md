@@ -7,14 +7,7 @@ A reusable Vue.js component library for ESP32-based web applications.
 ### From GitHub Packages
 
 ```bash
-npm install @mp-se/espframework-ui-components
-```
-
-### Setup .npmrc (for private packages)
-
-```
-@mp-se:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+npm install github:mp-se/espframework-ui-components
 ```
 
 ## 🔧 Usage
