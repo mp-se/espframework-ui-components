@@ -3875,6 +3875,14 @@ class HttpClient {
     this.token = '';
   }
 
+  // Normalize an auth token into an Authorization header value.
+  // Do not modify the token itself; simply prefix it with 'bearer '.
+  _formatAuth(token) {
+    if (!token) return token;
+    const t = String(token).trim();
+    return 'bearer ' + t;
+  }
+
   buildUrl(path) {
     if (!path) return this.baseURL;
     if (path.startsWith('http://') || path.startsWith('https://')) return path;
@@ -3890,7 +3898,7 @@ class HttpClient {
 
     const finalHeaders = Object.assign({}, headers);
     if (this.token && !Object.keys(finalHeaders).some(k => k.toLowerCase() === 'authorization')) {
-      finalHeaders['Authorization'] = this.token;
+      finalHeaders['Authorization'] = this._formatAuth(this.token);
     }
 
     const timer = setTimeout(() => controller.abort(), t);
@@ -4061,7 +4069,7 @@ class HttpClient {
         // Set Authorization header if token present
         if (this.token) {
           try {
-            xhr.setRequestHeader('Authorization', this.token);
+            xhr.setRequestHeader('Authorization', this._formatAuth(this.token));
           } catch (e) {
             // Some browsers may throw when setting forbidden headers; safest to ignore
             logError('httpClient.uploadFile.setRequestHeader()', e);
@@ -4210,6 +4218,6 @@ const sharedHttpClient = new HttpClient();
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.5.0';
+const version = '1.5.1';
 
 export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, HttpClient, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, barToPsi, formatTime, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version };

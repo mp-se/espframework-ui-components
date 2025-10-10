@@ -22,6 +22,14 @@ class HttpClient {
     this.token = '';
   }
 
+  // Normalize an auth token into an Authorization header value.
+  // Do not modify the token itself; simply prefix it with 'bearer '.
+  _formatAuth(token) {
+    if (!token) return token;
+    const t = String(token).trim();
+    return 'bearer ' + t;
+  }
+
   buildUrl(path) {
     if (!path) return this.baseURL;
     if (path.startsWith('http://') || path.startsWith('https://')) return path;
@@ -37,7 +45,7 @@ class HttpClient {
 
     const finalHeaders = Object.assign({}, headers);
     if (this.token && !Object.keys(finalHeaders).some(k => k.toLowerCase() === 'authorization')) {
-      finalHeaders['Authorization'] = this.token;
+      finalHeaders['Authorization'] = this._formatAuth(this.token);
     }
 
     const timer = setTimeout(() => controller.abort(), t);
@@ -208,7 +216,7 @@ class HttpClient {
         // Set Authorization header if token present
         if (this.token) {
           try {
-            xhr.setRequestHeader('Authorization', this.token);
+            xhr.setRequestHeader('Authorization', this._formatAuth(this.token));
           } catch (e) {
             // Some browsers may throw when setting forbidden headers; safest to ignore
             logError('httpClient.uploadFile.setRequestHeader()', e);
