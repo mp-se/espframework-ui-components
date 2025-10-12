@@ -38,6 +38,7 @@ export { default as IconCpu } from './components/IconCpu.vue';
 export { default as IconUpArrow } from './components/IconUpArrow.vue';
 export { default as IconGraphUpArrow } from './components/IconGraphUpArrow.vue';
 export { default as IconCloudUpArrow } from './components/IconCloudUpArrow.vue';
+export { default as IconData } from './components/IconData.vue';
 
 // Composables (ESP Framework utilities)
 export { useFetch } from './composables/useFetch.js';
