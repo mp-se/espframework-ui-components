@@ -5,7 +5,7 @@ const _hoisted_2$d = { class: "card-title" };
 const _hoisted_3$9 = { class: "card-text" };
 
 
-var script$u = /*@__PURE__*/Object.assign({
+var script$v = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsCard',
@@ -119,7 +119,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$u.__file = "src/components/BsCard.vue";
+script$v.__file = "src/components/BsCard.vue";
 
 const _hoisted_1$s = { class: "dropdown" };
 const _hoisted_2$c = ["disabled"];
@@ -127,7 +127,7 @@ const _hoisted_3$8 = { class: "dropdown-menu" };
 const _hoisted_4$3 = ["onClick"];
 
 
-var script$t = /*@__PURE__*/Object.assign({
+var script$u = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsDropdown',
@@ -282,12 +282,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$t.__file = "src/components/BsDropdown.vue";
+script$u.__file = "src/components/BsDropdown.vue";
 
 const _hoisted_1$r = ["width", "height"];
 
 
-var script$s = /*@__PURE__*/Object.assign({
+var script$t = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconEyeSlash',
@@ -358,12 +358,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$s.__file = "src/components/IconEyeSlash.vue";
+script$t.__file = "src/components/IconEyeSlash.vue";
 
 const _hoisted_1$q = ["width", "height"];
 
 
-var script$r = /*@__PURE__*/Object.assign({
+var script$s = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconEye',
@@ -433,7 +433,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$r.__file = "src/components/IconEye.vue";
+script$s.__file = "src/components/IconEye.vue";
 
 const _hoisted_1$p = { class: "input-group" };
 const _hoisted_2$b = ["type", "data-bs-title"];
@@ -445,7 +445,7 @@ const _hoisted_3$7 = {
  * Purpose: Proviude an input field
  */
 
-var script$q = /*@__PURE__*/Object.assign({
+var script$r = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputText',
@@ -556,7 +556,7 @@ return (_ctx, _cache) => {
         (type.value === 'password')
           ? (openBlock(), createElementBlock("span", _hoisted_3$7, [
               (!flag.value)
-                ? (openBlock(), createBlock(script$r, {
+                ? (openBlock(), createBlock(script$s, {
                     key: 0,
                     width: "1rem",
                     height: "1rem",
@@ -564,7 +564,7 @@ return (_ctx, _cache) => {
                   }))
                 : createCommentVNode("v-if", true),
               (flag.value)
-                ? (openBlock(), createBlock(script$s, {
+                ? (openBlock(), createBlock(script$t, {
                     key: 1,
                     width: "1rem",
                     height: "1rem",
@@ -582,7 +582,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$q.__file = "src/components/BsInputText.vue";
+script$r.__file = "src/components/BsInputText.vue";
 
 const _hoisted_1$o = { class: "input-group" };
 const _hoisted_2$a = ["data-bs-title", "disabled"];
@@ -592,7 +592,7 @@ const _hoisted_3$6 = {
 };
 
 
-var script$p = /*@__PURE__*/Object.assign({
+var script$q = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputNumber',
@@ -721,13 +721,13 @@ return (_ctx, _cache) => {
 
 });
 
-script$p.__file = "src/components/BsInputNumber.vue";
+script$q.__file = "src/components/BsInputNumber.vue";
 
 const _hoisted_1$n = { class: "form-check form-switch" };
 const _hoisted_2$9 = ["disabled", "data-bs-title"];
 
 
-var script$o = /*@__PURE__*/Object.assign({
+var script$p = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputSwitch',
@@ -845,12 +845,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$o.__file = "src/components/BsInputSwitch.vue";
+script$p.__file = "src/components/BsInputSwitch.vue";
 
 const _hoisted_1$m = ["data-bs-title"];
 
 
-var script$n = /*@__PURE__*/Object.assign({
+var script$o = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputTextArea',
@@ -953,7 +953,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$n.__file = "src/components/BsInputTextArea.vue";
+script$o.__file = "src/components/BsInputTextArea.vue";
 
 const _hoisted_1$l = ["data-bs-title"];
 const _hoisted_2$8 = ["onClick"];
@@ -962,7 +962,7 @@ const _hoisted_2$8 = ["onClick"];
  * Purpose: Use as a building block for providing a text area that can allow for multiple lines of text.
  */
 
-var script$m = /*@__PURE__*/Object.assign({
+var script$n = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputTextAreaFormat',
@@ -1145,13 +1145,13 @@ return (_ctx, _cache) => {
 
 });
 
-script$m.__file = "src/components/BsInputTextAreaFormat.vue";
+script$n.__file = "src/components/BsInputTextAreaFormat.vue";
 
 const _hoisted_1$k = { class: "input-group" };
 const _hoisted_2$7 = ["data-bs-title"];
 
 
-var script$l = /*@__PURE__*/Object.assign({
+var script$m = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputReadonly',
@@ -1246,7 +1246,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$l.__file = "src/components/BsInputReadonly.vue";
+script$m.__file = "src/components/BsInputReadonly.vue";
 
 const _hoisted_1$j = {
   class: "btn-group",
@@ -1256,7 +1256,7 @@ const _hoisted_2$6 = ["id", "value", "name", "disabled"];
 const _hoisted_3$5 = ["for"];
 
 
-var script$k = /*@__PURE__*/Object.assign({
+var script$l = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputRadio',
@@ -1397,12 +1397,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$k.__file = "src/components/BsInputRadio.vue";
+script$l.__file = "src/components/BsInputRadio.vue";
 
 const _hoisted_1$i = ["width", "height"];
 
 
-var script$j = /*@__PURE__*/Object.assign({
+var script$k = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconWifi',
@@ -1472,7 +1472,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$j.__file = "src/components/IconWifi.vue";
+script$k.__file = "src/components/IconWifi.vue";
 
 const _hoisted_1$h = ["disabled"];
 const _hoisted_2$5 = ["value"];
@@ -1485,7 +1485,7 @@ const _hoisted_3$4 = ["value"];
  * Purpose: Provide a select option
  */
 
-var script$i = /*@__PURE__*/Object.assign({
+var script$j = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsSelect',
@@ -1603,7 +1603,7 @@ return (_ctx, _cache) => {
                   selected: "",
                   value: o.value
                 }, [
-                  createVNode(script$j),
+                  createVNode(script$k),
                   createTextVNode(toDisplayString(o.label), 1 /* TEXT */)
                 ], 8 /* PROPS */, _hoisted_2$5))
               : (openBlock(), createElementBlock("option", {
@@ -1623,12 +1623,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$i.__file = "src/components/BsSelect.vue";
+script$j.__file = "src/components/BsSelect.vue";
 
 const _hoisted_1$g = ["width", "height"];
 
 
-var script$h = /*@__PURE__*/Object.assign({
+var script$i = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconXCircle',
@@ -1698,12 +1698,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$h.__file = "src/components/IconXCircle.vue";
+script$i.__file = "src/components/IconXCircle.vue";
 
 const _hoisted_1$f = ["width", "height"];
 
 
-var script$g = /*@__PURE__*/Object.assign({
+var script$h = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconCheckCircle',
@@ -1773,12 +1773,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$g.__file = "src/components/IconCheckCircle.vue";
+script$h.__file = "src/components/IconCheckCircle.vue";
 
 const _hoisted_1$e = ["width", "height"];
 
 
-var script$f = /*@__PURE__*/Object.assign({
+var script$g = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconInfoCircle',
@@ -1848,12 +1848,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$f.__file = "src/components/IconInfoCircle.vue";
+script$g.__file = "src/components/IconInfoCircle.vue";
 
 const _hoisted_1$d = ["width", "height"];
 
 
-var script$e = /*@__PURE__*/Object.assign({
+var script$f = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconExclamationTriangle',
@@ -1923,7 +1923,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$e.__file = "src/components/IconExclamationTriangle.vue";
+script$f.__file = "src/components/IconExclamationTriangle.vue";
 
 const _hoisted_1$c = {
   key: 5,
@@ -1941,7 +1941,7 @@ const _hoisted_1$c = {
  * Purpose: Show a alert with a message
  */
 
-var script$d = /*@__PURE__*/Object.assign({
+var script$e = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsMessage',
@@ -2016,28 +2016,28 @@ return (_ctx, _cache) => {
     role: "alert"
   }, _ctx.$attrs), [
     (alert.value === 'danger')
-      ? (openBlock(), createBlock(script$h, {
+      ? (openBlock(), createBlock(script$i, {
           key: 0,
           height: "20",
           width: "20"
         }))
       : createCommentVNode("v-if", true),
     (alert.value === 'warning')
-      ? (openBlock(), createBlock(script$e, {
+      ? (openBlock(), createBlock(script$f, {
           key: 1,
           height: "20",
           width: "20"
         }))
       : createCommentVNode("v-if", true),
     (alert.value === 'info')
-      ? (openBlock(), createBlock(script$f, {
+      ? (openBlock(), createBlock(script$g, {
           key: 2,
           height: "20",
           width: "20"
         }))
       : createCommentVNode("v-if", true),
     (alert.value === 'success')
-      ? (openBlock(), createBlock(script$g, {
+      ? (openBlock(), createBlock(script$h, {
           key: 3,
           height: "20",
           width: "20"
@@ -2064,7 +2064,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$d.__file = "src/components/BsMessage.vue";
+script$e.__file = "src/components/BsMessage.vue";
 
 function readEnvVar(name) {
   // 1) Check a runtime-injected global shim (useful for demos or non-Vite runtimes)
@@ -2366,7 +2366,7 @@ const _hoisted_10$1 = { class: "text-danger" };
 // Using native JSON.parse instead of json-parse-even-better-errors to reduce external dependencies
 
 
-var script$c = /*@__PURE__*/Object.assign({
+var script$d = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsModal',
@@ -2535,7 +2535,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$c.__file = "src/components/BsModal.vue";
+script$d.__file = "src/components/BsModal.vue";
 
 const _hoisted_1$a = ["id", "data-bs-target"];
 const _hoisted_2$3 = ["id"];
@@ -2547,7 +2547,7 @@ const _hoisted_7$1 = { class: "modal-body" };
 const _hoisted_8$1 = { class: "modal-footer" };
 
 
-var script$b = /*@__PURE__*/Object.assign({
+var script$c = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsModalConfirm',
@@ -2668,13 +2668,13 @@ return (_ctx, _cache) => {
 
 });
 
-script$b.__file = "src/components/BsModalConfirm.vue";
+script$c.__file = "src/components/BsModalConfirm.vue";
 
 /**
  * Purpose: Show a progress bar
  */
 
-var script$a = /*@__PURE__*/Object.assign({
+var script$b = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsProgress',
@@ -2723,7 +2723,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$a.__file = "src/components/BsProgress.vue";
+script$b.__file = "src/components/BsProgress.vue";
 
 const _hoisted_1$9 = {
   class: "btn-group",
@@ -2732,7 +2732,7 @@ const _hoisted_1$9 = {
 const _hoisted_2$2 = ["disabled"];
 
 
-var script$9 = /*@__PURE__*/Object.assign({
+var script$a = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsFileUpload',
@@ -2831,7 +2831,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$9.__file = "src/components/BsFileUpload.vue";
+script$a.__file = "src/components/BsFileUpload.vue";
 
 const _hoisted_1$8 = { class: "container-fluid align-center" };
 const _hoisted_2$1 = { class: "navbar-brand" };
@@ -2875,7 +2875,7 @@ const _hoisted_17 = { class: "form-check form-switch" };
 const _hoisted_18 = ["checked", "disabled"];
 
 
-var script$8 = /*@__PURE__*/Object.assign({
+var script$9 = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsMenuBar',
@@ -3119,7 +3119,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$8.__file = "src/components/BsMenuBar.vue";
+script$9.__file = "src/components/BsMenuBar.vue";
 
 const _hoisted_1$7 = {
   class: "text-light text-center rounded-pill bg-primary",
@@ -3127,7 +3127,7 @@ const _hoisted_1$7 = {
 };
 
 
-var script$7 = /*@__PURE__*/Object.assign({
+var script$8 = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsFooter',
@@ -3165,7 +3165,7 @@ return (_ctx, _cache) => {
 
 });
 
-script$7.__file = "src/components/BsFooter.vue";
+script$8.__file = "src/components/BsFooter.vue";
 
 const _hoisted_1$6 = {
   key: 0,
@@ -3178,7 +3178,7 @@ const _hoisted_2 = {
 const _hoisted_3 = { class: "form-text" };
 
 
-var script$6 = /*@__PURE__*/Object.assign({
+var script$7 = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputBase',
@@ -3266,12 +3266,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$6.__file = "src/components/BsInputBase.vue";
+script$7.__file = "src/components/BsInputBase.vue";
 
 const _hoisted_1$5 = ["width", "height"];
 
 
-var script$5 = /*@__PURE__*/Object.assign({
+var script$6 = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconHome',
@@ -3340,12 +3340,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$5.__file = "src/components/IconHome.vue";
+script$6.__file = "src/components/IconHome.vue";
 
 const _hoisted_1$4 = ["width", "height"];
 
 
-var script$4 = /*@__PURE__*/Object.assign({
+var script$5 = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconTools',
@@ -3414,12 +3414,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$4.__file = "src/components/IconTools.vue";
+script$5.__file = "src/components/IconTools.vue";
 
 const _hoisted_1$3 = ["width", "height"];
 
 
-var script$3 = /*@__PURE__*/Object.assign({
+var script$4 = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconCpu',
@@ -3488,12 +3488,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$3.__file = "src/components/IconCpu.vue";
+script$4.__file = "src/components/IconCpu.vue";
 
 const _hoisted_1$2 = ["width", "height"];
 
 
-var script$2 = /*@__PURE__*/Object.assign({
+var script$3 = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconUpArrow',
@@ -3565,12 +3565,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$2.__file = "src/components/IconUpArrow.vue";
+script$3.__file = "src/components/IconUpArrow.vue";
 
 const _hoisted_1$1 = ["width", "height"];
 
 
-var script$1 = /*@__PURE__*/Object.assign({
+var script$2 = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconGraphUpArrow',
@@ -3642,12 +3642,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$1.__file = "src/components/IconGraphUpArrow.vue";
+script$2.__file = "src/components/IconGraphUpArrow.vue";
 
 const _hoisted_1 = ["width", "height"];
 
 
-var script = /*@__PURE__*/Object.assign({
+var script$1 = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconCloudUpArrow',
@@ -3720,7 +3720,46 @@ return (_ctx, _cache) => {
 
 });
 
-script.__file = "src/components/IconCloudUpArrow.vue";
+script$1.__file = "src/components/IconCloudUpArrow.vue";
+
+var script = /*@__PURE__*/Object.assign({
+  inheritAttrs: false,
+}, {
+  __name: 'IconData',
+  setup(__props) {
+
+/**
+ * 2025-07-05 Bootstrap VueJS wrapper, Magnus Persson
+ */
+
+/**
+ * Purpose: Show an svg icon on the UI. Used embedded svg to avoid downloading data from internet.
+ */
+
+
+return (_ctx, _cache) => {
+  return (openBlock(), createElementBlock("svg", mergeProps(_ctx.$attrs, {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 16 16",
+    fill: "currentColor"
+  }), [...(_cache[0] || (_cache[0] = [
+    createElementVNode("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "16",
+      height: "16",
+      fill: "currentColor",
+      class: "bi bi-database",
+      viewBox: "0 0 16 16"
+    }, [
+      createElementVNode("path", { d: "M4.318 2.687C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4c0-.374.356-.875 1.318-1.313M13 5.698V7c0 .374-.356.875-1.318 1.313C10.766 8.729 9.464 9 8 9s-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777A5 5 0 0 0 13 5.698M14 4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13zm-1 4.698V10c0 .374-.356.875-1.318 1.313C10.766 11.729 9.464 12 8 12s-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777A5 5 0 0 0 13 8.698m0 3V13c0 .374-.356.875-1.318 1.313C10.766 14.729 9.464 15 8 15s-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13s3.022-.289 4.096-.777c.324-.147.633-.323.904-.525" })
+    ], -1 /* CACHED */)
+  ]))], 16 /* FULL_PROPS */))
+}
+}
+
+});
+
+script.__file = "src/components/IconData.vue";
 
 function useFetch() {
   const controllers = ref(new Set());
@@ -4218,6 +4257,6 @@ const sharedHttpClient = new HttpClient();
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.5.1';
+const version = '1.5.2';
 
-export { script$u as BsCard, script$t as BsDropdown, script$9 as BsFileUpload, script$7 as BsFooter, script$6 as BsInputBase, script$p as BsInputNumber, script$k as BsInputRadio, script$l as BsInputReadonly, script$o as BsInputSwitch, script$q as BsInputText, script$n as BsInputTextArea, script$m as BsInputTextAreaFormat, script$8 as BsMenuBar, script$d as BsMessage, script$c as BsModal, script$b as BsModalConfirm, script$a as BsProgress, script$i as BsSelect, HttpClient, script$g as IconCheckCircle, script as IconCloudUpArrow, script$3 as IconCpu, script$e as IconExclamationTriangle, script$r as IconEye, script$s as IconEyeSlash, script$1 as IconGraphUpArrow, script$5 as IconHome, script$f as IconInfoCircle, script$4 as IconTools, script$2 as IconUpArrow, script$j as IconWifi, script$h as IconXCircle, barToPsi, formatTime, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version };
+export { script$v as BsCard, script$u as BsDropdown, script$a as BsFileUpload, script$8 as BsFooter, script$7 as BsInputBase, script$q as BsInputNumber, script$l as BsInputRadio, script$m as BsInputReadonly, script$p as BsInputSwitch, script$r as BsInputText, script$o as BsInputTextArea, script$n as BsInputTextAreaFormat, script$9 as BsMenuBar, script$e as BsMessage, script$d as BsModal, script$c as BsModalConfirm, script$b as BsProgress, script$j as BsSelect, HttpClient, script$h as IconCheckCircle, script$1 as IconCloudUpArrow, script$4 as IconCpu, script as IconData, script$f as IconExclamationTriangle, script$s as IconEye, script$t as IconEyeSlash, script$2 as IconGraphUpArrow, script$6 as IconHome, script$g as IconInfoCircle, script$5 as IconTools, script$3 as IconUpArrow, script$k as IconWifi, script$i as IconXCircle, barToPsi, formatTime, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version };
