@@ -2,7 +2,7 @@
 // ESP Framework UI Components Library
 
 // Package version
-export const version = '1.5.2';
+export const version = '1.5.3';
 
 // Basic UI Components
 export { default as BsCard } from './components/BsCard.vue';
@@ -18,6 +18,7 @@ export { default as BsSelect } from './components/BsSelect.vue';
 export { default as BsMessage } from './components/BsMessage.vue';
 export { default as BsModal } from './components/BsModal.vue';
 export { default as BsModalConfirm } from './components/BsModalConfirm.vue';
+export { default as BsModalLogin } from './components/BsModalLogin.vue';
 export { default as BsProgress } from './components/BsProgress.vue';
 export { default as BsFileUpload } from './components/BsFileUpload.vue';
 export { default as BsMenuBar } from './components/BsMenuBar.vue';
@@ -39,6 +40,7 @@ export { default as IconUpArrow } from './components/IconUpArrow.vue';
 export { default as IconGraphUpArrow } from './components/IconGraphUpArrow.vue';
 export { default as IconCloudUpArrow } from './components/IconCloudUpArrow.vue';
 export { default as IconData } from './components/IconData.vue';
+export { default as IconClipboard } from './components/IconClipboard.vue';
 
 // Composables (ESP Framework utilities)
 export { useFetch } from './composables/useFetch.js';
