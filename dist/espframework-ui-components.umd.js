@@ -2677,8 +2677,8 @@
 
   const _hoisted_1$a = ["id"];
   const _hoisted_2$3 = {
-    class: "modal fade modal-lg",
     id: "modalLogin",
+    class: "modal fade modal-lg",
     tabindex: "-1",
     "aria-hidden": "true"
   };
@@ -2734,8 +2734,8 @@
             ], -1 /* CACHED */)),
             vue.createElementVNode("div", _hoisted_5$1, [
               vue.withDirectives(vue.createElementVNode("input", {
-                type: "password",
                 "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((password).value = $event)),
+                type: "password",
                 class: "form-control"
               }, null, 512 /* NEED_PATCH */), [
                 [vue.vModelText, password.value]
@@ -2743,10 +2743,10 @@
             ]),
             vue.createElementVNode("div", _hoisted_6$1, [
               vue.createElementVNode("button", {
-                onClick: _cache[1] || (_cache[1] = $event => (__props.callback(password.value))),
                 type: "button",
                 class: "btn btn-primary",
-                "data-bs-dismiss": "modal"
+                "data-bs-dismiss": "modal",
+                onClick: _cache[1] || (_cache[1] = $event => (__props.callback(password.value)))
               }, " Confirm ")
             ])
           ])
