@@ -11,21 +11,21 @@
   </button>
   <!--
   -->
-  <div class="modal fade modal-lg" id="modalLogin" tabindex="-1" aria-hidden="true">
+  <div id="modalLogin" class="modal fade modal-lg" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content p-4">
         <div class="modal-header">
           <h1 class="modal-title fs-5">Enter your admin password</h1>
         </div>
         <div class="modal-body">
-          <input type="password" v-model="password" class="form-control" />
+          <input v-model="password" type="password" class="form-control" />
         </div>
         <div class="modal-footer">
           <button
-            @click="callback(password)"
             type="button"
             class="btn btn-primary"
             data-bs-dismiss="modal"
+            @click="callback(password)"
           >
             Confirm
           </button>
