@@ -38,6 +38,11 @@ class HttpClient {
       : this.baseURL + path;
   }
 
+  // Check if the baseURL uses SSL (HTTPS)
+  isSSL() {
+    return !!(this.baseURL && this.baseURL.startsWith('https://'));
+  }
+
   async request(path, { method = 'GET', headers = {}, body, timeout } = {}) {
     const url = this.buildUrl(path);
     const controller = new AbortController();

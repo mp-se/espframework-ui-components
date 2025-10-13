@@ -67,6 +67,20 @@ describe('HttpClient', () => {
     expect(client.buildUrl('')).toBe('http://host/base');
   });
 
+  it('isSSL returns true for HTTPS baseURL and false otherwise', () => {
+    client.baseURL = 'https://example.com';
+    expect(client.isSSL()).toBe(true);
+
+    client.baseURL = 'http://example.com';
+    expect(client.isSSL()).toBe(false);
+
+    client.baseURL = '';
+    expect(client.isSSL()).toBe(false);
+
+    client.baseURL = null;
+    expect(client.isSSL()).toBe(false);
+  });
+
   it('request injects Authorization header when token set and not present', async () => {
     const fakeResp = { ok: true, status: 200, statusText: 'OK', json: async () => ({}) };
     global.fetch = vi.fn().mockResolvedValue(fakeResp);

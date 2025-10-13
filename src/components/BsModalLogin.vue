@@ -36,35 +36,28 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-import { logDebug } from '@/modules/logger'
+import { onMounted, ref } from 'vue';
+import { logDebug } from '../modules/logger.js';
 
-const password = ref('')
+const password = ref('');
 
 /**
  * Purpose: Show a yes/no dialog to confirm an action
  */
 defineOptions({
-  inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 
 /**
- * Ref to callback where true/false will be a parameter (required)
+ * Props for callback and id
  */
-const callback = defineModel('callback', {
-  type: Function,
-  required: true
-})
-/**
- * Ref to dialog id (required)
- */
-const id = defineModel('id', {
-  type: String,
-  required: true
-})
+const { callback, id } = defineProps({
+  callback: { type: Function, required: true },
+  id: { type: String, required: true },
+});
 
 onMounted(() => {
-  logDebug('BsModalLogin.onMounted()', 'Modal initialized for ID: ' + id.value)
-  document.getElementById(id.value).click()
-})
+  logDebug('BsModalLogin.onMounted()', 'Modal initialized for ID: ' + id);
+  document.getElementById(id).click();
+});
 </script>
