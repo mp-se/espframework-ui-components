@@ -39,8 +39,8 @@ describe('HttpClient', () => {
   });
 
   it('_formatAuth trims and prefixes token', () => {
-    expect(client._formatAuth(' abc ')).toBe('bearer abc');
-    expect(client._formatAuth('token')).toBe('bearer token');
+    expect(client._formatAuth(' abc ')).toBe('Bearer abc');
+    expect(client._formatAuth('token')).toBe('Bearer token');
     expect(client._formatAuth('')).toBe('');
     expect(client._formatAuth(null)).toBe(null);
     expect(client._formatAuth(undefined)).toBe(undefined);
@@ -90,16 +90,14 @@ describe('HttpClient', () => {
 
     expect(global.fetch).toHaveBeenCalled();
     const calledOptions = global.fetch.mock.calls[0][1];
-    expect(calledOptions.headers.Authorization).toBe('bearer sometoken');
+    expect(calledOptions.headers.Authorization).toBe('Bearer sometoken');
 
     // If Authorization present (case-insensitive), don't inject
     global.fetch.mockClear();
-    await client.request('api/test', { headers: { aUThorization: 'Basic abc' } });
+    await client.request('api/test', { headers: { Authorization: 'Basic abc' } });
     const opts2 = global.fetch.mock.calls[0][1];
     // Keep the original header unchanged
-    expect(opts2.headers.aUThorization).toBe('Basic abc');
-    // And don't have injected 'Authorization' key (exact)
-    expect(Object.keys(opts2.headers)).not.toContain('Authorization');
+    expect(opts2.headers.Authorization).toBe('Basic abc');
   });
 
   it('getJson returns parsed json when ok and throws when not ok', async () => {

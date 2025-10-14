@@ -1,6 +1,6 @@
 {
   "name": "@mp-se/espframework-ui-components",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "type": "module",
   "description": "Reusable Vue components for ESP Framework UI",
   "main": "dist/index.js",

@@ -4038,7 +4038,7 @@ class HttpClient {
   _formatAuth(token) {
     if (!token) return token;
     const t = String(token).trim();
-    return 'bearer ' + t;
+    return 'Bearer ' + t;
   }
 
   buildUrl(path) {
@@ -4060,7 +4060,7 @@ class HttpClient {
     const t = timeout === undefined ? this.timeout : timeout;
 
     const finalHeaders = Object.assign({}, headers);
-    if (this.token && !Object.keys(finalHeaders).some(k => k.toLowerCase() === 'authorization')) {
+    if (this.token && !Object.keys(finalHeaders).some(k => k === 'Authorization')) {
       finalHeaders['Authorization'] = this._formatAuth(this.token);
     }
 
@@ -4381,7 +4381,7 @@ const sharedHttpClient = new HttpClient();
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.5.3';
+const version = '1.6.0';
 
 exports.BsCard = script$x;
 exports.BsDropdown = script$w;
