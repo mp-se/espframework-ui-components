@@ -44,7 +44,7 @@
 <script setup>
 import { ref } from 'vue';
 import { isValidJson, isValidFormData } from '../modules/utils.js';
-// Using native JSON.parse instead of json-parse-even-better-errors to reduce external dependencies
+import parseJson from 'json-parse-even-better-errors'
 
 const jsonError = ref('');
 
@@ -135,7 +135,7 @@ const checkCode = () => {
   } else if (json.value) {
     try {
       // Will show additional json parse errors if enabled
-      JSON.parse(model.value);
+      parseJson(model.value);
     } catch (e) {
       jsonError.value = e.message;
     }

@@ -1,6 +1,6 @@
 {
   "name": "@mp-se/espframework-ui-components",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "type": "module",
   "description": "Reusable Vue components for ESP Framework UI",
   "main": "dist/index.js",
@@ -30,6 +30,7 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@vitejs/plugin-vue": "^6.0.1",
+    "@vitest/coverage-v8": "^3.2.4",
     "@vue/compiler-sfc": "^3.5.22",
     "@vue/test-utils": "^2.4.0",
     "eslint": "^8.57.1",
@@ -53,5 +54,8 @@
     "bootstrap"
   ],
   "author": "Magnus Persson",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "json-parse-even-better-errors": "^5.0.0"
+  }
 }
