@@ -78,3 +78,27 @@ npm run build
 # Development mode with watch
 npm run dev
 ```
+
+## 🚀 Release Process
+
+To release a new version:
+
+```bash
+# 1. Ensure all changes are committed
+git status
+
+# 2. Run tests to ensure everything works
+npm test
+
+# 3. Build the project
+npm run build
+
+# 4. Create a git tag (replace X.Y.Z with version number)
+git tag -a v1.7.0 -m "Release version 1.7.0"
+
+# 5. Push commits and tags to GitHub
+git push origin main --tags
+
+# 6. Publish to GitHub Packages
+npm publish
+```

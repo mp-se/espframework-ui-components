@@ -4522,7 +4522,7 @@ const sharedHttpClient = new HttpClient();
 // ESP Framework UI Components Library
 
 // Package version
-const version = '1.6.0';
+const version = '1.7.0';
 
 exports.BsCard = script$x;
 exports.BsDropdown = script$w;
