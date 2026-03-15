@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsInputRadio } from '../../dist/index.esm.js';
+import BsInputRadio from '../../src/components/BsInputRadio.vue';
 
 describe('BsInputRadio', () => {
   it('renders radio inputs for provided options', () => {

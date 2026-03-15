@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsInputReadonly } from '../../dist/index.esm.js';
+import BsInputReadonly from '../../src/components/BsInputReadonly.vue';
 
 describe('BsInputReadonly', () => {
   it('renders input', () => {

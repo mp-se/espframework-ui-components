@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsSelect } from '../../dist/index.esm.js';
+import BsSelect from '../../src/components/BsSelect.vue';
 
 describe('BsSelect', () => {
   it('renders select element', () => {

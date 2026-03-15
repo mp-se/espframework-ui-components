@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsInputTextAreaFormat } from '../../dist/index.esm.js';
+import BsInputTextAreaFormat from '../../src/components/BsInputTextAreaFormat.vue';
 
 describe('BsInputTextAreaFormat', () => {
   it('renders textarea', () => {

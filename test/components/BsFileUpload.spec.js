@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsFileUpload } from '../../dist/index.esm.js';
+import BsFileUpload from '../../src/components/BsFileUpload.vue';
 
 describe('BsFileUpload', () => {
   it('has file input', () => {

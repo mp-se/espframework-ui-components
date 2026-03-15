@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsModal } from '../../dist/index.esm.js';
+import BsModal from '../../src/components/BsModal.vue';
 import { isValidJson, isValidFormData } from '../../src/modules/utils.js';
 
 describe('BsModal', () => {

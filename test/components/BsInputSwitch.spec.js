@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsInputSwitch } from '../../dist/index.esm.js';
+import BsInputSwitch from '../../src/components/BsInputSwitch.vue';
 
 describe('BsInputSwitch component', () => {
   it('renders checkbox switch and toggles value', async () => {

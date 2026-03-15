@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsCard } from '../../dist/index.esm.js';
+import BsCard from '../../src/components/BsCard.vue';
 
 describe('BsCard component', () => {
   it('renders header, title and slot content with correct classes', () => {

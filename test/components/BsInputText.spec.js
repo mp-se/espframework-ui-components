@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsInputText } from '../../dist/index.esm.js';
+import BsInputText from '../../src/components/BsInputText.vue';
 
 describe('BsInputText component', () => {
   it('binds v-model and toggles password visibility', async () => {

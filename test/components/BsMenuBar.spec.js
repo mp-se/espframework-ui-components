@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsMenuBar } from '../../dist/index.esm.js';
+import BsMenuBar from '../../src/components/BsMenuBar.vue';
 
 describe('BsMenuBar', () => {
   it('mounts', () => {

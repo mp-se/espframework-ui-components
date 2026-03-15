@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsInputNumber } from '../../dist/index.esm.js';
+import BsInputNumber from '../../src/components/BsInputNumber.vue';
 
 describe('BsInputNumber component', () => {
   it('renders input[type=number] and shows unit when provided', async () => {

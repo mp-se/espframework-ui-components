@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsInputTextArea } from '../../dist/index.esm.js';
+import BsInputTextArea from '../../src/components/BsInputTextArea.vue';
 
 describe('BsInputTextArea', () => {
   it('renders textarea', () => {

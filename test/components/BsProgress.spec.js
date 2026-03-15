@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsProgress } from '../../dist/index.esm.js';
+import BsProgress from '../../src/components/BsProgress.vue';
 
 describe('BsProgress', () => {
   it('renders progress element', () => {

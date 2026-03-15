@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { BsDropdown } from '../../dist/index.esm.js';
+import BsDropdown from '../../src/components/BsDropdown.vue';
 
 describe('BsDropdown', () => {
   it('mounts', () => {
