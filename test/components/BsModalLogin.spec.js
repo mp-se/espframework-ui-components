@@ -106,9 +106,7 @@ describe('BsModalLogin', () => {
     const input = wrapper.find('input[type="password"]');
     await input.setValue('secretpass');
 
-    const confirmButton = wrapper.findAll('button').find(btn =>
-      btn.text().includes('Confirm'),
-    );
+    const confirmButton = wrapper.findAll('button').find(btn => btn.text().includes('Confirm'));
     await confirmButton.trigger('click');
     await flushPromises();
 
@@ -154,9 +152,7 @@ describe('BsModalLogin', () => {
         id: 'test-modal',
       },
     });
-    const confirmButton = wrapper.findAll('button').find(btn =>
-      btn.text().includes('Confirm'),
-    );
+    const confirmButton = wrapper.findAll('button').find(btn => btn.text().includes('Confirm'));
     expect(confirmButton.classes()).toContain('btn-primary');
   });
 });

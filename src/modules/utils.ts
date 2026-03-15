@@ -1,93 +1,93 @@
-import { logDebug } from './logger.js';
+import { logDebug } from './logger';
 
 /**
  * Round a numeric value to specified decimal places
- * @param {number} val - Value to round
- * @param {number} decimals - Number of decimal places
- * @returns {number} Rounded value
+ * @param val - Value to round
+ * @param decimals - Number of decimal places
+ * @returns Rounded value
  */
-export function roundVal(val, decimals) {
+export function roundVal(val: number, decimals: number): number {
   return parseFloat(Number(val).toFixed(decimals));
 }
 
 /**
  * Convert specific gravity to Plato degrees
- * @param {number} sg - Specific gravity value
- * @returns {number} Plato degrees
+ * @param sg - Specific gravity value
+ * @returns Plato degrees
  */
-export function gravityToPlato(sg) {
+export function gravityToPlato(sg: number): number {
   return 135.997 * sg * sg * sg - 630.272 * sg * sg + 1111.14 * sg - 616.868;
 }
 
 /**
  * Convert Plato degrees to specific gravity
- * @param {number} p - Plato degrees
- * @returns {number} Specific gravity
+ * @param p - Plato degrees
+ * @returns Specific gravity
  */
-export function gravityToSG(p) {
+export function gravityToSG(p: number): number {
   return 1 + p / (258.6 - 227.1 * (p / 258.2));
 }
 
 /**
  * Convert Celsius to Fahrenheit
- * @param {number} c - Temperature in Celsius
- * @returns {number} Temperature in Fahrenheit
+ * @param c - Temperature in Celsius
+ * @returns Temperature in Fahrenheit
  */
-export function tempToF(c) {
+export function tempToF(c: number): number {
   return c * 1.8 + 32.0;
 }
 
 /**
  * Convert Fahrenheit to Celsius
- * @param {number} f - Temperature in Fahrenheit
- * @returns {number} Temperature in Celsius
+ * @param f - Temperature in Fahrenheit
+ * @returns Temperature in Celsius
  */
-export function tempToC(f) {
+export function tempToC(f: number): number {
   return (f - 32.0) / 1.8;
 }
 
 /**
  * Convert PSI (Pounds per Square Inch) to Bar
- * @param {number} p - Pressure in PSI
- * @returns {number} Pressure in Bar
+ * @param p - Pressure in PSI
+ * @returns Pressure in Bar
  */
-export function psiToBar(p) {
+export function psiToBar(p: number): number {
   return p * 0.0689475729;
 }
 
 /**
  * Convert PSI (Pounds per Square Inch) to kPa (Kilopascals)
- * @param {number} p - Pressure in PSI
- * @returns {number} Pressure in kPa
+ * @param p - Pressure in PSI
+ * @returns Pressure in kPa
  */
-export function psiToKPa(p) {
+export function psiToKPa(p: number): number {
   return p * 6.89475729;
 }
 
 /**
  * Convert Bar to PSI (Pounds per Square Inch)
- * @param {number} p - Pressure in Bar
- * @returns {number} Pressure in PSI
+ * @param p - Pressure in Bar
+ * @returns Pressure in PSI
  */
-export function barToPsi(p) {
+export function barToPsi(p: number): number {
   return p / 0.0689475729;
 }
 
 /**
  * Convert kPa (Kilopascals) to PSI (Pounds per Square Inch)
- * @param {number} p - Pressure in kPa
- * @returns {number} Pressure in PSI
+ * @param p - Pressure in kPa
+ * @returns Pressure in PSI
  */
-export function kpaToPsi(p) {
+export function kpaToPsi(p: number): number {
   return p / 6.89475729;
 }
 
 /**
  * Validate if string is valid JSON
- * @param {string} s - String to validate
- * @returns {boolean} True if valid JSON
+ * @param s - String to validate
+ * @returns True if valid JSON
  */
-export function isValidJson(s) {
+export function isValidJson(s: string): boolean {
   try {
     JSON.stringify(JSON.parse(s));
     return true;
@@ -99,20 +99,20 @@ export function isValidJson(s) {
 
 /**
  * Validate if string is valid form data (starts with ?)
- * @param {string} s - String to validate
- * @returns {boolean} True if valid form data
+ * @param s - String to validate
+ * @returns True if valid form data
  */
-export function isValidFormData(s) {
+export function isValidFormData(s: string): boolean {
   if (s.startsWith('?')) return true;
   return false;
 }
 
 /**
  * Validate if string is valid MQTT data (contains |)
- * @param {string} s - String to validate
- * @returns {boolean} True if valid MQTT data
+ * @param s - String to validate
+ * @returns True if valid MQTT data
  */
-export function isValidMqttData(s) {
+export function isValidMqttData(s: string): boolean {
   if (s.indexOf('|') >= 0) return true;
   return false;
 }
@@ -129,14 +129,14 @@ export function isValidMqttData(s) {
  * Note: This function is safe to call in non-browser contexts (Node) — it will
  * short-circuit and return true if `document` is not available.
  *
- * @returns {boolean} true if all matching forms are valid
+ * @returns true if all matching forms are valid
  */
-export function validateCurrentForm() {
+export function validateCurrentForm(): boolean {
   // If there's no DOM (e.g. running in Node), short-circuit and return true
   if (typeof document === 'undefined' || !document.querySelectorAll) {
     try {
       logDebug('validateCurrentForm: document not available, skipping validation');
-    } catch (e) {
+    } catch (_e) {
       // ignore logging failures
     }
     return true;
@@ -145,7 +145,7 @@ export function validateCurrentForm() {
   let valid = true;
   const forms = document.querySelectorAll('.needs-validation');
 
-  Array.from(forms).forEach(form => {
+  Array.from(forms).forEach((form: any) => {
     if (!form.checkValidity()) valid = false;
 
     form.classList.add('was-validated');
@@ -153,6 +153,13 @@ export function validateCurrentForm() {
 
   return valid;
 }
+
+export interface FormatTimeOptions {
+  input?: 's' | 'ms';
+  compact?: boolean;
+  decimals?: number;
+}
+
 /**
  * Format a time duration into a human-readable string.
  *
@@ -169,14 +176,11 @@ export function validateCurrentForm() {
  * formatTime(3661, { compact: true }) -> "1h"
  * formatTime(1500, { input: 'ms' }) -> "1s 500ms" (milliseconds are converted to seconds fraction)
  *
- * @param {number} t - duration (seconds by default, milliseconds if options.input === 'ms')
- * @param {Object} [options]
- * @param {'s'|'ms'} [options.input='s']
- * @param {boolean} [options.compact=false]
- * @param {number} [options.decimals=0]
- * @returns {string} Human readable duration
+ * @param t - duration (seconds by default, milliseconds if options.input === 'ms')
+ * @param options - Options object
+ * @returns Human readable duration
  */
-export function formatTime(t, options = {}) {
+export function formatTime(t: number, options: FormatTimeOptions = {}): string {
   const { input = 's', compact = false, decimals = 0 } = options || {};
 
   if (t == null || Number.isNaN(Number(t))) return '';
@@ -200,13 +204,13 @@ export function formatTime(t, options = {}) {
   // seconds may be fractional
   const seconds = totalSeconds;
 
-  const parts = [];
+  const parts: string[] = [];
   if (days > 0) parts.push(days + 'd');
   if (hours > 0) parts.push(hours + 'h');
   if (minutes > 0) parts.push(minutes + 'm');
 
   // Format seconds with decimals when appropriate
-  const formatSeconds = s => {
+  const formatSeconds = (s: number): string => {
     if (decimals > 0) return s.toFixed(decimals) + 's';
     // show integer seconds when fractional is effectively zero
     const intSec = Math.floor(s);

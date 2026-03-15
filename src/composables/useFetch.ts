@@ -1,10 +1,17 @@
-import { ref, onBeforeUnmount } from 'vue';
-import { logDebug, logError } from '../modules/logger.js';
+import { ref, onBeforeUnmount, Ref } from 'vue';
+import { logDebug, logError } from '../modules/logger';
 
-export function useFetch() {
-  const controllers = ref(new Set());
+export interface UseFetchReturn {
+  managedFetch: (url: string, options?: RequestInit) => Promise<Response | null>;
+  abortAllRequests: () => void;
+  abortRequest: (controller: AbortController) => void;
+  activeControllers: Ref<Set<AbortController>>;
+}
 
-  const managedFetch = async (url, options = {}) => {
+export function useFetch(): UseFetchReturn {
+  const controllers: Ref<Set<AbortController>> = ref(new Set());
+
+  const managedFetch = async (url: string, options: RequestInit = {}): Promise<Response | null> => {
     const controller = new AbortController();
     controllers.value.add(controller);
 
@@ -16,7 +23,7 @@ export function useFetch() {
 
       controllers.value.delete(controller);
       return response;
-    } catch (error) {
+    } catch (error: any) {
       controllers.value.delete(controller);
 
       if (error.name === 'AbortError') {
@@ -29,7 +36,7 @@ export function useFetch() {
     }
   };
 
-  const abortAllRequests = () => {
+  const abortAllRequests = (): void => {
     controllers.value.forEach(controller => {
       controller.abort();
     });
@@ -37,7 +44,7 @@ export function useFetch() {
     logDebug('useFetch.abortAllRequests()', 'All fetch requests aborted');
   };
 
-  const abortRequest = controller => {
+  const abortRequest = (controller: AbortController): void => {
     if (controllers.value.has(controller)) {
       controller.abort();
       controllers.value.delete(controller);
@@ -49,7 +56,7 @@ export function useFetch() {
   });
 
   if (typeof window !== 'undefined') {
-    const handleUnload = () => {
+    const handleUnload = (): void => {
       abortAllRequests();
     };
 

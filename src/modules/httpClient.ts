@@ -1,12 +1,71 @@
 // Minimal centralized HTTP client to standardize fetch usage across the app.
 // Provides timeout, automatic Authorization header injection (from a getter),
 // convenience helpers returning Promises (json/text), and built-in logging.
-import { logInfo, logError } from './logger.js';
-class HttpClient {
+import { logInfo, logError } from './logger';
+
+interface RequestOptions {
+  method?: string;
+  headers?: Record<string, string>;
+  body?: BodyInit;
+  timeout?: number;
+}
+
+export interface FileSystemResponse {
+  success: boolean;
+  text: string;
+}
+
+export interface UploadOptions {
+  fieldName?: string;
+  timeoutMs?: number;
+  onProgress?: (percent: number) => void;
+}
+
+export interface UploadResponse {
+  success: boolean;
+  status: number;
+  text: string;
+}
+
+interface WebSocketOptions {
+  protocols?: string | string[];
+  onOpen?: (event: Event) => void;
+  onMessage?: (event: MessageEvent) => void;
+  onClose?: (event: CloseEvent) => void;
+  onError?: (event: Event) => void;
+  autoReconnect?: boolean;
+  reconnectIntervalMs?: number;
+}
+
+interface WebSocketHandle {
+  socketGetter: () => WebSocket | null;
+  close: () => void;
+}
+
+interface RestartOptions {
+  redirectDelayMs?: number;
+}
+
+interface RestartResponse {
+  success: boolean;
+  json?: any;
+  redirectScheduled?: boolean;
+  error?: any;
+}
+
+export class HttpClient {
+  baseURL: string;
+  timeout: number;
+  token: string;
+
   constructor() {
     // autodetect base URL from env or window location
-    if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_APP_HOST) {
-      this.baseURL = import.meta.env.VITE_APP_HOST;
+    if (
+      typeof import.meta !== 'undefined' &&
+      import.meta.env &&
+      (import.meta.env as any).VITE_APP_HOST
+    ) {
+      this.baseURL = (import.meta.env as any).VITE_APP_HOST;
     } else if (typeof window !== 'undefined' && window.location) {
       this.baseURL = window.location.href;
     } else {
@@ -15,8 +74,10 @@ class HttpClient {
 
     // default timeout (ms)
     this.timeout =
-      typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_FETCH_TIMEOUT
-        ? Number(import.meta.env.VITE_FETCH_TIMEOUT)
+      typeof import.meta !== 'undefined' &&
+      import.meta.env &&
+      (import.meta.env as any).VITE_FETCH_TIMEOUT
+        ? Number((import.meta.env as any).VITE_FETCH_TIMEOUT)
         : 8000;
 
     this.token = '';
@@ -24,13 +85,13 @@ class HttpClient {
 
   // Normalize an auth token into an Authorization header value.
   // Do not modify the token itself; simply prefix it with 'bearer '.
-  _formatAuth(token) {
+  private _formatAuth(token: string): string {
     if (!token) return token;
     const t = String(token).trim();
     return 'Bearer ' + t;
   }
 
-  buildUrl(path) {
+  buildUrl(path: string): string {
     if (!path) return this.baseURL;
     if (path.startsWith('http://') || path.startsWith('https://')) return path;
     return this.baseURL.endsWith('/') || path.startsWith('/')
@@ -39,11 +100,12 @@ class HttpClient {
   }
 
   // Check if the baseURL uses SSL (HTTPS)
-  isSSL() {
+  isSSL(): boolean {
     return !!(this.baseURL && this.baseURL.startsWith('https://'));
   }
 
-  async request(path, { method = 'GET', headers = {}, body, timeout } = {}) {
+  async request(path: string, options: RequestOptions = {}): Promise<Response> {
+    const { method = 'GET', headers = {}, body, timeout } = options;
     const url = this.buildUrl(path);
     const controller = new AbortController();
     const t = timeout === undefined ? this.timeout : timeout;
@@ -65,14 +127,14 @@ class HttpClient {
     return res;
   }
 
-  async getJson(path, opts = {}) {
+  async getJson(path: string, opts: RequestOptions = {}): Promise<any> {
     const res = await this.request(path, Object.assign({ method: 'GET' }, opts));
     if (!res) return null;
     if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
     return res.json();
   }
 
-  async postJson(path, data, opts = {}) {
+  async postJson(path: string, data: any, opts: RequestOptions = {}): Promise<Response> {
     const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
     const body = JSON.stringify(data);
     const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
@@ -80,7 +142,7 @@ class HttpClient {
     return res;
   }
 
-  async postText(path, data, opts = {}) {
+  async postText(path: string, data: any, opts: RequestOptions = {}): Promise<string> {
     const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
     const body = JSON.stringify(data);
     const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
@@ -91,7 +153,7 @@ class HttpClient {
   // Convenience helper to interact with the device filesystem API.
   // Accepts a data object, posts to 'api/filesystem' and returns an object
   // { success: boolean, text: string } to match previous callers' expectations.
-  async filesystemRequest(data) {
+  async filesystemRequest(data: any): Promise<FileSystemResponse> {
     try {
       logInfo('httpClient.filesystemRequest()', 'Sending /api/filesystem');
       const text = await this.postText('api/filesystem', data);
@@ -103,7 +165,7 @@ class HttpClient {
   }
 
   // Ping the device to check connectivity. Returns boolean success/failure.
-  async ping() {
+  async ping(): Promise<boolean> {
     try {
       await this.getJson('api/ping');
       return true;
@@ -114,7 +176,7 @@ class HttpClient {
   }
 
   // Map device push error codes to human readable messages
-  getErrorString(code) {
+  getErrorString(code: number): string {
     switch (code) {
       case -100:
         return 'Skipped since SSL is used';
@@ -134,7 +196,7 @@ class HttpClient {
   // Perform Basic auth against device and store token on success.
   // optional `basicBase` should be the base64 encoded "user:pass" string (without the 'Basic ' prefix)
   // Performs auth, logs errors internally and returns boolean success/failure.
-  async auth(basicBase) {
+  async auth(basicBase: string): Promise<boolean> {
     try {
       const base = basicBase;
       logInfo('httpClient.auth()', 'Requesting /api/auth');
@@ -166,7 +228,11 @@ class HttpClient {
   // path: endpoint path (e.g. 'api/firmware/upload')
   // data: File or FormData
   // opts: { fieldName = 'file', timeoutMs, onProgress }
-  uploadFile(path, data, opts = {}) {
+  uploadFile(
+    path: string,
+    data: File | FormData,
+    opts: UploadOptions = {}
+  ): Promise<UploadResponse> {
     const { fieldName = 'file', timeoutMs = 120000, onProgress } = opts;
 
     return new Promise(resolve => {
@@ -209,7 +275,7 @@ class HttpClient {
         }
 
         // Prepare form data
-        let payload;
+        let payload: FormData;
         if (data instanceof FormData) {
           payload = data;
         } else {
@@ -237,7 +303,7 @@ class HttpClient {
   }
 
   // Build a websocket URL from the client's baseURL and a path.
-  buildWsUrl(path) {
+  buildWsUrl(path: string): string {
     const base = this.baseURL || '';
     let wsBase = base;
     try {
@@ -257,7 +323,7 @@ class HttpClient {
 
   // Create a WebSocket for a given path. Returns the raw WebSocket and a small helper to close.
   // opts: { protocols?, onOpen?, onMessage?, onClose?, onError?, autoReconnect?: boolean, reconnectIntervalMs?: number }
-  createWebSocket(path, opts = {}) {
+  createWebSocket(path: string, opts: WebSocketOptions = {}): WebSocketHandle {
     const {
       protocols,
       onOpen,
@@ -268,11 +334,11 @@ class HttpClient {
       reconnectIntervalMs = 3000,
     } = opts;
 
-    let socket = null;
+    let socket: WebSocket | null = null;
     let shouldReconnect = autoReconnect;
-    let reconnectTimer = null;
+    let reconnectTimer: ReturnType<typeof setTimeout> | null = null;
 
-    const open = () => {
+    const open = (): void => {
       const url = this.buildWsUrl(path);
       socket = protocols ? new WebSocket(url, protocols) : new WebSocket(url);
 
@@ -283,7 +349,7 @@ class HttpClient {
         if (typeof onMessage === 'function') onMessage(ev);
       };
       socket.onclose = ev => {
-        if (typeof onClose === 'function') onClose(ev);
+        if (typeof onClose === 'function') onClose(ev as CloseEvent);
         if (shouldReconnect) {
           reconnectTimer = setTimeout(() => open(), reconnectIntervalMs);
         }
@@ -295,7 +361,7 @@ class HttpClient {
 
     open();
 
-    const close = () => {
+    const close = (): void => {
       shouldReconnect = false;
       if (reconnectTimer) {
         clearTimeout(reconnectTimer);
@@ -317,7 +383,7 @@ class HttpClient {
   // Perform a device restart via /api/restart and optionally schedule a client redirect
   // mdns: optional mDNS name (without .local) used to redirect to the device after restart
   // opts: { redirectDelayMs = 8000 }
-  async restart(mdns, opts = {}) {
+  async restart(mdns?: string, opts: RestartOptions = {}): Promise<RestartResponse> {
     const { redirectDelayMs = 8000 } = opts;
     try {
       const json = await this.getJson('api/restart');
@@ -363,9 +429,5 @@ class HttpClient {
   // token is stored only in-memory; no explicit clearToken API
 }
 
-// Backwards-compatible factory wrapper
-export { HttpClient };
-
 // Shared singleton client (will be initialized lazily; consumers should set baseURL/token/timeout)
-const sharedHttpClient = new HttpClient();
-export { sharedHttpClient };
+export const sharedHttpClient = new HttpClient();

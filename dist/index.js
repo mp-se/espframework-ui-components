@@ -2070,290 +2070,156 @@ return (_ctx, _cache) => {
 script$g.__file = "src/components/BsMessage.vue";
 
 function readEnvVar(name) {
-  // 1) Check a runtime-injected global shim (useful for demos or non-Vite runtimes)
-  try {
-    if (globalThis && globalThis.__ENV__ && typeof globalThis.__ENV__[name] !== 'undefined') {
-      return globalThis.__ENV__[name];
-    }
-  } catch (e) {
-    // ignore
-  }
-
-  // 2) Check Node-style process.env when running in Node
-  try {
-    if (typeof process !== 'undefined' && process.env && typeof process.env[name] !== 'undefined') {
-      return process.env[name];
-    }
-  } catch (e) {
-    // ignore
-  }
-
-  // 3) Try import.meta.env (works when bundlers inject it). Access inside try/catch to avoid
-  // syntax/runtime errors in environments where import.meta is not present.
-  try {
-    if (({ url: (typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.js', document.baseURI).href)) }) && undefined && typeof undefined[name] !== 'undefined') {
-      return undefined[name];
-    }
-  } catch (e) {
-    // import.meta may not be available in some runtimes; ignore errors
-  }
-
-  return undefined;
-}
-
-function logDebug(...args) {
-  const debugVal = readEnvVar('VITE_APP_DEBUG');
-  // Treat '0', 'false', '', undefined as falsy; anything else truthy
-  if (!debugVal) return;
-  console.log('Debug', ...args);
-}
-
-function logInfo(...args) {
-  // if(process.env.VUE_APP_INFO === undefined)
-  //  return
-
-  console.log('Info', ...args);
-}
-
-function logError(...args) {
-  console.log('Error', ...args);
-}
-
-/**
- * Round a numeric value to specified decimal places
- * @param {number} val - Value to round
- * @param {number} decimals - Number of decimal places
- * @returns {number} Rounded value
- */
-function roundVal(val, decimals) {
-  return parseFloat(Number(val).toFixed(decimals));
-}
-
-/**
- * Convert specific gravity to Plato degrees
- * @param {number} sg - Specific gravity value
- * @returns {number} Plato degrees
- */
-function gravityToPlato(sg) {
-  return 135.997 * sg * sg * sg - 630.272 * sg * sg + 1111.14 * sg - 616.868;
-}
-
-/**
- * Convert Plato degrees to specific gravity
- * @param {number} p - Plato degrees
- * @returns {number} Specific gravity
- */
-function gravityToSG(p) {
-  return 1 + p / (258.6 - 227.1 * (p / 258.2));
-}
-
-/**
- * Convert Celsius to Fahrenheit
- * @param {number} c - Temperature in Celsius
- * @returns {number} Temperature in Fahrenheit
- */
-function tempToF(c) {
-  return c * 1.8 + 32.0;
-}
-
-/**
- * Convert Fahrenheit to Celsius
- * @param {number} f - Temperature in Fahrenheit
- * @returns {number} Temperature in Celsius
- */
-function tempToC(f) {
-  return (f - 32.0) / 1.8;
-}
-
-/**
- * Convert PSI (Pounds per Square Inch) to Bar
- * @param {number} p - Pressure in PSI
- * @returns {number} Pressure in Bar
- */
-function psiToBar(p) {
-  return p * 0.0689475729;
-}
-
-/**
- * Convert PSI (Pounds per Square Inch) to kPa (Kilopascals)
- * @param {number} p - Pressure in PSI
- * @returns {number} Pressure in kPa
- */
-function psiToKPa(p) {
-  return p * 6.89475729;
-}
-
-/**
- * Convert Bar to PSI (Pounds per Square Inch)
- * @param {number} p - Pressure in Bar
- * @returns {number} Pressure in PSI
- */
-function barToPsi(p) {
-  return p / 0.0689475729;
-}
-
-/**
- * Convert kPa (Kilopascals) to PSI (Pounds per Square Inch)
- * @param {number} p - Pressure in kPa
- * @returns {number} Pressure in PSI
- */
-function kpaToPsi(p) {
-  return p / 6.89475729;
-}
-
-/**
- * Validate if string is valid JSON
- * @param {string} s - String to validate
- * @returns {boolean} True if valid JSON
- */
-function isValidJson(s) {
-  try {
-    JSON.stringify(JSON.parse(s));
-    return true;
-  } catch (e) {
-    logDebug('utils.isValidJson()', e);
-  }
-  return false;
-}
-
-/**
- * Validate if string is valid form data (starts with ?)
- * @param {string} s - String to validate
- * @returns {boolean} True if valid form data
- */
-function isValidFormData(s) {
-  if (s.startsWith('?')) return true;
-  return false;
-}
-
-/**
- * Validate if string is valid MQTT data (contains |)
- * @param {string} s - String to validate
- * @returns {boolean} True if valid MQTT data
- */
-function isValidMqttData(s) {
-  if (s.indexOf('|') >= 0) return true;
-  return false;
-}
-
-/**
- * Validate all forms with the `.needs-validation` class and apply Bootstrap styles.
- *
- * Behavior:
- * - Finds all forms matching `.needs-validation` in the document.
- * - Calls the native HTML5 `checkValidity()` on each form.
- * - Adds the `was-validated` class to show Bootstrap validation UI.
- * - Returns true if all forms are valid, false otherwise.
- *
- * Note: This function is safe to call in non-browser contexts (Node) — it will
- * short-circuit and return true if `document` is not available.
- *
- * @returns {boolean} true if all matching forms are valid
- */
-function validateCurrentForm() {
-  // If there's no DOM (e.g. running in Node), short-circuit and return true
-  if (typeof document === 'undefined' || !document.querySelectorAll) {
     try {
-      logDebug('validateCurrentForm: document not available, skipping validation');
-    } catch (e) {
-      // ignore logging failures
+        if (globalThis &&
+            globalThis.__ENV__ &&
+            typeof globalThis.__ENV__[name] !== 'undefined') {
+            return globalThis.__ENV__[name];
+        }
     }
-    return true;
-  }
-
-  let valid = true;
-  const forms = document.querySelectorAll('.needs-validation');
-
-  Array.from(forms).forEach(form => {
-    if (!form.checkValidity()) valid = false;
-
-    form.classList.add('was-validated');
-  });
-
-  return valid;
+    catch (e) {
+    }
+    try {
+        if (typeof process !== 'undefined' && process.env && typeof process.env[name] !== 'undefined') {
+            return process.env[name];
+        }
+    }
+    catch (e) {
+    }
+    try {
+        if (({ url: (typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.js', document.baseURI).href)) }) && undefined && typeof undefined[name] !== 'undefined') {
+            return undefined[name];
+        }
+    }
+    catch (e) {
+    }
+    return undefined;
 }
-/**
- * Format a time duration into a human-readable string.
- *
- * By default the input value `t` is treated as seconds. Set options.input = 'ms'
- * to treat the value as milliseconds.
- *
- * Options:
- * - input: 's' | 'ms' (default 's') - unit of the provided value
- * - compact: boolean (default false) - if true, return only the largest non-zero unit (e.g. "2h")
- * - decimals: number (default 0) - decimal places for seconds when needed
- *
- * Examples:
- * formatTime(3661) -> "1h 1m 1s"
- * formatTime(3661, { compact: true }) -> "1h"
- * formatTime(1500, { input: 'ms' }) -> "1s 500ms" (milliseconds are converted to seconds fraction)
- *
- * @param {number} t - duration (seconds by default, milliseconds if options.input === 'ms')
- * @param {Object} [options]
- * @param {'s'|'ms'} [options.input='s']
- * @param {boolean} [options.compact=false]
- * @param {number} [options.decimals=0]
- * @returns {string} Human readable duration
- */
+function logDebug(...args) {
+    const debugVal = readEnvVar('VITE_APP_DEBUG');
+    if (!debugVal)
+        return;
+    console.log('Debug', ...args);
+}
+function logInfo(...args) {
+    console.log('Info', ...args);
+}
+function logError(...args) {
+    console.log('Error', ...args);
+}
+
+function roundVal(val, decimals) {
+    return parseFloat(Number(val).toFixed(decimals));
+}
+function gravityToPlato(sg) {
+    return 135.997 * sg * sg * sg - 630.272 * sg * sg + 1111.14 * sg - 616.868;
+}
+function gravityToSG(p) {
+    return 1 + p / (258.6 - 227.1 * (p / 258.2));
+}
+function tempToF(c) {
+    return c * 1.8 + 32.0;
+}
+function tempToC(f) {
+    return (f - 32.0) / 1.8;
+}
+function psiToBar(p) {
+    return p * 0.0689475729;
+}
+function psiToKPa(p) {
+    return p * 6.89475729;
+}
+function barToPsi(p) {
+    return p / 0.0689475729;
+}
+function kpaToPsi(p) {
+    return p / 6.89475729;
+}
+function isValidJson(s) {
+    try {
+        JSON.stringify(JSON.parse(s));
+        return true;
+    }
+    catch (e) {
+        logDebug('utils.isValidJson()', e);
+    }
+    return false;
+}
+function isValidFormData(s) {
+    if (s.startsWith('?'))
+        return true;
+    return false;
+}
+function isValidMqttData(s) {
+    if (s.indexOf('|') >= 0)
+        return true;
+    return false;
+}
+function validateCurrentForm() {
+    if (typeof document === 'undefined' || !document.querySelectorAll) {
+        try {
+            logDebug('validateCurrentForm: document not available, skipping validation');
+        }
+        catch (_e) {
+        }
+        return true;
+    }
+    let valid = true;
+    const forms = document.querySelectorAll('.needs-validation');
+    Array.from(forms).forEach((form) => {
+        if (!form.checkValidity())
+            valid = false;
+        form.classList.add('was-validated');
+    });
+    return valid;
+}
 function formatTime(t, options = {}) {
-  const { input = 's', compact = false, decimals = 0 } = options || {};
-
-  if (t == null || Number.isNaN(Number(t))) return '';
-
-  // Convert to seconds (may be fractional)
-  let totalSeconds = Number(t);
-  if (input === 'ms') totalSeconds = totalSeconds / 1000;
-
-  const sign = totalSeconds < 0 ? '-' : '';
-  totalSeconds = Math.abs(totalSeconds);
-
-  const days = Math.floor(totalSeconds / 86400);
-  totalSeconds -= days * 86400;
-
-  const hours = Math.floor(totalSeconds / 3600);
-  totalSeconds -= hours * 3600;
-
-  const minutes = Math.floor(totalSeconds / 60);
-  totalSeconds -= minutes * 60;
-
-  // seconds may be fractional
-  const seconds = totalSeconds;
-
-  const parts = [];
-  if (days > 0) parts.push(days + 'd');
-  if (hours > 0) parts.push(hours + 'h');
-  if (minutes > 0) parts.push(minutes + 'm');
-
-  // Format seconds with decimals when appropriate
-  const formatSeconds = s => {
-    if (decimals > 0) return s.toFixed(decimals) + 's';
-    // show integer seconds when fractional is effectively zero
-    const intSec = Math.floor(s);
-    if (Math.abs(s - intSec) < 1e-9) return intSec + 's';
-    return s + 's';
-  };
-
-  // When there are no day/hour/minute parts, always include seconds (even 0s)
-  if (parts.length === 0) {
-    parts.push(formatSeconds(seconds));
-  } else if (seconds >= 1) {
-    // include seconds when >= 1s
-    parts.push(formatSeconds(seconds));
-  }
-
-  // If compact requested, return only the largest non-zero unit
-  if (compact) {
-    const first = parts.find(p => !p.startsWith('0'));
-    return sign + (first || '0s');
-  }
-
-  // Trim trailing zero-value parts (e.g., omit "0s" unless it's the only part)
-  const trimmed = parts.filter(p => {
-    if (p.startsWith('0') && parts.length > 1) return false;
-    return true;
-  });
-
-  return sign + trimmed.join(' ');
+    const { input = 's', compact = false, decimals = 0 } = options || {};
+    if (t == null || Number.isNaN(Number(t)))
+        return '';
+    let totalSeconds = Number(t);
+    if (input === 'ms')
+        totalSeconds = totalSeconds / 1000;
+    const sign = totalSeconds < 0 ? '-' : '';
+    totalSeconds = Math.abs(totalSeconds);
+    const days = Math.floor(totalSeconds / 86400);
+    totalSeconds -= days * 86400;
+    const hours = Math.floor(totalSeconds / 3600);
+    totalSeconds -= hours * 3600;
+    const minutes = Math.floor(totalSeconds / 60);
+    totalSeconds -= minutes * 60;
+    const seconds = totalSeconds;
+    const parts = [];
+    if (days > 0)
+        parts.push(days + 'd');
+    if (hours > 0)
+        parts.push(hours + 'h');
+    if (minutes > 0)
+        parts.push(minutes + 'm');
+    const formatSeconds = (s) => {
+        if (decimals > 0)
+            return s.toFixed(decimals) + 's';
+        const intSec = Math.floor(s);
+        if (Math.abs(s - intSec) < 1e-9)
+            return intSec + 's';
+        return s + 's';
+    };
+    if (parts.length === 0) {
+        parts.push(formatSeconds(seconds));
+    }
+    else if (seconds >= 1) {
+        parts.push(formatSeconds(seconds));
+    }
+    if (compact) {
+        const first = parts.find(p => !p.startsWith('0'));
+        return sign + (first || '0s');
+    }
+    const trimmed = parts.filter(p => {
+        if (p.startsWith('0') && parts.length > 1)
+            return false;
+        return true;
+    });
+    return sign + trimmed.join(' ');
 }
 
 function getDefaultExportFromCjs (x) {
@@ -4022,507 +3888,430 @@ return (_ctx, _cache) => {
 script.__file = "src/components/IconClipboard.vue";
 
 function useFetch() {
-  const controllers = vue.ref(new Set());
-
-  const managedFetch = async (url, options = {}) => {
-    const controller = new AbortController();
-    controllers.value.add(controller);
-
-    try {
-      const response = await fetch(url, {
-        ...options,
-        signal: controller.signal,
-      });
-
-      controllers.value.delete(controller);
-      return response;
-    } catch (error) {
-      controllers.value.delete(controller);
-
-      if (error.name === 'AbortError') {
-        logDebug('useFetch.managedFetch()', 'Request aborted:', url);
-        return null;
-      }
-
-      logError('useFetch.managedFetch()', 'Fetch error:', error);
-      throw error;
-    }
-  };
-
-  const abortAllRequests = () => {
-    controllers.value.forEach(controller => {
-      controller.abort();
-    });
-    controllers.value.clear();
-    logDebug('useFetch.abortAllRequests()', 'All fetch requests aborted');
-  };
-
-  const abortRequest = controller => {
-    if (controllers.value.has(controller)) {
-      controller.abort();
-      controllers.value.delete(controller);
-    }
-  };
-
-  vue.onBeforeUnmount(() => {
-    abortAllRequests();
-  });
-
-  if (typeof window !== 'undefined') {
-    const handleUnload = () => {
-      abortAllRequests();
+    const controllers = vue.ref(new Set());
+    const managedFetch = async (url, options = {}) => {
+        const controller = new AbortController();
+        controllers.value.add(controller);
+        try {
+            const response = await fetch(url, {
+                ...options,
+                signal: controller.signal,
+            });
+            controllers.value.delete(controller);
+            return response;
+        }
+        catch (error) {
+            controllers.value.delete(controller);
+            if (error.name === 'AbortError') {
+                logDebug('useFetch.managedFetch()', 'Request aborted:', url);
+                return null;
+            }
+            logError('useFetch.managedFetch()', 'Fetch error:', error);
+            throw error;
+        }
     };
-
-    window.addEventListener('beforeunload', handleUnload);
-
+    const abortAllRequests = () => {
+        controllers.value.forEach(controller => {
+            controller.abort();
+        });
+        controllers.value.clear();
+        logDebug('useFetch.abortAllRequests()', 'All fetch requests aborted');
+    };
+    const abortRequest = (controller) => {
+        if (controllers.value.has(controller)) {
+            controller.abort();
+            controllers.value.delete(controller);
+        }
+    };
     vue.onBeforeUnmount(() => {
-      window.removeEventListener('beforeunload', handleUnload);
+        abortAllRequests();
     });
-  }
-
-  return {
-    managedFetch,
-    abortAllRequests,
-    abortRequest,
-    activeControllers: controllers,
-  };
+    if (typeof window !== 'undefined') {
+        const handleUnload = () => {
+            abortAllRequests();
+        };
+        window.addEventListener('beforeunload', handleUnload);
+        vue.onBeforeUnmount(() => {
+            window.removeEventListener('beforeunload', handleUnload);
+        });
+    }
+    return {
+        managedFetch,
+        abortAllRequests,
+        abortRequest,
+        activeControllers: controllers,
+    };
 }
 
 function useTimers() {
-  const timeouts = vue.ref(new Set());
-  const intervals = vue.ref(new Set());
-
-  const createTimeout = (callback, delay) => {
-    const timeoutId = setTimeout(() => {
-      timeouts.value.delete(timeoutId);
-      callback();
-    }, delay);
-
-    timeouts.value.add(timeoutId);
-    return timeoutId;
-  };
-
-  const createInterval = (callback, delay) => {
-    const intervalId = setInterval(callback, delay);
-    intervals.value.add(intervalId);
-    return intervalId;
-  };
-
-  const clearManagedTimeout = timeoutId => {
-    if (timeouts.value.has(timeoutId)) {
-      clearTimeout(timeoutId);
-      timeouts.value.delete(timeoutId);
-    }
-  };
-
-  const clearManagedInterval = intervalId => {
-    if (intervals.value.has(intervalId)) {
-      clearInterval(intervalId);
-      intervals.value.delete(intervalId);
-    }
-  };
-
-  const clearAllTimers = () => {
-    timeouts.value.forEach(timeoutId => {
-      clearTimeout(timeoutId);
+    const timeouts = vue.ref(new Set());
+    const intervals = vue.ref(new Set());
+    const createTimeout = (callback, delay) => {
+        const timeoutId = setTimeout(() => {
+            timeouts.value.delete(timeoutId);
+            callback();
+        }, delay);
+        timeouts.value.add(timeoutId);
+        return timeoutId;
+    };
+    const createInterval = (callback, delay) => {
+        const intervalId = setInterval(callback, delay);
+        intervals.value.add(intervalId);
+        return intervalId;
+    };
+    const clearManagedTimeout = (timeoutId) => {
+        if (timeouts.value.has(timeoutId)) {
+            clearTimeout(timeoutId);
+            timeouts.value.delete(timeoutId);
+        }
+    };
+    const clearManagedInterval = (intervalId) => {
+        if (intervals.value.has(intervalId)) {
+            clearInterval(intervalId);
+            intervals.value.delete(intervalId);
+        }
+    };
+    const clearAllTimers = () => {
+        timeouts.value.forEach(timeoutId => {
+            clearTimeout(timeoutId);
+        });
+        timeouts.value.clear();
+        intervals.value.forEach(intervalId => {
+            clearInterval(intervalId);
+        });
+        intervals.value.clear();
+        logDebug('useTimers.clearAllTimers()', 'All timers cleared');
+    };
+    vue.onBeforeUnmount(() => {
+        clearAllTimers();
     });
-    timeouts.value.clear();
-
-    intervals.value.forEach(intervalId => {
-      clearInterval(intervalId);
-    });
-    intervals.value.clear();
-
-    logDebug('useTimers.clearAllTimers()', 'All timers cleared');
-  };
-
-  vue.onBeforeUnmount(() => {
-    clearAllTimers();
-  });
-
-  return {
-    createTimeout,
-    createInterval,
-    clearManagedTimeout,
-    clearManagedInterval,
-    clearAllTimers,
-    activeTimeouts: timeouts,
-    activeIntervals: intervals,
-  };
+    return {
+        createTimeout,
+        createInterval,
+        clearManagedTimeout,
+        clearManagedInterval,
+        clearAllTimers,
+        activeTimeouts: timeouts,
+        activeIntervals: intervals,
+    };
 }
 
-// Minimal centralized HTTP client to standardize fetch usage across the app.
-// Provides timeout, automatic Authorization header injection (from a getter),
-// convenience helpers returning Promises (json/text), and built-in logging.
 class HttpClient {
-  constructor() {
-    // autodetect base URL from env or window location
-    if (typeof ({ url: (typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.js', document.baseURI).href)) }) !== 'undefined' && undefined && undefined.VITE_APP_HOST) {
-      this.baseURL = undefined.VITE_APP_HOST;
-    } else if (typeof window !== 'undefined' && window.location) {
-      this.baseURL = window.location.href;
-    } else {
-      this.baseURL = '';
+    constructor() {
+        if (typeof ({ url: (typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.js', document.baseURI).href)) }) !== 'undefined' &&
+            undefined &&
+            undefined.VITE_APP_HOST) {
+            this.baseURL = undefined.VITE_APP_HOST;
+        }
+        else if (typeof window !== 'undefined' && window.location) {
+            this.baseURL = window.location.href;
+        }
+        else {
+            this.baseURL = '';
+        }
+        this.timeout =
+            typeof ({ url: (typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.js', document.baseURI).href)) }) !== 'undefined' &&
+                undefined &&
+                undefined.VITE_FETCH_TIMEOUT
+                ? Number(undefined.VITE_FETCH_TIMEOUT)
+                : 8000;
+        this.token = '';
     }
-
-    // default timeout (ms)
-    this.timeout =
-      typeof ({ url: (typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.js', document.baseURI).href)) }) !== 'undefined' && undefined && undefined.VITE_FETCH_TIMEOUT
-        ? Number(undefined.VITE_FETCH_TIMEOUT)
-        : 8000;
-
-    this.token = '';
-  }
-
-  // Normalize an auth token into an Authorization header value.
-  // Do not modify the token itself; simply prefix it with 'bearer '.
-  _formatAuth(token) {
-    if (!token) return token;
-    const t = String(token).trim();
-    return 'Bearer ' + t;
-  }
-
-  buildUrl(path) {
-    if (!path) return this.baseURL;
-    if (path.startsWith('http://') || path.startsWith('https://')) return path;
-    return this.baseURL.endsWith('/') || path.startsWith('/')
-      ? this.baseURL + path.replace(/^\//, '')
-      : this.baseURL + path;
-  }
-
-  // Check if the baseURL uses SSL (HTTPS)
-  isSSL() {
-    return !!(this.baseURL && this.baseURL.startsWith('https://'));
-  }
-
-  async request(path, { method = 'GET', headers = {}, body, timeout } = {}) {
-    const url = this.buildUrl(path);
-    const controller = new AbortController();
-    const t = timeout === undefined ? this.timeout : timeout;
-
-    const finalHeaders = Object.assign({}, headers);
-    if (this.token && !Object.keys(finalHeaders).some(k => k === 'Authorization')) {
-      finalHeaders['Authorization'] = this._formatAuth(this.token);
+    _formatAuth(token) {
+        if (!token)
+            return token;
+        const t = String(token).trim();
+        return 'Bearer ' + t;
     }
-
-    const timer = setTimeout(() => controller.abort(), t);
-
-    const res = await fetch(url, {
-      method,
-      headers: finalHeaders,
-      body,
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    return res;
-  }
-
-  async getJson(path, opts = {}) {
-    const res = await this.request(path, Object.assign({ method: 'GET' }, opts));
-    if (!res) return null;
-    if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-    return res.json();
-  }
-
-  async postJson(path, data, opts = {}) {
-    const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
-    const body = JSON.stringify(data);
-    const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
-    if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-    return res;
-  }
-
-  async postText(path, data, opts = {}) {
-    const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
-    const body = JSON.stringify(data);
-    const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
-    if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-    return res.text();
-  }
-
-  // Convenience helper to interact with the device filesystem API.
-  // Accepts a data object, posts to 'api/filesystem' and returns an object
-  // { success: boolean, text: string } to match previous callers' expectations.
-  async filesystemRequest(data) {
-    try {
-      logInfo('httpClient.filesystemRequest()', 'Sending /api/filesystem');
-      const text = await this.postText('api/filesystem', data);
-      return { success: true, text };
-    } catch (err) {
-      logError('httpClient.filesystemRequest()', err);
-      return { success: false, text: '' };
+    buildUrl(path) {
+        if (!path)
+            return this.baseURL;
+        if (path.startsWith('http://') || path.startsWith('https://'))
+            return path;
+        return this.baseURL.endsWith('/') || path.startsWith('/')
+            ? this.baseURL + path.replace(/^\//, '')
+            : this.baseURL + path;
     }
-  }
-
-  // Ping the device to check connectivity. Returns boolean success/failure.
-  async ping() {
-    try {
-      await this.getJson('api/ping');
-      return true;
-    } catch (err) {
-      logError('httpClient.ping()', err);
-      return false;
+    isSSL() {
+        return !!(this.baseURL && this.baseURL.startsWith('https://'));
     }
-  }
-
-  // Map device push error codes to human readable messages
-  getErrorString(code) {
-    switch (code) {
-      case -100:
-        return 'Skipped since SSL is used';
-      case 200:
-        return 'Success (200)';
-      case 401:
-        return 'Access denied (401)';
-      case 404:
-        return 'Endpoint not found (404)';
-      case 422:
-        return 'Paylod cannot be parsed, check format and http headers';
-      default:
-        return '';
-    }
-  }
-
-  // Perform Basic auth against device and store token on success.
-  // optional `basicBase` should be the base64 encoded "user:pass" string (without the 'Basic ' prefix)
-  // Performs auth, logs errors internally and returns boolean success/failure.
-  async auth(basicBase) {
-    try {
-      const base = basicBase;
-      logInfo('httpClient.auth()', 'Requesting /api/auth');
-      const response = await this.request('api/auth', {
-        method: 'GET',
-        headers: { Authorization: 'Basic ' + base },
-      });
-      if (!response.ok) {
-        const err = new Error(`HTTP ${response.status}: ${response.statusText}`);
-        logError('httpClient.auth()', err);
-        return false;
-      }
-      const json = await response.json();
-      if (json && json.token) {
-        this.token = json.token;
-        logInfo('httpClient.auth()', 'Authentication succeeded, token set');
-        return true;
-      }
-      const noTokenErr = new Error('Authentication response did not contain token');
-      logError('httpClient.auth()', noTokenErr);
-      return false;
-    } catch (err) {
-      logError('httpClient.auth()', err);
-      return false;
-    }
-  }
-
-  // Upload a file or FormData using XMLHttpRequest to support progress events.
-  // path: endpoint path (e.g. 'api/firmware/upload')
-  // data: File or FormData
-  // opts: { fieldName = 'file', timeoutMs, onProgress }
-  uploadFile(path, data, opts = {}) {
-    const { fieldName = 'file', timeoutMs = 120000, onProgress } = opts;
-
-    return new Promise(resolve => {
-      try {
+    async request(path, options = {}) {
+        const { method = 'GET', headers = {}, body, timeout } = options;
         const url = this.buildUrl(path);
-        const xhr = new XMLHttpRequest();
-        xhr.timeout = timeoutMs;
-
-        xhr.onerror = e => {
-          logError('httpClient.uploadFile()', e);
-          resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
-        };
-
-        xhr.ontimeout = e => {
-          logError('httpClient.uploadFile()', 'timeout', e);
-          resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
-        };
-
-        xhr.onloadend = () => {
-          const ok = xhr.status >= 200 && xhr.status < 300;
-          if (ok) {
-            resolve({ success: true, status: xhr.status, text: xhr.responseText });
-          } else {
-            logError('httpClient.uploadFile()', `HTTP ${xhr.status}`);
-            resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
-          }
-        };
-
-        if (xhr.upload && typeof onProgress === 'function') {
-          xhr.upload.addEventListener('progress', ev => {
-            if (ev.lengthComputable) {
-              const percent = (ev.loaded / ev.total) * 100;
-              try {
-                onProgress(percent);
-              } catch (e) {
-                logError('httpClient.uploadFile.onProgress()', e);
-              }
-            }
-          });
+        const controller = new AbortController();
+        const t = timeout === undefined ? this.timeout : timeout;
+        const finalHeaders = Object.assign({}, headers);
+        if (this.token && !Object.keys(finalHeaders).some(k => k === 'Authorization')) {
+            finalHeaders['Authorization'] = this._formatAuth(this.token);
         }
-
-        // Prepare form data
-        let payload;
-        if (data instanceof FormData) {
-          payload = data;
-        } else {
-          payload = new FormData();
-          payload.append(fieldName, data);
-        }
-
-        xhr.open('POST', url, true);
-        // Set Authorization header if token present
-        if (this.token) {
-          try {
-            xhr.setRequestHeader('Authorization', this._formatAuth(this.token));
-          } catch (e) {
-            // Some browsers may throw when setting forbidden headers; safest to ignore
-            logError('httpClient.uploadFile.setRequestHeader()', e);
-          }
-        }
-
-        xhr.send(payload);
-      } catch (err) {
-        logError('httpClient.uploadFile()', err);
-        resolve({ success: false, status: 0, text: '' });
-      }
-    });
-  }
-
-  // Build a websocket URL from the client's baseURL and a path.
-  buildWsUrl(path) {
-    const base = this.baseURL || '';
-    let wsBase = base;
-    try {
-      if (base.startsWith('https://')) wsBase = base.replace(/^https:\/\//i, 'wss://');
-      else if (base.startsWith('http://')) wsBase = base.replace(/^http:\/\//i, 'ws://');
-      else wsBase = base;
-    } catch (e) {
-      wsBase = base;
+        const timer = setTimeout(() => controller.abort(), t);
+        const res = await fetch(url, {
+            method,
+            headers: finalHeaders,
+            body,
+            signal: controller.signal,
+        });
+        clearTimeout(timer);
+        return res;
     }
-
-    if (!path) return wsBase;
-    if (path.startsWith('ws://') || path.startsWith('wss://')) return path;
-    return wsBase.endsWith('/') || path.startsWith('/')
-      ? wsBase + path.replace(/^\//, '')
-      : wsBase + path;
-  }
-
-  // Create a WebSocket for a given path. Returns the raw WebSocket and a small helper to close.
-  // opts: { protocols?, onOpen?, onMessage?, onClose?, onError?, autoReconnect?: boolean, reconnectIntervalMs?: number }
-  createWebSocket(path, opts = {}) {
-    const {
-      protocols,
-      onOpen,
-      onMessage,
-      onClose,
-      onError,
-      autoReconnect = false,
-      reconnectIntervalMs = 3000,
-    } = opts;
-
-    let socket = null;
-    let shouldReconnect = autoReconnect;
-    let reconnectTimer = null;
-
-    const open = () => {
-      const url = this.buildWsUrl(path);
-      socket = protocols ? new WebSocket(url, protocols) : new WebSocket(url);
-
-      socket.onopen = ev => {
-        if (typeof onOpen === 'function') onOpen(ev);
-      };
-      socket.onmessage = ev => {
-        if (typeof onMessage === 'function') onMessage(ev);
-      };
-      socket.onclose = ev => {
-        if (typeof onClose === 'function') onClose(ev);
-        if (shouldReconnect) {
-          reconnectTimer = setTimeout(() => open(), reconnectIntervalMs);
-        }
-      };
-      socket.onerror = ev => {
-        if (typeof onError === 'function') onError(ev);
-      };
-    };
-
-    open();
-
-    const close = () => {
-      shouldReconnect = false;
-      if (reconnectTimer) {
-        clearTimeout(reconnectTimer);
-        reconnectTimer = null;
-      }
-      if (socket) {
+    async getJson(path, opts = {}) {
+        const res = await this.request(path, Object.assign({ method: 'GET' }, opts));
+        if (!res)
+            return null;
+        if (!res.ok)
+            throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+        return res.json();
+    }
+    async postJson(path, data, opts = {}) {
+        const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
+        const body = JSON.stringify(data);
+        const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
+        if (!res.ok)
+            throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+        return res;
+    }
+    async postText(path, data, opts = {}) {
+        const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
+        const body = JSON.stringify(data);
+        const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
+        if (!res.ok)
+            throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+        return res.text();
+    }
+    async filesystemRequest(data) {
         try {
-          socket.close();
-        } catch (e) {
-          logError('httpClient.createWebSocket.close()', e);
+            logInfo('httpClient.filesystemRequest()', 'Sending /api/filesystem');
+            const text = await this.postText('api/filesystem', data);
+            return { success: true, text };
         }
-        socket = null;
-      }
-    };
-
-    return { socketGetter: () => socket, close };
-  }
-
-  // Perform a device restart via /api/restart and optionally schedule a client redirect
-  // mdns: optional mDNS name (without .local) used to redirect to the device after restart
-  // opts: { redirectDelayMs = 8000 }
-  async restart(mdns, opts = {}) {
-    const { redirectDelayMs = 8000 } = opts;
-    try {
-      const json = await this.getJson('api/restart');
-
-      // If caller provided an mdns name and restart succeeded, schedule a redirect
-      if (json && json.status === true && typeof window !== 'undefined' && mdns) {
-        const redirectUrl = 'http://' + mdns + '.local';
-        const redirectTimeout = setTimeout(() => {
-          try {
-            location.href = redirectUrl;
-          } catch (error) {
-            logError('httpClient.restart.redirect()', error);
-            // Fallback to reload
-            try {
-              window.location.reload();
-            } catch (_e) {
-              // ignore
-            }
-          }
-        }, redirectDelayMs);
-
-        // Clean up on page unload to avoid dangling timeout
-        if (typeof window !== 'undefined') {
-          window.addEventListener(
-            'beforeunload',
-            () => {
-              clearTimeout(redirectTimeout);
-            },
-            { once: true }
-          );
+        catch (err) {
+            logError('httpClient.filesystemRequest()', err);
+            return { success: false, text: '' };
         }
-
-        return { success: true, json, redirectScheduled: true };
-      }
-
-      return { success: true, json, redirectScheduled: false };
-    } catch (err) {
-      logError('httpClient.restart()', err);
-      return { success: false, error: err };
     }
-  }
-
-  // token is stored only in-memory; no explicit clearToken API
+    async ping() {
+        try {
+            await this.getJson('api/ping');
+            return true;
+        }
+        catch (err) {
+            logError('httpClient.ping()', err);
+            return false;
+        }
+    }
+    getErrorString(code) {
+        switch (code) {
+            case -100:
+                return 'Skipped since SSL is used';
+            case 200:
+                return 'Success (200)';
+            case 401:
+                return 'Access denied (401)';
+            case 404:
+                return 'Endpoint not found (404)';
+            case 422:
+                return 'Paylod cannot be parsed, check format and http headers';
+            default:
+                return '';
+        }
+    }
+    async auth(basicBase) {
+        try {
+            const base = basicBase;
+            logInfo('httpClient.auth()', 'Requesting /api/auth');
+            const response = await this.request('api/auth', {
+                method: 'GET',
+                headers: { Authorization: 'Basic ' + base },
+            });
+            if (!response.ok) {
+                const err = new Error(`HTTP ${response.status}: ${response.statusText}`);
+                logError('httpClient.auth()', err);
+                return false;
+            }
+            const json = await response.json();
+            if (json && json.token) {
+                this.token = json.token;
+                logInfo('httpClient.auth()', 'Authentication succeeded, token set');
+                return true;
+            }
+            const noTokenErr = new Error('Authentication response did not contain token');
+            logError('httpClient.auth()', noTokenErr);
+            return false;
+        }
+        catch (err) {
+            logError('httpClient.auth()', err);
+            return false;
+        }
+    }
+    uploadFile(path, data, opts = {}) {
+        const { fieldName = 'file', timeoutMs = 120000, onProgress } = opts;
+        return new Promise(resolve => {
+            try {
+                const url = this.buildUrl(path);
+                const xhr = new XMLHttpRequest();
+                xhr.timeout = timeoutMs;
+                xhr.onerror = e => {
+                    logError('httpClient.uploadFile()', e);
+                    resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
+                };
+                xhr.ontimeout = e => {
+                    logError('httpClient.uploadFile()', 'timeout', e);
+                    resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
+                };
+                xhr.onloadend = () => {
+                    const ok = xhr.status >= 200 && xhr.status < 300;
+                    if (ok) {
+                        resolve({ success: true, status: xhr.status, text: xhr.responseText });
+                    }
+                    else {
+                        logError('httpClient.uploadFile()', `HTTP ${xhr.status}`);
+                        resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
+                    }
+                };
+                if (xhr.upload && typeof onProgress === 'function') {
+                    xhr.upload.addEventListener('progress', ev => {
+                        if (ev.lengthComputable) {
+                            const percent = (ev.loaded / ev.total) * 100;
+                            try {
+                                onProgress(percent);
+                            }
+                            catch (e) {
+                                logError('httpClient.uploadFile.onProgress()', e);
+                            }
+                        }
+                    });
+                }
+                let payload;
+                if (data instanceof FormData) {
+                    payload = data;
+                }
+                else {
+                    payload = new FormData();
+                    payload.append(fieldName, data);
+                }
+                xhr.open('POST', url, true);
+                if (this.token) {
+                    try {
+                        xhr.setRequestHeader('Authorization', this._formatAuth(this.token));
+                    }
+                    catch (e) {
+                        logError('httpClient.uploadFile.setRequestHeader()', e);
+                    }
+                }
+                xhr.send(payload);
+            }
+            catch (err) {
+                logError('httpClient.uploadFile()', err);
+                resolve({ success: false, status: 0, text: '' });
+            }
+        });
+    }
+    buildWsUrl(path) {
+        const base = this.baseURL || '';
+        let wsBase = base;
+        try {
+            if (base.startsWith('https://'))
+                wsBase = base.replace(/^https:\/\//i, 'wss://');
+            else if (base.startsWith('http://'))
+                wsBase = base.replace(/^http:\/\//i, 'ws://');
+            else
+                wsBase = base;
+        }
+        catch (e) {
+            wsBase = base;
+        }
+        if (!path)
+            return wsBase;
+        if (path.startsWith('ws://') || path.startsWith('wss://'))
+            return path;
+        return wsBase.endsWith('/') || path.startsWith('/')
+            ? wsBase + path.replace(/^\//, '')
+            : wsBase + path;
+    }
+    createWebSocket(path, opts = {}) {
+        const { protocols, onOpen, onMessage, onClose, onError, autoReconnect = false, reconnectIntervalMs = 3000, } = opts;
+        let socket = null;
+        let shouldReconnect = autoReconnect;
+        let reconnectTimer = null;
+        const open = () => {
+            const url = this.buildWsUrl(path);
+            socket = protocols ? new WebSocket(url, protocols) : new WebSocket(url);
+            socket.onopen = ev => {
+                if (typeof onOpen === 'function')
+                    onOpen(ev);
+            };
+            socket.onmessage = ev => {
+                if (typeof onMessage === 'function')
+                    onMessage(ev);
+            };
+            socket.onclose = ev => {
+                if (typeof onClose === 'function')
+                    onClose(ev);
+                if (shouldReconnect) {
+                    reconnectTimer = setTimeout(() => open(), reconnectIntervalMs);
+                }
+            };
+            socket.onerror = ev => {
+                if (typeof onError === 'function')
+                    onError(ev);
+            };
+        };
+        open();
+        const close = () => {
+            shouldReconnect = false;
+            if (reconnectTimer) {
+                clearTimeout(reconnectTimer);
+                reconnectTimer = null;
+            }
+            if (socket) {
+                try {
+                    socket.close();
+                }
+                catch (e) {
+                    logError('httpClient.createWebSocket.close()', e);
+                }
+                socket = null;
+            }
+        };
+        return { socketGetter: () => socket, close };
+    }
+    async restart(mdns, opts = {}) {
+        const { redirectDelayMs = 8000 } = opts;
+        try {
+            const json = await this.getJson('api/restart');
+            if (json && json.status === true && typeof window !== 'undefined' && mdns) {
+                const redirectUrl = 'http://' + mdns + '.local';
+                const redirectTimeout = setTimeout(() => {
+                    try {
+                        location.href = redirectUrl;
+                    }
+                    catch (error) {
+                        logError('httpClient.restart.redirect()', error);
+                        try {
+                            window.location.reload();
+                        }
+                        catch (_e) {
+                        }
+                    }
+                }, redirectDelayMs);
+                if (typeof window !== 'undefined') {
+                    window.addEventListener('beforeunload', () => {
+                        clearTimeout(redirectTimeout);
+                    }, { once: true });
+                }
+                return { success: true, json, redirectScheduled: true };
+            }
+            return { success: true, json, redirectScheduled: false };
+        }
+        catch (err) {
+            logError('httpClient.restart()', err);
+            return { success: false, error: err };
+        }
+    }
 }
-
-// Shared singleton client (will be initialized lazily; consumers should set baseURL/token/timeout)
 const sharedHttpClient = new HttpClient();
 
-// src/index.js
-// ESP Framework UI Components Library
-
-// Package version
-const version = '1.7.0';
+const version = '2.0.0';
 
 exports.BsCard = script$x;
 exports.BsDropdown = script$w;

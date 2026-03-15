@@ -3,9 +3,10 @@ import vue from 'rollup-plugin-vue';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import css from 'rollup-plugin-css-only';
+import typescript from 'rollup-plugin-typescript2';
 
 export default defineConfig({
-  input: 'src/index.js',
+  input: 'src/index.ts',
   external: ['vue'],
   output: [
     {
@@ -30,6 +31,10 @@ export default defineConfig({
     },
   ],
   plugins: [
+    typescript({
+      useTsconfigDeclarationDir: true,
+      clean: true,
+    }),
     vue({
       css: false,
       compileTemplate: true,

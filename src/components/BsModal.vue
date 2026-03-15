@@ -44,7 +44,7 @@
 <script setup>
 import { ref } from 'vue';
 import { isValidJson, isValidFormData } from '../modules/utils.js';
-import parseJson from 'json-parse-even-better-errors'
+import parseJson from 'json-parse-even-better-errors';
 
 const jsonError = ref('');
 

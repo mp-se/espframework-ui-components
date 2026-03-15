@@ -16,7 +16,7 @@ describe('useFetch', () => {
 
   it('should return managedFetch, abortAllRequests, abortRequest, and activeControllers', () => {
     const { managedFetch, abortAllRequests, abortRequest, activeControllers } = useFetch();
-    
+
     expect(typeof managedFetch).toBe('function');
     expect(typeof abortAllRequests).toBe('function');
     expect(typeof abortRequest).toBe('function');
@@ -45,7 +45,7 @@ describe('useFetch', () => {
 
     const { managedFetch } = useFetch();
     const options = { method: 'POST', headers: { 'Content-Type': 'application/json' } };
-    
+
     await managedFetch('https://api.example.com/data', options);
 
     expect(fetchMock).toHaveBeenCalledWith(
@@ -101,7 +101,7 @@ describe('useFetch', () => {
     } catch (e) {
       // Expected
     }
-    
+
     expect(activeControllers.value.size).toBe(0);
   });
 
@@ -126,9 +126,9 @@ describe('useFetch', () => {
 
     // Give time for controllers to be added
     await new Promise(resolve => setTimeout(resolve, 10));
-    
+
     expect(activeControllers.value.size).toBeGreaterThan(0);
-    
+
     abortAllRequests();
     expect(activeControllers.value.size).toBe(0);
   });
@@ -145,7 +145,7 @@ describe('useFetch', () => {
     fetchMock.mockResolvedValue(mockResponse);
 
     const { managedFetch } = useFetch();
-    
+
     const responses = await Promise.all([
       managedFetch('https://api.example.com/1'),
       managedFetch('https://api.example.com/2'),
@@ -161,7 +161,7 @@ describe('useFetch', () => {
     // In Node.js/test environment, onBeforeUnmount won't be called
     // Just verify the composable returns the expected methods
     const { managedFetch, abortAllRequests } = useFetch();
-    
+
     expect(typeof managedFetch).toBe('function');
     expect(typeof abortAllRequests).toBe('function');
   });
