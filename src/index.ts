@@ -19,6 +19,7 @@ export { default as BsMessage } from './components/BsMessage.vue';
 export { default as BsModal } from './components/BsModal.vue';
 export { default as BsModalConfirm } from './components/BsModalConfirm.vue';
 export { default as BsModalLogin } from './components/BsModalLogin.vue';
+export { default as BsModalSelect } from './components/BsModalSelect.vue';
 export { default as BsProgress } from './components/BsProgress.vue';
 export { default as BsFileUpload } from './components/BsFileUpload.vue';
 export { default as BsMenuBar } from './components/BsMenuBar.vue';
@@ -65,6 +66,12 @@ export {
   psiToKPa,
   barToPsi,
   kpaToPsi,
+  weightKgToLbs,
+  weightLbsToKg,
+  volumeCLtoUSOZ,
+  volumeUSOZtoCL,
+  volumeCLtoUKOZ,
+  volumeUKOZtoCL,
   isValidJson,
   isValidFormData,
   isValidMqttData,

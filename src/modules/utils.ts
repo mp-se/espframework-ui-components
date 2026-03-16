@@ -83,6 +83,62 @@ export function kpaToPsi(p: number): number {
 }
 
 /**
+ * Convert kilograms to pounds
+ * @param w - Weight in kilograms
+ * @returns Weight in pounds
+ */
+export function weightKgToLbs(w: number): number {
+  return w * 2.2046226218;
+}
+
+/**
+ * Convert pounds to kilograms
+ * @param w - Weight in pounds
+ * @returns Weight in kilograms
+ */
+export function weightLbsToKg(w: number): number {
+  return w / 2.2046226218;
+}
+
+/**
+ * Convert centiliters to US fluid ounces
+ * 1 cl = 0.338140225 US fl oz
+ * @param cl - Volume in centiliters
+ * @returns Volume in US fluid ounces
+ */
+export function volumeCLtoUSOZ(cl: number): number {
+  return cl * 0.338140225;
+}
+
+/**
+ * Convert US fluid ounces to centiliters
+ * @param oz - Volume in US fluid ounces
+ * @returns Volume in centiliters
+ */
+export function volumeUSOZtoCL(oz: number): number {
+  return oz / 0.338140225;
+}
+
+/**
+ * Convert centiliters to UK (imperial) fluid ounces
+ * 1 cl = 0.351195720 UK fl oz
+ * @param cl - Volume in centiliters
+ * @returns Volume in UK fluid ounces
+ */
+export function volumeCLtoUKOZ(cl: number): number {
+  return cl * 0.35119572;
+}
+
+/**
+ * Convert UK (imperial) fluid ounces to centiliters
+ * @param oz - Volume in UK fluid ounces
+ * @returns Volume in centiliters
+ */
+export function volumeUKOZtoCL(oz: number): number {
+  return oz / 0.35119572;
+}
+
+/**
  * Validate if string is valid JSON
  * @param s - String to validate
  * @returns True if valid JSON
@@ -136,7 +192,7 @@ export function validateCurrentForm(): boolean {
   if (typeof document === 'undefined' || !document.querySelectorAll) {
     try {
       logDebug('validateCurrentForm: document not available, skipping validation');
-    } catch (_e) {
+    } catch {
       // ignore logging failures
     }
     return true;
@@ -145,7 +201,8 @@ export function validateCurrentForm(): boolean {
   let valid = true;
   const forms = document.querySelectorAll('.needs-validation');
 
-  Array.from(forms).forEach((form: any) => {
+  Array.from(forms).forEach((element: Element) => {
+    const form = element as HTMLFormElement;
     if (!form.checkValidity()) valid = false;
 
     form.classList.add('was-validated');

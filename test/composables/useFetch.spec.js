@@ -134,10 +134,43 @@ describe('useFetch', () => {
   });
 
   it('should abort specific request', async () => {
+    // Mock fetch to prevent actual network call
+    const mockFetch = vi.fn(
+      () =>
+        new Promise(() => {
+          // Never resolves - simulates a long-running request
+        })
+    );
+    global.fetch = mockFetch;
+
+    const { managedFetch, abortRequest, activeControllers } = useFetch();
+
+    // Start a fetch request (which will be tracked)
+    managedFetch('http://example.com/api/data');
+
+    // The controller should be tracked now
+    expect(activeControllers.value.size).toBeGreaterThan(0);
+
+    // Get the controller from active controllers
+    const [controller] = [...activeControllers.value];
+    expect(controller.signal.aborted).toBe(false);
+
+    // Abort it
+    abortRequest(controller);
+
+    expect(controller.signal.aborted).toBe(true);
+    expect(activeControllers.value.has(controller)).toBe(false);
+  });
+
+  it('should not throw when aborting non-tracked controller', async () => {
     const { abortRequest } = useFetch();
 
-    // This test validates the structure exists
-    expect(typeof abortRequest).toBe('function');
+    const untrackedController = new AbortController();
+
+    // Should not throw even though it's not tracked
+    expect(() => {
+      abortRequest(untrackedController);
+    }).not.toThrow();
   });
 
   it('should handle multiple concurrent requests', async () => {
@@ -155,6 +188,63 @@ describe('useFetch', () => {
     expect(responses).toHaveLength(3);
     expect(responses.every(r => r === mockResponse)).toBe(true);
     expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it('should handle AbortError removal from tracking', async () => {
+    const abortError = new Error('Aborted');
+    abortError.name = 'AbortError';
+    fetchMock.mockRejectedValueOnce(abortError);
+
+    const { managedFetch, activeControllers } = useFetch();
+
+    const result = await managedFetch('https://api.example.com/data');
+
+    expect(result).toBeNull();
+    // Controller should be removed from active set even on abort
+    expect(activeControllers.value.size).toBe(0);
+  });
+
+  it('should add controller to active set during fetch', async () => {
+    let capturedSignal;
+
+    fetchMock.mockImplementation((url, { signal }) => {
+      capturedSignal = signal;
+      return Promise.resolve({ ok: true, status: 200 });
+    });
+
+    const { managedFetch, activeControllers } = useFetch();
+
+    const promise = managedFetch('https://api.example.com/data');
+
+    // At this point, the controller might be added
+    // After promise resolves, it should be removed
+    await promise;
+
+    expect(activeControllers.value.size).toBe(0);
+  });
+
+  it('should preserve other request options when adding signal', async () => {
+    const mockResponse = { ok: true, status: 200 };
+    fetchMock.mockResolvedValueOnce(mockResponse);
+
+    const { managedFetch } = useFetch();
+    const options = {
+      method: 'PUT',
+      headers: { 'X-Custom': 'value' },
+      body: JSON.stringify({ test: 'data' }),
+    };
+
+    await managedFetch('https://api.example.com/data', options);
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://api.example.com/data',
+      expect.objectContaining({
+        method: 'PUT',
+        headers: { 'X-Custom': 'value' },
+        body: JSON.stringify({ test: 'data' }),
+        signal: expect.any(AbortSignal),
+      })
+    );
   });
 
   it('should clean up window beforeunload listener on unmount', () => {

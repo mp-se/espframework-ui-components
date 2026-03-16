@@ -9,7 +9,7 @@
       (function poll() {
         try {
           if (conditionFn()) return resolve();
-        } catch (e) {
+        } catch {
           /* ignored - conditionFn may throw while probing */
         }
         if (Date.now() - start > timeout) return reject(new Error('waitFor timeout'));

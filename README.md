@@ -38,10 +38,11 @@ export default {
 ### Form & Input Components
 
 #### `BsInputText`
+
 Text input with built-in password toggling and validation.
 
 ```vue
-<BsInputText 
+<BsInputText
   v-model="username"
   label="Username"
   type="text"
@@ -50,14 +51,11 @@ Text input with built-in password toggling and validation.
 />
 
 <!-- Password field with eye toggle -->
-<BsInputText 
-  v-model="password"
-  type="password"
-  label="Password"
-/>
+<BsInputText v-model="password" type="password" label="Password" />
 ```
 
 **Props:**
+
 - `v-model` - Bound input value
 - `label` - Label text above the input
 - `type` - Input type (text, password, email, etc.)
@@ -66,90 +64,83 @@ Text input with built-in password toggling and validation.
 - `width` - Bootstrap grid width (1-12)
 
 #### `BsInputNumber`
+
 Number input with validation.
 
 ```vue
-<BsInputNumber 
-  v-model="count"
-  label="Item Count"
-  help="Enter a number"
-/>
+<BsInputNumber v-model="count" label="Item Count" help="Enter a number" />
 ```
 
 #### `BsInputTextArea`
+
 Multi-line text input.
 
 ```vue
-<BsInputTextArea 
-  v-model="description"
-  label="Description"
-/>
+<BsInputTextArea v-model="description" label="Description" />
 ```
 
 #### `BsInputTextAreaFormat`
+
 Text area with JSON/FormData formatting.
 
 ```vue
-<BsInputTextAreaFormat 
-  v-model="data"
-  label="Configuration"
-/>
+<BsInputTextAreaFormat v-model="data" label="Configuration" />
 ```
 
 #### `BsInputReadonly`
+
 Display-only input field.
 
 ```vue
-<BsInputReadonly 
-  :value="serialNumber"
-  label="Serial Number"
-/>
+<BsInputReadonly :value="serialNumber" label="Serial Number" />
 ```
 
 #### `BsInputRadio`
+
 Radio button group.
 
 ```vue
-<BsInputRadio 
+<BsInputRadio
   v-model="selected"
   :options="[
     { label: 'Option A', value: 'a' },
-    { label: 'Option B', value: 'b' }
+    { label: 'Option B', value: 'b' },
   ]"
   label="Choose an option"
 />
 ```
 
 #### `BsInputSwitch`
+
 Toggle switch component.
 
 ```vue
-<BsInputSwitch 
-  v-model="enabled"
-  label="Enable Feature"
-/>
+<BsInputSwitch v-model="enabled" label="Enable Feature" />
 ```
 
 #### `BsInputBase`
+
 Base component for form inputs (used internally).
 
 ### Selection Components
 
 #### `BsSelect`
+
 Dropdown select field.
 
 ```vue
-<BsSelect 
+<BsSelect
   v-model="mode"
   label="Mode"
   :options="[
     { label: 'Auto', value: 'auto' },
-    { label: 'Manual', value: 'manual' }
+    { label: 'Manual', value: 'manual' },
   ]"
 />
 ```
 
 #### `BsDropdown`
+
 Dropdown menu with action items.
 
 ```vue
@@ -162,47 +153,41 @@ Dropdown menu with action items.
 ### Display Components
 
 #### `BsCard`
+
 Container for grouped content.
 
 ```vue
-<BsCard 
-  header="Device Information"
-  title="Status"
-  :icon="IconWifi"
->
+<BsCard header="Device Information" title="Status" :icon="IconWifi">
   <!-- Card content here -->
 </BsCard>
 ```
 
 **Props:**
+
 - `header` - Header text
 - `title` - Card title
 - `icon` - Icon component to display
 
 #### `BsMessage`
+
 Alert/notification message.
 
 ```vue
-<BsMessage 
-  title="Success"
-  message="Operation completed"
-  type="success"
-/>
+<BsMessage title="Success" message="Operation completed" type="success" />
 ```
 
 **Types:** `success`, `error`, `warning`, `info`
 
 #### `BsProgress`
+
 Progress bar indicator.
 
 ```vue
-<BsProgress 
-  :value="75"
-  label="Download Progress"
-/>
+<BsProgress :value="75" label="Download Progress" />
 ```
 
 #### `BsMenuBar`
+
 Navigation menu bar.
 
 ```vue
@@ -212,6 +197,7 @@ Navigation menu bar.
 ```
 
 #### `BsFooter`
+
 Footer component.
 
 ```vue
@@ -223,21 +209,42 @@ Footer component.
 ### Modal Components
 
 #### `BsModal`
+
 Generic modal dialog with JSON/FormData formatting.
 
 ```vue
-<BsModal 
-  v-model="modalData"
-  title="View Server Response"
-  button="Show Details"
+<BsModal v-model="modalData" title="View Server Response" button="Show Details" />
+```
+
+#### `BsModalSelect`
+
+Modal dialog with a select dropdown.
+
+```vue
+<BsModalSelect
+  id="selectModal"
+  title="Select a Device"
+  message="Please choose a device to configure"
+  :options="devices"
+  :callback="handleDeviceSelection"
 />
 ```
 
+**Props:**
+
+- `id` - HTML id attribute for the trigger button
+- `title` - Modal title
+- `options` - Array of `{ label, value }` select options
+- `message` - Optional message text to display
+- `disabled` - Show loading state
+- `callback` - Function called on confirm/cancel: `(confirmed: boolean, value: any) => void`
+
 #### `BsModalConfirm`
+
 Confirmation dialog.
 
 ```vue
-<BsModalConfirm 
+<BsModalConfirm
   title="Confirm Action"
   message="Are you sure?"
   @confirm="handleConfirm"
@@ -246,26 +253,21 @@ Confirmation dialog.
 ```
 
 #### `BsModalLogin`
+
 Login dialog with password entry.
 
 ```vue
-<BsModalLogin 
-  id="loginModal"
-  :callback="handleLogin"
-/>
+<BsModalLogin id="loginModal" :callback="handleLogin" />
 ```
 
 ### File Upload
 
 #### `BsFileUpload`
+
 File upload component with progress tracking.
 
 ```vue
-<BsFileUpload 
-  label="Upload Firmware"
-  accept=".bin,.hex"
-  @upload="handleUpload"
-/>
+<BsFileUpload label="Upload Firmware" accept=".bin,.hex" @upload="handleUpload" />
 ```
 
 ### Icon Components
@@ -273,6 +275,7 @@ File upload component with progress tracking.
 Display SVG icons. All icons support width/height props.
 
 #### Basic Icons
+
 ```vue
 <IconWifi width="24" height="24" />
 <IconHome width="20" height="20" />
@@ -283,6 +286,7 @@ Display SVG icons. All icons support width/height props.
 ```
 
 #### Status Icons
+
 ```vue
 <!-- Success -->
 <IconCheckCircle width="20" height="20" />
@@ -296,12 +300,14 @@ Display SVG icons. All icons support width/height props.
 ```
 
 #### Visibility Icons
+
 ```vue
 <IconEye width="20" height="20" />
 <IconEyeSlash width="20" height="20" />
 ```
 
 #### Direction/Action Icons
+
 ```vue
 <IconUpArrow width="16" height="16" />
 <IconGraphUpArrow width="16" height="16" />
@@ -311,6 +317,7 @@ Display SVG icons. All icons support width/height props.
 ## 🎯 Composables
 
 ### `useFetch()`
+
 Manage fetch requests with automatic cleanup.
 
 ```typescript
@@ -330,16 +337,18 @@ export default {
     });
 
     return { fetchData };
-  }
+  },
 };
 ```
 
 **Methods:**
+
 - `managedFetch(url, options)` - Fetch with abort signal tracking
 - `abortAllRequests()` - Cancel all active requests
 - `abortRequest(controller)` - Cancel specific request
 
 ### `useTimers()`
+
 Manage timeouts and intervals with automatic cleanup.
 
 ```typescript
@@ -361,12 +370,13 @@ export default {
       clearAllTimers(); // Auto cleanup
     });
 
-    return { };
-  }
+    return {};
+  },
 };
 ```
 
 **Methods:**
+
 - `createTimeout(callback, delay)` - Create tracked timeout
 - `createInterval(callback, delay)` - Create tracked interval
 - `clearManagedTimeout(id)` - Clear specific timeout
@@ -401,6 +411,7 @@ await client.getJson('/api/info');
 ```
 
 **Methods:**
+
 - `getJson(path, opts)` - GET request returning JSON
 - `postJson(path, data, opts)` - POST JSON data
 - `postText(path, data, opts)` - POST data returning text
@@ -413,45 +424,81 @@ await client.getJson('/api/info');
 ### Conversion & Validation Utilities
 
 **Temperature Conversion:**
+
 ```typescript
 import { tempToF, tempToC } from '@mp-se/espframework-ui-components';
 
 const fahrenheit = tempToF(25); // 77
-const celsius = tempToC(98.6);  // 37
+const celsius = tempToC(98.6); // 37
 ```
 
 **Pressure Conversion:**
+
 ```typescript
 import { psiToBar, psiToKPa, barToPsi, kpaToPsi } from '@mp-se/espframework-ui-components';
 
-const bar = psiToBar(14.7);   // 1.01325
-const psi = barToPsi(2.5);    // 36.26
+const bar = psiToBar(14.7); // 1.01325
+const psi = barToPsi(2.5); // 36.26
+```
+
+**Weight Conversion:**
+
+```typescript
+import { weightKgToLbs, weightLbsToKg } from '@mp-se/espframework-ui-components';
+
+const lbs = weightKgToLbs(10); // 22.046...
+const kg = weightLbsToKg(22); // 9.979...
+```
+
+**Volume Conversion:**
+
+```typescript
+import {
+  volumeCLtoUSOZ,
+  volumeUSOZtoCL,
+  volumeCLtoUKOZ,
+  volumeUKOZtoCL,
+} from '@mp-se/espframework-ui-components';
+
+const usOz = volumeCLtoUSOZ(100); // 33.814... (centiliters to US fluid ounces)
+const cl = volumeUSOZtoCL(33.814); // 100 (US fluid ounces to centiliters)
+
+const ukOz = volumeCLtoUKOZ(100); // 35.119... (centiliters to UK fluid ounces)
+const cl2 = volumeUKOZtoCL(35.119); // 100 (UK fluid ounces to centiliters)
 ```
 
 **Gravity/Brewing:**
+
 ```typescript
 import { gravityToPlato, gravityToSG } from '@mp-se/espframework-ui-components';
 
-const plato = gravityToPlato(1.060);  // Specific gravity to Plato degrees
-const sg = gravityToSG(15);            // Plato degrees to specific gravity
+const plato = gravityToPlato(1.06); // Specific gravity to Plato degrees
+const sg = gravityToSG(15); // Plato degrees to specific gravity
 ```
 
 **Validation:**
-```typescript
-import { isValidJson, isValidFormData, isValidMqttData, validateCurrentForm } from '@mp-se/espframework-ui-components';
 
-isValidJson('{"key":"value"}');     // true
-isValidFormData('?name=value');     // true
-isValidMqttData('topic|message');   // true
-validateCurrentForm();               // Validate all Bootstrap forms
+```typescript
+import {
+  isValidJson,
+  isValidFormData,
+  isValidMqttData,
+  validateCurrentForm,
+} from '@mp-se/espframework-ui-components';
+
+isValidJson('{"key":"value"}'); // true
+isValidFormData('?name=value'); // true
+isValidMqttData('topic|message'); // true
+validateCurrentForm(); // Validate all Bootstrap forms
 ```
 
 **Utilities:**
+
 ```typescript
 import { roundVal, formatTime } from '@mp-se/espframework-ui-components';
 
-roundVal(3.14159, 2);              // 3.14
-formatTime(3661);                   // "1h 1m 1s"
+roundVal(3.14159, 2); // 3.14
+formatTime(3661); // "1h 1m 1s"
 formatTime(3661, { compact: true }); // "1h"
 ```
 
@@ -510,5 +557,9 @@ git push origin main --tags
 - **Framework**: Vue.js 3 with TypeScript
 
 # 6. Publish to GitHub Packages
+
 npm publish
+
+```
+
 ```

@@ -48,9 +48,9 @@ interface RestartOptions {
 
 interface RestartResponse {
   success: boolean;
-  json?: any;
+  json?: Record<string, unknown>;
   redirectScheduled?: boolean;
-  error?: any;
+  error?: unknown;
 }
 
 export class HttpClient {
@@ -63,9 +63,9 @@ export class HttpClient {
     if (
       typeof import.meta !== 'undefined' &&
       import.meta.env &&
-      (import.meta.env as any).VITE_APP_HOST
+      (import.meta.env as Record<string, unknown>).VITE_APP_HOST
     ) {
-      this.baseURL = (import.meta.env as any).VITE_APP_HOST;
+      this.baseURL = (import.meta.env as Record<string, unknown>).VITE_APP_HOST as string;
     } else if (typeof window !== 'undefined' && window.location) {
       this.baseURL = window.location.href;
     } else {
@@ -76,8 +76,8 @@ export class HttpClient {
     this.timeout =
       typeof import.meta !== 'undefined' &&
       import.meta.env &&
-      (import.meta.env as any).VITE_FETCH_TIMEOUT
-        ? Number((import.meta.env as any).VITE_FETCH_TIMEOUT)
+      (import.meta.env as Record<string, unknown>).VITE_FETCH_TIMEOUT
+        ? Number((import.meta.env as Record<string, unknown>).VITE_FETCH_TIMEOUT)
         : 8000;
 
     this.token = '';
@@ -127,14 +127,17 @@ export class HttpClient {
     return res;
   }
 
-  async getJson(path: string, opts: RequestOptions = {}): Promise<any> {
+  async getJson(
+    path: string,
+    opts: RequestOptions = {}
+  ): Promise<Record<string, unknown> | undefined> {
     const res = await this.request(path, Object.assign({ method: 'GET' }, opts));
-    if (!res) return null;
+    if (!res) return undefined;
     if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
     return res.json();
   }
 
-  async postJson(path: string, data: any, opts: RequestOptions = {}): Promise<Response> {
+  async postJson(path: string, data: unknown, opts: RequestOptions = {}): Promise<Response> {
     const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
     const body = JSON.stringify(data);
     const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
@@ -142,7 +145,7 @@ export class HttpClient {
     return res;
   }
 
-  async postText(path: string, data: any, opts: RequestOptions = {}): Promise<string> {
+  async postText(path: string, data: unknown, opts: RequestOptions = {}): Promise<string> {
     const headers = Object.assign({ 'Content-Type': 'application/json' }, opts.headers || {});
     const body = JSON.stringify(data);
     const res = await this.request(path, Object.assign({ method: 'POST', headers, body }, opts));
@@ -153,13 +156,13 @@ export class HttpClient {
   // Convenience helper to interact with the device filesystem API.
   // Accepts a data object, posts to 'api/filesystem' and returns an object
   // { success: boolean, text: string } to match previous callers' expectations.
-  async filesystemRequest(data: any): Promise<FileSystemResponse> {
+  async filesystemRequest(data: unknown): Promise<FileSystemResponse> {
     try {
       logInfo('httpClient.filesystemRequest()', 'Sending /api/filesystem');
       const text = await this.postText('api/filesystem', data);
       return { success: true, text };
-    } catch (err) {
-      logError('httpClient.filesystemRequest()', err);
+    } catch (error) {
+      logError('httpClient.filesystemRequest()', error);
       return { success: false, text: '' };
     }
   }
@@ -169,8 +172,8 @@ export class HttpClient {
     try {
       await this.getJson('api/ping');
       return true;
-    } catch (err) {
-      logError('httpClient.ping()', err);
+    } catch (error) {
+      logError('httpClient.ping()', error);
       return false;
     }
   }
@@ -218,8 +221,8 @@ export class HttpClient {
       const noTokenErr = new Error('Authentication response did not contain token');
       logError('httpClient.auth()', noTokenErr);
       return false;
-    } catch (err) {
-      logError('httpClient.auth()', err);
+    } catch (error) {
+      logError('httpClient.auth()', error);
       return false;
     }
   }
@@ -241,13 +244,13 @@ export class HttpClient {
         const xhr = new XMLHttpRequest();
         xhr.timeout = timeoutMs;
 
-        xhr.onerror = e => {
-          logError('httpClient.uploadFile()', e);
+        xhr.onerror = event => {
+          logError('httpClient.uploadFile()', event);
           resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
         };
 
-        xhr.ontimeout = e => {
-          logError('httpClient.uploadFile()', 'timeout', e);
+        xhr.ontimeout = event => {
+          logError('httpClient.uploadFile()', 'timeout', event);
           resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
         };
 
@@ -267,8 +270,8 @@ export class HttpClient {
               const percent = (ev.loaded / ev.total) * 100;
               try {
                 onProgress(percent);
-              } catch (e) {
-                logError('httpClient.uploadFile.onProgress()', e);
+              } catch (error) {
+                logError('httpClient.uploadFile.onProgress()', error);
               }
             }
           });
@@ -288,15 +291,15 @@ export class HttpClient {
         if (this.token) {
           try {
             xhr.setRequestHeader('Authorization', this._formatAuth(this.token));
-          } catch (e) {
+          } catch (error) {
             // Some browsers may throw when setting forbidden headers; safest to ignore
-            logError('httpClient.uploadFile.setRequestHeader()', e);
+            logError('httpClient.uploadFile.setRequestHeader()', error);
           }
         }
 
         xhr.send(payload);
-      } catch (err) {
-        logError('httpClient.uploadFile()', err);
+      } catch (error) {
+        logError('httpClient.uploadFile()', error);
         resolve({ success: false, status: 0, text: '' });
       }
     });
@@ -310,7 +313,7 @@ export class HttpClient {
       if (base.startsWith('https://')) wsBase = base.replace(/^https:\/\//i, 'wss://');
       else if (base.startsWith('http://')) wsBase = base.replace(/^http:\/\//i, 'ws://');
       else wsBase = base;
-    } catch (e) {
+    } catch {
       wsBase = base;
     }
 
@@ -399,7 +402,7 @@ export class HttpClient {
             // Fallback to reload
             try {
               window.location.reload();
-            } catch (_e) {
+            } catch {
               // ignore
             }
           }

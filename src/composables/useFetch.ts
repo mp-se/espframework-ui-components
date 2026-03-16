@@ -23,10 +23,10 @@ export function useFetch(): UseFetchReturn {
 
       controllers.value.delete(controller);
       return response;
-    } catch (error: any) {
+    } catch (error: unknown) {
       controllers.value.delete(controller);
 
-      if (error.name === 'AbortError') {
+      if (error instanceof Error && error.name === 'AbortError') {
         logDebug('useFetch.managedFetch()', 'Request aborted:', url);
         return null;
       }

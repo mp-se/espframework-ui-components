@@ -1,11 +1,11 @@
-import { useModel, createElementBlock, openBlock, mergeProps, createElementVNode, normalizeClass, toDisplayString, createBlock, createCommentVNode, createTextVNode, resolveDynamicComponent, renderSlot, resolveComponent, withCtx, Fragment, renderList, ref, withDirectives, vModelDynamic, vModelText, vModelCheckbox, createVNode, withModifiers, vModelRadio, vModelSelect, onMounted, computed, normalizeStyle, vShow, onBeforeUnmount } from 'vue';
+import { useModel, createElementBlock, openBlock, mergeProps, createElementVNode, normalizeClass, toDisplayString, createBlock, createCommentVNode, createTextVNode, resolveDynamicComponent, renderSlot, resolveComponent, withCtx, Fragment, renderList, ref, withDirectives, vModelDynamic, vModelText, vModelCheckbox, createVNode, withModifiers, vModelRadio, vModelSelect, onMounted, defineComponent, computed, normalizeStyle, vShow, onBeforeUnmount } from 'vue';
 
-const _hoisted_1$u = { class: "card-body" };
-const _hoisted_2$e = { class: "card-title" };
-const _hoisted_3$a = { class: "card-text" };
+const _hoisted_1$v = { class: "card-body" };
+const _hoisted_2$f = { class: "card-title" };
+const _hoisted_3$b = { class: "card-text" };
 
 
-var script$x = /*@__PURE__*/Object.assign({
+var script$y = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsCard',
@@ -97,8 +97,8 @@ return (_ctx, _cache) => {
     createElementVNode("div", {
       class: normalizeClass(headerStyle())
     }, toDisplayString(header.value), 3 /* TEXT, CLASS */),
-    createElementVNode("div", _hoisted_1$u, [
-      createElementVNode("h5", _hoisted_2$e, [
+    createElementVNode("div", _hoisted_1$v, [
+      createElementVNode("h5", _hoisted_2$f, [
         (icon.value !== undefined)
           ? (openBlock(), createBlock(resolveDynamicComponent(icon.value), {
               key: 0,
@@ -108,7 +108,7 @@ return (_ctx, _cache) => {
           : createCommentVNode("v-if", true),
         createTextVNode(" " + toDisplayString(title.value), 1 /* TEXT */)
       ]),
-      createElementVNode("p", _hoisted_3$a, [
+      createElementVNode("p", _hoisted_3$b, [
         createCommentVNode(" @slot Content of the card is placed via the slot "),
         renderSlot(_ctx.$slots, "default")
       ])
@@ -119,15 +119,15 @@ return (_ctx, _cache) => {
 
 });
 
-script$x.__file = "src/components/BsCard.vue";
+script$y.__file = "src/components/BsCard.vue";
 
-const _hoisted_1$t = { class: "dropdown" };
-const _hoisted_2$d = ["disabled"];
-const _hoisted_3$9 = { class: "dropdown-menu" };
-const _hoisted_4$4 = ["onClick"];
+const _hoisted_1$u = { class: "dropdown" };
+const _hoisted_2$e = ["disabled"];
+const _hoisted_3$a = { class: "dropdown-menu" };
+const _hoisted_4$5 = ["onClick"];
 
 
-var script$w = /*@__PURE__*/Object.assign({
+var script$x = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsDropdown',
@@ -253,15 +253,15 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$t, [
+      createElementVNode("div", _hoisted_1$u, [
         createElementVNode("button", {
           class: "btn btn-outline-secondary dropdown-toggle",
           type: "button",
           "data-bs-toggle": "dropdown",
           "aria-expanded": "false",
           disabled: disabled.value
-        }, toDisplayString(button.value), 9 /* TEXT, PROPS */, _hoisted_2$d),
-        createElementVNode("ul", _hoisted_3$9, [
+        }, toDisplayString(button.value), 9 /* TEXT, PROPS */, _hoisted_2$e),
+        createElementVNode("ul", _hoisted_3$a, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(options.value, (o) => {
             return (openBlock(), createElementBlock("li", {
               key: o.value
@@ -269,7 +269,7 @@ return (_ctx, _cache) => {
               createElementVNode("a", {
                 class: "dropdown-item",
                 onClick: $event => (callback.value(o.value))
-              }, toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_4$4)
+              }, toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_4$5)
             ]))
           }), 128 /* KEYED_FRAGMENT */))
         ])
@@ -282,12 +282,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$w.__file = "src/components/BsDropdown.vue";
+script$x.__file = "src/components/BsDropdown.vue";
 
-const _hoisted_1$s = ["width", "height"];
+const _hoisted_1$t = ["width", "height"];
 
 
-var script$v = /*@__PURE__*/Object.assign({
+var script$w = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconEyeSlash',
@@ -352,18 +352,18 @@ return (_ctx, _cache) => {
     createElementVNode("path", { d: "M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z" }, null, -1 /* CACHED */),
     createElementVNode("path", { d: "M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829" }, null, -1 /* CACHED */),
     createElementVNode("path", { d: "M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$s))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$t))
 }
 }
 
 });
 
-script$v.__file = "src/components/IconEyeSlash.vue";
+script$w.__file = "src/components/IconEyeSlash.vue";
 
-const _hoisted_1$r = ["width", "height"];
+const _hoisted_1$s = ["width", "height"];
 
 
-var script$u = /*@__PURE__*/Object.assign({
+var script$v = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconEye',
@@ -427,17 +427,17 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     createElementVNode("path", { d: "M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" }, null, -1 /* CACHED */),
     createElementVNode("path", { d: "M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$r))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$s))
 }
 }
 
 });
 
-script$u.__file = "src/components/IconEye.vue";
+script$v.__file = "src/components/IconEye.vue";
 
-const _hoisted_1$q = { class: "input-group" };
-const _hoisted_2$c = ["type", "data-bs-title"];
-const _hoisted_3$8 = {
+const _hoisted_1$r = { class: "input-group" };
+const _hoisted_2$d = ["type", "data-bs-title"];
+const _hoisted_3$9 = {
   key: 0,
   class: "input-group-text"
 };
@@ -445,7 +445,7 @@ const _hoisted_3$8 = {
  * Purpose: Proviude an input field
  */
 
-var script$t = /*@__PURE__*/Object.assign({
+var script$u = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputText',
@@ -541,7 +541,7 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$q, [
+      createElementVNode("div", _hoisted_1$r, [
         withDirectives(createElementVNode("input", mergeProps({
           "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
           class: "form-control",
@@ -550,13 +550,13 @@ return (_ctx, _cache) => {
           "data-bs-toggle": "tooltip",
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value
-        }), null, 16 /* FULL_PROPS */, _hoisted_2$c), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_2$d), [
           [vModelDynamic, model.value]
         ]),
         (type.value === 'password')
-          ? (openBlock(), createElementBlock("span", _hoisted_3$8, [
+          ? (openBlock(), createElementBlock("span", _hoisted_3$9, [
               (!flag.value)
-                ? (openBlock(), createBlock(script$u, {
+                ? (openBlock(), createBlock(script$v, {
                     key: 0,
                     width: "1rem",
                     height: "1rem",
@@ -564,7 +564,7 @@ return (_ctx, _cache) => {
                   }))
                 : createCommentVNode("v-if", true),
               (flag.value)
-                ? (openBlock(), createBlock(script$v, {
+                ? (openBlock(), createBlock(script$w, {
                     key: 1,
                     width: "1rem",
                     height: "1rem",
@@ -582,17 +582,17 @@ return (_ctx, _cache) => {
 
 });
 
-script$t.__file = "src/components/BsInputText.vue";
+script$u.__file = "src/components/BsInputText.vue";
 
-const _hoisted_1$p = { class: "input-group" };
-const _hoisted_2$b = ["data-bs-title", "disabled"];
-const _hoisted_3$7 = {
+const _hoisted_1$q = { class: "input-group" };
+const _hoisted_2$c = ["data-bs-title", "disabled"];
+const _hoisted_3$8 = {
   key: 0,
   class: "input-group-text"
 };
 
 
-var script$s = /*@__PURE__*/Object.assign({
+var script$t = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputNumber',
@@ -696,7 +696,7 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$p, [
+      createElementVNode("div", _hoisted_1$q, [
         withDirectives(createElementVNode("input", mergeProps({
           "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
           class: "form-control",
@@ -706,11 +706,11 @@ return (_ctx, _cache) => {
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value,
           disabled: disabled.value
-        }), null, 16 /* FULL_PROPS */, _hoisted_2$b), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_2$c), [
           [vModelText, model.value]
         ]),
         (unit.value !== undefined)
-          ? (openBlock(), createElementBlock("span", _hoisted_3$7, toDisplayString(unit.value), 1 /* TEXT */))
+          ? (openBlock(), createElementBlock("span", _hoisted_3$8, toDisplayString(unit.value), 1 /* TEXT */))
           : createCommentVNode("v-if", true)
       ])
     ]),
@@ -721,13 +721,13 @@ return (_ctx, _cache) => {
 
 });
 
-script$s.__file = "src/components/BsInputNumber.vue";
+script$t.__file = "src/components/BsInputNumber.vue";
 
-const _hoisted_1$o = { class: "form-check form-switch" };
-const _hoisted_2$a = ["disabled", "data-bs-title"];
+const _hoisted_1$p = { class: "form-check form-switch" };
+const _hoisted_2$b = ["disabled", "data-bs-title"];
 
 
-var script$r = /*@__PURE__*/Object.assign({
+var script$s = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputSwitch',
@@ -821,7 +821,7 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$o, [
+      createElementVNode("div", _hoisted_1$p, [
         withDirectives(createElementVNode("input", mergeProps({
           "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
           class: "form-check-input",
@@ -833,7 +833,7 @@ return (_ctx, _cache) => {
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value,
           style: {"transform":"scale(1.5)","transform-origin":"left center","display":"inline-block"}
-        }), null, 16 /* FULL_PROPS */, _hoisted_2$a), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_2$b), [
           [vModelCheckbox, model.value]
         ])
       ])
@@ -845,12 +845,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$r.__file = "src/components/BsInputSwitch.vue";
+script$s.__file = "src/components/BsInputSwitch.vue";
 
-const _hoisted_1$n = ["data-bs-title"];
+const _hoisted_1$o = ["data-bs-title"];
 
 
-var script$q = /*@__PURE__*/Object.assign({
+var script$r = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputTextArea',
@@ -942,7 +942,7 @@ return (_ctx, _cache) => {
         "data-bs-toggle": "tooltip",
         "data-bs-custom-class": "custom-tooltip",
         "data-bs-title": help.value
-      }), null, 16 /* FULL_PROPS */, _hoisted_1$n), [
+      }), null, 16 /* FULL_PROPS */, _hoisted_1$o), [
         [vModelText, model.value]
       ])
     ]),
@@ -953,16 +953,16 @@ return (_ctx, _cache) => {
 
 });
 
-script$q.__file = "src/components/BsInputTextArea.vue";
+script$r.__file = "src/components/BsInputTextArea.vue";
 
-const _hoisted_1$m = ["data-bs-title"];
-const _hoisted_2$9 = ["onClick"];
+const _hoisted_1$n = ["data-bs-title"];
+const _hoisted_2$a = ["onClick"];
 
 /**
  * Purpose: Use as a building block for providing a text area that can allow for multiple lines of text.
  */
 
-var script$p = /*@__PURE__*/Object.assign({
+var script$q = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputTextAreaFormat',
@@ -1120,7 +1120,7 @@ return (_ctx, _cache) => {
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value,
           onContextmenu: withModifiers(openContextMenu, ["right","prevent"])
-        }), null, 16 /* FULL_PROPS */, _hoisted_1$m), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_1$n), [
           [vModelText, model.value]
         ])
       ]),
@@ -1136,7 +1136,7 @@ return (_ctx, _cache) => {
           key: o.value,
           class: "dropdown-item",
           onClick: $event => (insertText(o.value))
-        }, toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_2$9))
+        }, toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_2$a))
       }), 128 /* KEYED_FRAGMENT */))
     ])
   ], 64 /* STABLE_FRAGMENT */))
@@ -1145,13 +1145,13 @@ return (_ctx, _cache) => {
 
 });
 
-script$p.__file = "src/components/BsInputTextAreaFormat.vue";
+script$q.__file = "src/components/BsInputTextAreaFormat.vue";
 
-const _hoisted_1$l = { class: "input-group" };
-const _hoisted_2$8 = ["data-bs-title"];
+const _hoisted_1$m = { class: "input-group" };
+const _hoisted_2$9 = ["data-bs-title"];
 
 
-var script$o = /*@__PURE__*/Object.assign({
+var script$p = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputReadonly',
@@ -1224,7 +1224,7 @@ return (_ctx, _cache) => {
     help: help.value
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$l, [
+      createElementVNode("div", _hoisted_1$m, [
         withDirectives(createElementVNode("input", mergeProps({
           "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((model).value = $event)),
           class: "form-control-plaintext",
@@ -1234,7 +1234,7 @@ return (_ctx, _cache) => {
           "data-bs-toggle": "tooltip",
           "data-bs-custom-class": "custom-tooltip",
           "data-bs-title": help.value
-        }), null, 16 /* FULL_PROPS */, _hoisted_2$8), [
+        }), null, 16 /* FULL_PROPS */, _hoisted_2$9), [
           [vModelText, model.value]
         ])
       ])
@@ -1246,17 +1246,17 @@ return (_ctx, _cache) => {
 
 });
 
-script$o.__file = "src/components/BsInputReadonly.vue";
+script$p.__file = "src/components/BsInputReadonly.vue";
 
-const _hoisted_1$k = {
+const _hoisted_1$l = {
   class: "btn-group",
   role: "group"
 };
-const _hoisted_2$7 = ["id", "value", "name", "disabled"];
-const _hoisted_3$6 = ["for"];
+const _hoisted_2$8 = ["id", "value", "name", "disabled"];
+const _hoisted_3$7 = ["for"];
 
 
-var script$n = /*@__PURE__*/Object.assign({
+var script$o = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsInputRadio',
@@ -1366,7 +1366,7 @@ return (_ctx, _cache) => {
     badge: badge.value
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$k, [
+      createElementVNode("div", _hoisted_1$l, [
         (openBlock(true), createElementBlock(Fragment, null, renderList(options.value, (o) => {
           return (openBlock(), createElementBlock(Fragment, {
             key: o.value
@@ -1379,13 +1379,13 @@ return (_ctx, _cache) => {
               value: o.value,
               name: 'radio' + _ctx.$.uid,
               disabled: disabled.value
-            }, null, 8 /* PROPS */, _hoisted_2$7), [
+            }, null, 8 /* PROPS */, _hoisted_2$8), [
               [vModelRadio, model.value]
             ]),
             createElementVNode("label", {
               class: "btn btn-outline-primary",
               for: 'radio' + _ctx.$.uid + o.value
-            }, toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_3$6)
+            }, toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_3$7)
           ], 64 /* STABLE_FRAGMENT */))
         }), 128 /* KEYED_FRAGMENT */))
       ])
@@ -1397,12 +1397,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$n.__file = "src/components/BsInputRadio.vue";
+script$o.__file = "src/components/BsInputRadio.vue";
 
-const _hoisted_1$j = ["width", "height"];
+const _hoisted_1$k = ["width", "height"];
 
 
-var script$m = /*@__PURE__*/Object.assign({
+var script$n = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconWifi',
@@ -1466,17 +1466,17 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     createElementVNode("path", { d: "M15.384 6.115a.485.485 0 0 0-.047-.736A12.44 12.44 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.52.52 0 0 0 .668.05A11.45 11.45 0 0 1 8 4c2.507 0 4.827.802 6.716 2.164.205.148.49.13.668-.049" }, null, -1 /* CACHED */),
     createElementVNode("path", { d: "M13.229 8.271a.482.482 0 0 0-.063-.745A9.46 9.46 0 0 0 8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065A8.46 8.46 0 0 1 8 7a8.46 8.46 0 0 1 4.576 1.336c.206.132.48.108.653-.065m-2.183 2.183c.226-.226.185-.605-.1-.75A6.5 6.5 0 0 0 8 9c-1.06 0-2.062.254-2.946.704-.285.145-.326.524-.1.75l.015.015c.16.16.407.19.611.09A5.5 5.5 0 0 1 8 10c.868 0 1.69.201 2.42.56.203.1.45.07.61-.091zM9.06 12.44c.196-.196.198-.52-.04-.66A2 2 0 0 0 8 11.5a2 2 0 0 0-1.02.28c-.238.14-.236.464-.04.66l.706.706a.5.5 0 0 0 .707 0l.707-.707z" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$j))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$k))
 }
 }
 
 });
 
-script$m.__file = "src/components/IconWifi.vue";
+script$n.__file = "src/components/IconWifi.vue";
 
-const _hoisted_1$i = ["disabled"];
-const _hoisted_2$6 = ["value"];
-const _hoisted_3$5 = ["value"];
+const _hoisted_1$j = ["disabled"];
+const _hoisted_2$7 = ["value"];
+const _hoisted_3$6 = ["value"];
 /**
  * 2024-05-28 Bootstrap VueJS wrapper, Magnus Persson
  */
@@ -1485,7 +1485,7 @@ const _hoisted_3$5 = ["value"];
  * Purpose: Provide a select option
  */
 
-var script$l = /*@__PURE__*/Object.assign({
+var script$m = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsSelect',
@@ -1603,16 +1603,16 @@ return (_ctx, _cache) => {
                   selected: "",
                   value: o.value
                 }, [
-                  createVNode(script$m),
+                  createVNode(script$n),
                   createTextVNode(toDisplayString(o.label), 1 /* TEXT */)
-                ], 8 /* PROPS */, _hoisted_2$6))
+                ], 8 /* PROPS */, _hoisted_2$7))
               : (openBlock(), createElementBlock("option", {
                   key: 1,
                   value: o.value
-                }, toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_3$5))
+                }, toDisplayString(o.label), 9 /* TEXT, PROPS */, _hoisted_3$6))
           ], 64 /* STABLE_FRAGMENT */))
         }), 128 /* KEYED_FRAGMENT */))
-      ], 16 /* FULL_PROPS */, _hoisted_1$i), [
+      ], 16 /* FULL_PROPS */, _hoisted_1$j), [
         [vModelSelect, model.value]
       ])
     ]),
@@ -1623,12 +1623,12 @@ return (_ctx, _cache) => {
 
 });
 
-script$l.__file = "src/components/BsSelect.vue";
+script$m.__file = "src/components/BsSelect.vue";
 
-const _hoisted_1$h = ["width", "height"];
+const _hoisted_1$i = ["width", "height"];
 
 
-var script$k = /*@__PURE__*/Object.assign({
+var script$l = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconXCircle',
@@ -1692,18 +1692,18 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     createElementVNode("path", { d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" }, null, -1 /* CACHED */),
     createElementVNode("path", { d: "M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$h))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$i))
 }
 }
 
 });
 
-script$k.__file = "src/components/IconXCircle.vue";
+script$l.__file = "src/components/IconXCircle.vue";
 
-const _hoisted_1$g = ["width", "height"];
+const _hoisted_1$h = ["width", "height"];
 
 
-var script$j = /*@__PURE__*/Object.assign({
+var script$k = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconCheckCircle',
@@ -1767,18 +1767,18 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     createElementVNode("path", { d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" }, null, -1 /* CACHED */),
     createElementVNode("path", { d: "m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$g))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$h))
 }
 }
 
 });
 
-script$j.__file = "src/components/IconCheckCircle.vue";
+script$k.__file = "src/components/IconCheckCircle.vue";
 
-const _hoisted_1$f = ["width", "height"];
+const _hoisted_1$g = ["width", "height"];
 
 
-var script$i = /*@__PURE__*/Object.assign({
+var script$j = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconInfoCircle',
@@ -1842,18 +1842,18 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     createElementVNode("path", { d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" }, null, -1 /* CACHED */),
     createElementVNode("path", { d: "m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$f))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$g))
 }
 }
 
 });
 
-script$i.__file = "src/components/IconInfoCircle.vue";
+script$j.__file = "src/components/IconInfoCircle.vue";
 
-const _hoisted_1$e = ["width", "height"];
+const _hoisted_1$f = ["width", "height"];
 
 
-var script$h = /*@__PURE__*/Object.assign({
+var script$i = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'IconExclamationTriangle',
@@ -1917,15 +1917,15 @@ return (_ctx, _cache) => {
   }), [...(_cache[0] || (_cache[0] = [
     createElementVNode("path", { d: "M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z" }, null, -1 /* CACHED */),
     createElementVNode("path", { d: "M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" }, null, -1 /* CACHED */)
-  ]))], 16 /* FULL_PROPS */, _hoisted_1$e))
+  ]))], 16 /* FULL_PROPS */, _hoisted_1$f))
 }
 }
 
 });
 
-script$h.__file = "src/components/IconExclamationTriangle.vue";
+script$i.__file = "src/components/IconExclamationTriangle.vue";
 
-const _hoisted_1$d = {
+const _hoisted_1$e = {
   key: 5,
   type: "button",
   class: "btn-close",
@@ -1941,7 +1941,7 @@ const _hoisted_1$d = {
  * Purpose: Show a alert with a message
  */
 
-var script$g = /*@__PURE__*/Object.assign({
+var script$h = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsMessage',
@@ -2016,28 +2016,28 @@ return (_ctx, _cache) => {
     role: "alert"
   }, _ctx.$attrs), [
     (alert.value === 'danger')
-      ? (openBlock(), createBlock(script$k, {
+      ? (openBlock(), createBlock(script$l, {
           key: 0,
           height: "20",
           width: "20"
         }))
       : createCommentVNode("v-if", true),
     (alert.value === 'warning')
-      ? (openBlock(), createBlock(script$h, {
+      ? (openBlock(), createBlock(script$i, {
           key: 1,
           height: "20",
           width: "20"
         }))
       : createCommentVNode("v-if", true),
     (alert.value === 'info')
-      ? (openBlock(), createBlock(script$i, {
+      ? (openBlock(), createBlock(script$j, {
           key: 2,
           height: "20",
           width: "20"
         }))
       : createCommentVNode("v-if", true),
     (alert.value === 'success')
-      ? (openBlock(), createBlock(script$j, {
+      ? (openBlock(), createBlock(script$k, {
           key: 3,
           height: "20",
           width: "20"
@@ -2056,7 +2056,7 @@ return (_ctx, _cache) => {
         }))
       : createCommentVNode("v-if", true),
     (dismissable.value && close.value === undefined)
-      ? (openBlock(), createElementBlock("button", _hoisted_1$d))
+      ? (openBlock(), createElementBlock("button", _hoisted_1$e))
       : createCommentVNode("v-if", true)
   ], 16 /* FULL_PROPS */))
 }
@@ -2064,31 +2064,30 @@ return (_ctx, _cache) => {
 
 });
 
-script$g.__file = "src/components/BsMessage.vue";
+script$h.__file = "src/components/BsMessage.vue";
 
 function readEnvVar(name) {
     try {
-        if (globalThis &&
-            globalThis.__ENV__ &&
-            typeof globalThis.__ENV__[name] !== 'undefined') {
-            return globalThis.__ENV__[name];
+        const env = globalThis.__ENV__;
+        if (env && typeof env[name] !== 'undefined') {
+            return env[name];
         }
     }
-    catch (e) {
+    catch {
     }
     try {
         if (typeof process !== 'undefined' && process.env && typeof process.env[name] !== 'undefined') {
             return process.env[name];
         }
     }
-    catch (e) {
+    catch {
     }
     try {
         if (import.meta && import.meta.env && typeof import.meta.env[name] !== 'undefined') {
             return import.meta.env[name];
         }
     }
-    catch (e) {
+    catch {
     }
     return undefined;
 }
@@ -2132,6 +2131,24 @@ function barToPsi(p) {
 function kpaToPsi(p) {
     return p / 6.89475729;
 }
+function weightKgToLbs(w) {
+    return w * 2.2046226218;
+}
+function weightLbsToKg(w) {
+    return w / 2.2046226218;
+}
+function volumeCLtoUSOZ(cl) {
+    return cl * 0.338140225;
+}
+function volumeUSOZtoCL(oz) {
+    return oz / 0.338140225;
+}
+function volumeCLtoUKOZ(cl) {
+    return cl * 0.35119572;
+}
+function volumeUKOZtoCL(oz) {
+    return oz / 0.35119572;
+}
 function isValidJson(s) {
     try {
         JSON.stringify(JSON.parse(s));
@@ -2157,13 +2174,14 @@ function validateCurrentForm() {
         try {
             logDebug('validateCurrentForm: document not available, skipping validation');
         }
-        catch (_e) {
+        catch {
         }
         return true;
     }
     let valid = true;
     const forms = document.querySelectorAll('.needs-validation');
-    Array.from(forms).forEach((form) => {
+    Array.from(forms).forEach((element) => {
+        const form = element;
         if (!form.checkValidity())
             valid = false;
         form.classList.add('was-validated');
@@ -2361,19 +2379,19 @@ parseJsonError.noExceptions = (raw, reviver) => {
 
 var parseJson$1 = /*@__PURE__*/getDefaultExportFromCjs(lib);
 
-const _hoisted_1$c = ["data-bs-target"];
-const _hoisted_2$5 = ["id"];
-const _hoisted_3$4 = { class: "modal-dialog" };
-const _hoisted_4$3 = { class: "modal-content p-4" };
-const _hoisted_5$3 = { class: "modal-header" };
-const _hoisted_6$3 = { class: "modal-title fs-5" };
-const _hoisted_7$2 = { class: "modal-body" };
-const _hoisted_8$2 = { key: 0 };
-const _hoisted_9$1 = { key: 2 };
-const _hoisted_10$1 = { class: "text-danger" };
+const _hoisted_1$d = ["data-bs-target"];
+const _hoisted_2$6 = ["id"];
+const _hoisted_3$5 = { class: "modal-dialog" };
+const _hoisted_4$4 = { class: "modal-content p-4" };
+const _hoisted_5$4 = { class: "modal-header" };
+const _hoisted_6$4 = { class: "modal-title fs-5" };
+const _hoisted_7$3 = { class: "modal-body" };
+const _hoisted_8$3 = { key: 0 };
+const _hoisted_9$2 = { key: 2 };
+const _hoisted_10$2 = { class: "text-danger" };
 
 
-var script$f = /*@__PURE__*/Object.assign({
+var script$g = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsModal',
@@ -2495,17 +2513,17 @@ return (_ctx, _cache) => {
       class: "btn btn-secondary",
       "data-bs-toggle": "modal",
       "data-bs-target": '#modal' + _ctx.$.uid
-    }), toDisplayString(button.value), 17 /* TEXT, FULL_PROPS */, _hoisted_1$c),
+    }), toDisplayString(button.value), 17 /* TEXT, FULL_PROPS */, _hoisted_1$d),
     createElementVNode("div", {
       id: 'modal' + _ctx.$.uid,
       class: "modal fade modal-lg",
       tabindex: "-1",
       "aria-hidden": "true"
     }, [
-      createElementVNode("div", _hoisted_3$4, [
-        createElementVNode("div", _hoisted_4$3, [
-          createElementVNode("div", _hoisted_5$3, [
-            createElementVNode("h1", _hoisted_6$3, toDisplayString(title.value), 1 /* TEXT */),
+      createElementVNode("div", _hoisted_3$5, [
+        createElementVNode("div", _hoisted_4$4, [
+          createElementVNode("div", _hoisted_5$4, [
+            createElementVNode("h1", _hoisted_6$4, toDisplayString(title.value), 1 /* TEXT */),
             _cache[0] || (_cache[0] = createElementVNode("button", {
               type: "button",
               class: "btn-close",
@@ -2513,16 +2531,16 @@ return (_ctx, _cache) => {
               "aria-label": "Close"
             }, null, -1 /* CACHED */))
           ]),
-          createElementVNode("div", _hoisted_7$2, [
+          createElementVNode("div", _hoisted_7$3, [
             (checkCode())
-              ? (openBlock(), createElementBlock("pre", _hoisted_8$2, toDisplayString(format(model.value)), 1 /* TEXT */))
+              ? (openBlock(), createElementBlock("pre", _hoisted_8$3, toDisplayString(format(model.value)), 1 /* TEXT */))
               : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
                   createTextVNode(toDisplayString(model.value), 1 /* TEXT */)
                 ], 64 /* STABLE_FRAGMENT */)),
             (jsonError.value != '')
-              ? (openBlock(), createElementBlock("div", _hoisted_9$1, [
+              ? (openBlock(), createElementBlock("div", _hoisted_9$2, [
                   _cache[1] || (_cache[1] = createElementVNode("hr", null, null, -1 /* CACHED */)),
-                  createElementVNode("p", _hoisted_10$1, toDisplayString(jsonError.value), 1 /* TEXT */)
+                  createElementVNode("p", _hoisted_10$2, toDisplayString(jsonError.value), 1 /* TEXT */)
                 ]))
               : createCommentVNode("v-if", true)
           ]),
@@ -2535,26 +2553,26 @@ return (_ctx, _cache) => {
           ], -1 /* CACHED */))
         ])
       ])
-    ], 8 /* PROPS */, _hoisted_2$5)
+    ], 8 /* PROPS */, _hoisted_2$6)
   ], 64 /* STABLE_FRAGMENT */))
 }
 }
 
 });
 
-script$f.__file = "src/components/BsModal.vue";
+script$g.__file = "src/components/BsModal.vue";
 
-const _hoisted_1$b = ["id", "data-bs-target"];
-const _hoisted_2$4 = ["id"];
-const _hoisted_3$3 = { class: "modal-dialog" };
-const _hoisted_4$2 = { class: "modal-content p-4" };
-const _hoisted_5$2 = { class: "modal-header" };
-const _hoisted_6$2 = { class: "modal-title fs-5" };
-const _hoisted_7$1 = { class: "modal-body" };
-const _hoisted_8$1 = { class: "modal-footer" };
+const _hoisted_1$c = ["id", "data-bs-target"];
+const _hoisted_2$5 = ["id"];
+const _hoisted_3$4 = { class: "modal-dialog" };
+const _hoisted_4$3 = { class: "modal-content p-4" };
+const _hoisted_5$3 = { class: "modal-header" };
+const _hoisted_6$3 = { class: "modal-title fs-5" };
+const _hoisted_7$2 = { class: "modal-body" };
+const _hoisted_8$2 = { class: "modal-footer" };
 
 
-var script$e = /*@__PURE__*/Object.assign({
+var script$f = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsModalConfirm',
@@ -2639,20 +2657,20 @@ return (_ctx, _cache) => {
       style: { display: hidden.value ? 'none' : 'inline-block' },
       "data-bs-toggle": "modal",
       "data-bs-target": '#modal' + _ctx.$.uid
-    }, _ctx.$attrs), " This should hidden ", 16 /* FULL_PROPS */, _hoisted_1$b),
+    }, _ctx.$attrs), " This should hidden ", 16 /* FULL_PROPS */, _hoisted_1$c),
     createElementVNode("div", {
       id: 'modal' + _ctx.$.uid,
       class: "modal fade modal-lg",
       tabindex: "-1",
       "aria-hidden": "true"
     }, [
-      createElementVNode("div", _hoisted_3$3, [
-        createElementVNode("div", _hoisted_4$2, [
-          createElementVNode("div", _hoisted_5$2, [
-            createElementVNode("h1", _hoisted_6$2, toDisplayString(title.value), 1 /* TEXT */)
+      createElementVNode("div", _hoisted_3$4, [
+        createElementVNode("div", _hoisted_4$3, [
+          createElementVNode("div", _hoisted_5$3, [
+            createElementVNode("h1", _hoisted_6$3, toDisplayString(title.value), 1 /* TEXT */)
           ]),
-          createElementVNode("div", _hoisted_7$1, toDisplayString(message.value), 1 /* TEXT */),
-          createElementVNode("div", _hoisted_8$1, [
+          createElementVNode("div", _hoisted_7$2, toDisplayString(message.value), 1 /* TEXT */),
+          createElementVNode("div", _hoisted_8$2, [
             createElementVNode("button", {
               type: "button",
               class: "btn btn-primary",
@@ -2668,29 +2686,29 @@ return (_ctx, _cache) => {
           ])
         ])
       ])
-    ], 8 /* PROPS */, _hoisted_2$4)
+    ], 8 /* PROPS */, _hoisted_2$5)
   ], 64 /* STABLE_FRAGMENT */))
 }
 }
 
 });
 
-script$e.__file = "src/components/BsModalConfirm.vue";
+script$f.__file = "src/components/BsModalConfirm.vue";
 
-const _hoisted_1$a = ["id"];
-const _hoisted_2$3 = {
+const _hoisted_1$b = ["id"];
+const _hoisted_2$4 = {
   id: "modalLogin",
   class: "modal fade modal-lg",
   tabindex: "-1",
   "aria-hidden": "true"
 };
-const _hoisted_3$2 = { class: "modal-dialog" };
-const _hoisted_4$1 = { class: "modal-content p-4" };
-const _hoisted_5$1 = { class: "modal-body" };
-const _hoisted_6$1 = { class: "modal-footer" };
+const _hoisted_3$3 = { class: "modal-dialog" };
+const _hoisted_4$2 = { class: "modal-content p-4" };
+const _hoisted_5$2 = { class: "modal-body" };
+const _hoisted_6$2 = { class: "modal-footer" };
 
 
-var script$d = /*@__PURE__*/Object.assign({
+var script$e = /*@__PURE__*/Object.assign({
   inheritAttrs: false,
 }, {
   __name: 'BsModalLogin',
@@ -2726,15 +2744,15 @@ return (_ctx, _cache) => {
       hidden: "",
       "data-bs-toggle": "modal",
       "data-bs-target": "#modalLogin"
-    }, " Testing ", 8 /* PROPS */, _hoisted_1$a),
+    }, " Testing ", 8 /* PROPS */, _hoisted_1$b),
     createCommentVNode("\n  "),
-    createElementVNode("div", _hoisted_2$3, [
-      createElementVNode("div", _hoisted_3$2, [
-        createElementVNode("div", _hoisted_4$1, [
+    createElementVNode("div", _hoisted_2$4, [
+      createElementVNode("div", _hoisted_3$3, [
+        createElementVNode("div", _hoisted_4$2, [
           _cache[2] || (_cache[2] = createElementVNode("div", { class: "modal-header" }, [
             createElementVNode("h1", { class: "modal-title fs-5" }, "Enter your admin password")
           ], -1 /* CACHED */)),
-          createElementVNode("div", _hoisted_5$1, [
+          createElementVNode("div", _hoisted_5$2, [
             withDirectives(createElementVNode("input", {
               "onUpdate:modelValue": _cache[0] || (_cache[0] = $event => ((password).value = $event)),
               type: "password",
@@ -2743,7 +2761,7 @@ return (_ctx, _cache) => {
               [vModelText, password.value]
             ])
           ]),
-          createElementVNode("div", _hoisted_6$1, [
+          createElementVNode("div", _hoisted_6$2, [
             createElementVNode("button", {
               type: "button",
               class: "btn btn-primary",
@@ -2760,7 +2778,100 @@ return (_ctx, _cache) => {
 
 });
 
-script$d.__file = "src/components/BsModalLogin.vue";
+script$e.__file = "src/components/BsModalLogin.vue";
+
+const _hoisted_1$a = ["id", "data-bs-target"];
+const _hoisted_2$3 = ["id"];
+const _hoisted_3$2 = { class: "modal-dialog" };
+const _hoisted_4$1 = { class: "modal-content p-4" };
+const _hoisted_5$1 = { class: "modal-header" };
+const _hoisted_6$1 = { class: "modal-title fs-5" };
+const _hoisted_7$1 = { class: "modal-body" };
+const _hoisted_8$1 = { key: 0 };
+const _hoisted_9$1 = { class: "modal-footer" };
+const _hoisted_10$1 = ["disabled"];
+var script$d = defineComponent({
+    ...{
+        inheritAttrs: false,
+    },
+    __name: 'BsModalSelect',
+    props: {
+        callback: { type: Function, required: false },
+        id: { type: String, required: false },
+        disabled: { type: Boolean, required: false },
+        title: { type: String, required: true },
+        options: { type: Array, required: true },
+        message: { type: String, required: false }
+    },
+    setup(__props) {
+        const props = __props;
+        const result = ref('');
+        const confirm = () => {
+            if (props.callback) {
+                props.callback(true, result.value);
+            }
+        };
+        const cancel = () => {
+            if (props.callback) {
+                props.callback(false, '');
+            }
+        };
+        return (_ctx, _cache) => {
+            return (openBlock(), createElementBlock(Fragment, null, [
+                createElementVNode("button", {
+                    id: __props.id,
+                    "data-bs-target": '#modal' + _ctx.$.uid,
+                    type: "button",
+                    class: "btn btn-secondary",
+                    hidden: "",
+                    "data-bs-toggle": "modal"
+                }, " Testing ", 8, _hoisted_1$a),
+                createElementVNode("div", {
+                    id: 'modal' + _ctx.$.uid,
+                    class: "modal fade modal-lg",
+                    tabindex: "-1",
+                    "aria-hidden": "true"
+                }, [
+                    createElementVNode("div", _hoisted_3$2, [
+                        createElementVNode("div", _hoisted_4$1, [
+                            createElementVNode("div", _hoisted_5$1, [
+                                createElementVNode("h1", _hoisted_6$1, toDisplayString(__props.disabled ? 'Processing...' : __props.title), 1)
+                            ]),
+                            createElementVNode("div", _hoisted_7$1, [
+                                (__props.message)
+                                    ? (openBlock(), createElementBlock("p", _hoisted_8$1, toDisplayString(__props.message), 1))
+                                    : createCommentVNode("v-if", true),
+                                createVNode(script$m, {
+                                    modelValue: result.value,
+                                    "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => ((result).value = $event)),
+                                    disabled: __props.disabled,
+                                    options: __props.options
+                                }, null, 8, ["modelValue", "disabled", "options"])
+                            ]),
+                            createElementVNode("div", _hoisted_9$1, [
+                                createElementVNode("button", {
+                                    disabled: __props.disabled,
+                                    type: "button",
+                                    class: "btn btn-primary",
+                                    "data-bs-dismiss": "modal",
+                                    onClick: confirm
+                                }, " Confirm ", 8, _hoisted_10$1),
+                                createElementVNode("button", {
+                                    type: "button",
+                                    class: "btn btn-secondary",
+                                    "data-bs-dismiss": "modal",
+                                    onClick: cancel
+                                }, " Cancel ")
+                            ])
+                        ])
+                    ])
+                ], 8, _hoisted_2$3)
+            ], 64));
+        };
+    }
+});
+
+script$d.__file = "src/components/BsModalSelect.vue";
 
 /**
  * Purpose: Show a progress bar
@@ -3899,7 +4010,7 @@ function useFetch() {
         }
         catch (error) {
             controllers.value.delete(controller);
-            if (error.name === 'AbortError') {
+            if (error instanceof Error && error.name === 'AbortError') {
                 logDebug('useFetch.managedFetch()', 'Request aborted:', url);
                 return null;
             }
@@ -4054,7 +4165,7 @@ class HttpClient {
     async getJson(path, opts = {}) {
         const res = await this.request(path, Object.assign({ method: 'GET' }, opts));
         if (!res)
-            return null;
+            return undefined;
         if (!res.ok)
             throw new Error(`HTTP ${res.status}: ${res.statusText}`);
         return res.json();
@@ -4081,8 +4192,8 @@ class HttpClient {
             const text = await this.postText('api/filesystem', data);
             return { success: true, text };
         }
-        catch (err) {
-            logError('httpClient.filesystemRequest()', err);
+        catch (error) {
+            logError('httpClient.filesystemRequest()', error);
             return { success: false, text: '' };
         }
     }
@@ -4091,8 +4202,8 @@ class HttpClient {
             await this.getJson('api/ping');
             return true;
         }
-        catch (err) {
-            logError('httpClient.ping()', err);
+        catch (error) {
+            logError('httpClient.ping()', error);
             return false;
         }
     }
@@ -4135,8 +4246,8 @@ class HttpClient {
             logError('httpClient.auth()', noTokenErr);
             return false;
         }
-        catch (err) {
-            logError('httpClient.auth()', err);
+        catch (error) {
+            logError('httpClient.auth()', error);
             return false;
         }
     }
@@ -4147,12 +4258,12 @@ class HttpClient {
                 const url = this.buildUrl(path);
                 const xhr = new XMLHttpRequest();
                 xhr.timeout = timeoutMs;
-                xhr.onerror = e => {
-                    logError('httpClient.uploadFile()', e);
+                xhr.onerror = event => {
+                    logError('httpClient.uploadFile()', event);
                     resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
                 };
-                xhr.ontimeout = e => {
-                    logError('httpClient.uploadFile()', 'timeout', e);
+                xhr.ontimeout = event => {
+                    logError('httpClient.uploadFile()', 'timeout', event);
                     resolve({ success: false, status: xhr.status, text: xhr.responseText || '' });
                 };
                 xhr.onloadend = () => {
@@ -4172,8 +4283,8 @@ class HttpClient {
                             try {
                                 onProgress(percent);
                             }
-                            catch (e) {
-                                logError('httpClient.uploadFile.onProgress()', e);
+                            catch (error) {
+                                logError('httpClient.uploadFile.onProgress()', error);
                             }
                         }
                     });
@@ -4191,14 +4302,14 @@ class HttpClient {
                     try {
                         xhr.setRequestHeader('Authorization', this._formatAuth(this.token));
                     }
-                    catch (e) {
-                        logError('httpClient.uploadFile.setRequestHeader()', e);
+                    catch (error) {
+                        logError('httpClient.uploadFile.setRequestHeader()', error);
                     }
                 }
                 xhr.send(payload);
             }
-            catch (err) {
-                logError('httpClient.uploadFile()', err);
+            catch (error) {
+                logError('httpClient.uploadFile()', error);
                 resolve({ success: false, status: 0, text: '' });
             }
         });
@@ -4214,7 +4325,7 @@ class HttpClient {
             else
                 wsBase = base;
         }
-        catch (e) {
+        catch {
             wsBase = base;
         }
         if (!path)
@@ -4287,7 +4398,7 @@ class HttpClient {
                         try {
                             window.location.reload();
                         }
-                        catch (_e) {
+                        catch {
                         }
                     }
                 }, redirectDelayMs);
@@ -4310,4 +4421,4 @@ const sharedHttpClient = new HttpClient();
 
 const version = '2.0.0';
 
-export { script$x as BsCard, script$w as BsDropdown, script$b as BsFileUpload, script$9 as BsFooter, script$8 as BsInputBase, script$s as BsInputNumber, script$n as BsInputRadio, script$o as BsInputReadonly, script$r as BsInputSwitch, script$t as BsInputText, script$q as BsInputTextArea, script$p as BsInputTextAreaFormat, script$a as BsMenuBar, script$g as BsMessage, script$f as BsModal, script$e as BsModalConfirm, script$d as BsModalLogin, script$c as BsProgress, script$l as BsSelect, HttpClient, script$j as IconCheckCircle, script as IconClipboard, script$2 as IconCloudUpArrow, script$5 as IconCpu, script$1 as IconData, script$h as IconExclamationTriangle, script$u as IconEye, script$v as IconEyeSlash, script$3 as IconGraphUpArrow, script$7 as IconHome, script$i as IconInfoCircle, script$6 as IconTools, script$4 as IconUpArrow, script$m as IconWifi, script$k as IconXCircle, barToPsi, formatTime, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version };
+export { script$y as BsCard, script$x as BsDropdown, script$b as BsFileUpload, script$9 as BsFooter, script$8 as BsInputBase, script$t as BsInputNumber, script$o as BsInputRadio, script$p as BsInputReadonly, script$s as BsInputSwitch, script$u as BsInputText, script$r as BsInputTextArea, script$q as BsInputTextAreaFormat, script$a as BsMenuBar, script$h as BsMessage, script$g as BsModal, script$f as BsModalConfirm, script$e as BsModalLogin, script$d as BsModalSelect, script$c as BsProgress, script$m as BsSelect, HttpClient, script$k as IconCheckCircle, script as IconClipboard, script$2 as IconCloudUpArrow, script$5 as IconCpu, script$1 as IconData, script$i as IconExclamationTriangle, script$v as IconEye, script$w as IconEyeSlash, script$3 as IconGraphUpArrow, script$7 as IconHome, script$j as IconInfoCircle, script$6 as IconTools, script$4 as IconUpArrow, script$n as IconWifi, script$l as IconXCircle, barToPsi, formatTime, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version, volumeCLtoUKOZ, volumeCLtoUSOZ, volumeUKOZtoCL, volumeUSOZtoCL, weightKgToLbs, weightLbsToKg };
