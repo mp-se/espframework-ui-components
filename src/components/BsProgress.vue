@@ -1,3 +1,12 @@
+<!--
+SPDX-License-Identifier: GPL-3.0-or-later
+Copyright (C) 2021-2026 Magnus
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+-->
 <template>
   <div class="progress" style="height: 20px" v-bind="$attrs">
     <div class="progress-bar" role="progressbar" :style="progressStyle"></div>
