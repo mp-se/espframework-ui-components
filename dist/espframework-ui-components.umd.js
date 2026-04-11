@@ -2340,7 +2340,7 @@
     }
   }
 
-  const parseJson = (txt, reviver) => {
+  const parseJson$1 = (txt, reviver) => {
     const result = JSON.parse(txt, reviver);
     if (result && typeof result === 'object') {
       // get the indentation so that we can save it back nicely
@@ -2359,7 +2359,7 @@
   const parseJsonError = (raw, reviver, context) => {
     const txt = stripBOM(raw);
     try {
-      return parseJson(txt, reviver)
+      return parseJson$1(txt, reviver)
     } catch (e) {
       if (typeof raw !== 'string' && !Buffer.isBuffer(raw)) {
         const msg = Array.isArray(raw) && raw.length === 0 ? 'an empty array' : String(raw);
@@ -2376,13 +2376,13 @@
   parseJsonError.JSONParseError = JSONParseError;
   parseJsonError.noExceptions = (raw, reviver) => {
     try {
-      return parseJson(stripBOM(raw), reviver)
+      return parseJson$1(stripBOM(raw), reviver)
     } catch {
       // no exceptions
     }
   };
 
-  var parseJson$1 = /*@__PURE__*/getDefaultExportFromCjs(lib);
+  var parseJson = /*@__PURE__*/getDefaultExportFromCjs(lib);
 
   const _hoisted_1$d = ["data-bs-target"];
   const _hoisted_2$6 = ["id"];
@@ -2502,7 +2502,7 @@
     } else if (json.value) {
       try {
         // Will show additional json parse errors if enabled
-        parseJson$1(model.value);
+        parseJson(model.value);
       } catch (e) {
         jsonError.value = e.message;
       }
