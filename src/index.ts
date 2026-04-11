@@ -1,9 +1,21 @@
-// SPDX-License-Identifier: GPL-3.0-or-later
-// Copyright (C) 2021-2026 Magnus
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+/*
+ * @mp-se/espframework-ui-components
+ * Copyright (c) 2021-2026 Magnus
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
 
 // src/index.ts
 // ESP Framework UI Components Library
@@ -51,16 +63,13 @@ export { default as IconData } from './components/IconData.vue';
 export { default as IconClipboard } from './components/IconClipboard.vue';
 
 // Composables (ESP Framework utilities)
-export type { UseFetchReturn } from './composables/useFetch';
 export { useFetch } from './composables/useFetch';
-export type { UseTimersReturn } from './composables/useTimers';
 export { useTimers } from './composables/useTimers';
 
 // Utilities (ESP Framework modules)
 export { logDebug, logInfo, logError } from './modules/logger';
 // HTTP client (factory and shared singleton)
 export { HttpClient, sharedHttpClient } from './modules/httpClient';
-export type { UploadResponse } from './modules/httpClient';
 
 // Utilities (ESP Framework conversion & validation functions)
 export {
@@ -85,4 +94,3 @@ export {
   validateCurrentForm,
   formatTime,
 } from './modules/utils';
-export type { FormatTimeOptions } from './modules/utils';

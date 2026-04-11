@@ -1,6 +1,6 @@
 {
   "name": "@mp-se/espframework-ui-components",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "type": "module",
   "description": "Reusable Vue components for ESP Framework UI",
   "main": "dist/index.js",
@@ -22,7 +22,7 @@
     "test:watch": "vitest",
     "type-check": "vue-tsc --noEmit",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,json,md,css,scss,html}\"",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue src demo-app.js demo.html || true",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue src demo-app.js || true",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
@@ -47,7 +47,7 @@
     "rollup": "^4.9.6",
     "rollup-plugin-css-only": "^4.5.5",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-typescript2": "^0.37.0",
     "rollup-plugin-vue": "^6.0.0",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4",

@@ -317,7 +317,10 @@
 
       // RouterLink stub
       app.component('RouterLink', {
-        props: ['to', 'disabled'],
+        props: {
+          to: { type: String, required: true },
+          disabled: { type: Boolean, default: false },
+        },
         emits: ['click'],
         template: '<a :href="to" @click.prevent="$emit(\'click\')"><slot></slot></a>',
       });
