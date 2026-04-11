@@ -4419,6 +4419,6 @@ class HttpClient {
 }
 const sharedHttpClient = new HttpClient();
 
-const version = '2.0.0';
+const version = '2.2.0';
 
 export { script$y as BsCard, script$x as BsDropdown, script$b as BsFileUpload, script$9 as BsFooter, script$8 as BsInputBase, script$t as BsInputNumber, script$o as BsInputRadio, script$p as BsInputReadonly, script$s as BsInputSwitch, script$u as BsInputText, script$r as BsInputTextArea, script$q as BsInputTextAreaFormat, script$a as BsMenuBar, script$h as BsMessage, script$g as BsModal, script$f as BsModalConfirm, script$e as BsModalLogin, script$d as BsModalSelect, script$c as BsProgress, script$m as BsSelect, HttpClient, script$k as IconCheckCircle, script as IconClipboard, script$2 as IconCloudUpArrow, script$5 as IconCpu, script$1 as IconData, script$i as IconExclamationTriangle, script$v as IconEye, script$w as IconEyeSlash, script$3 as IconGraphUpArrow, script$7 as IconHome, script$j as IconInfoCircle, script$6 as IconTools, script$4 as IconUpArrow, script$n as IconWifi, script$l as IconXCircle, barToPsi, formatTime, gravityToPlato, gravityToSG, isValidFormData, isValidJson, isValidMqttData, kpaToPsi, logDebug, logError, logInfo, psiToBar, psiToKPa, roundVal, sharedHttpClient, tempToC, tempToF, useFetch, useTimers, validateCurrentForm, version, volumeCLtoUKOZ, volumeCLtoUSOZ, volumeUKOZtoCL, volumeUSOZtoCL, weightKgToLbs, weightLbsToKg };

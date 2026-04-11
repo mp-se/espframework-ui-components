@@ -4422,7 +4422,7 @@ class HttpClient {
 }
 const sharedHttpClient = new HttpClient();
 
-const version = '2.0.0';
+const version = '2.2.0';
 
 exports.BsCard = script$y;
 exports.BsDropdown = script$x;
